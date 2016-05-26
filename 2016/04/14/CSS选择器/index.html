@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS选择器 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="CSS">
+  <meta name="description" content="CSS常见选择器的类别
+有①通用选择器②标签选择器③id选择器④类选择器⑤属性选择器 ⑥分组选择器(多元素) ⑦派生选择器(后代)⑧子元素选择器 ⑨伪类选择器
+
+选择器的优先级
+针对性越强则其优先级就越高;内联样式&amp;gt;id选择器&amp;gt;伪类选择器&amp;gt;属性选择器&amp;gt;类选择器&amp;gt;元素选择器&amp;gt;通用选择器.
+
+class 和 id 的使用场景
+class有普遍性一般在内部用来定义部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS选择器">
+<meta property="og:url" content="http://yoursite.com/2016/04/14/CSS选择器/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="CSS常见选择器的类别
+有①通用选择器②标签选择器③id选择器④类选择器⑤属性选择器 ⑥分组选择器(多元素) ⑦派生选择器(后代)⑧子元素选择器 ⑨伪类选择器
+
+选择器的优先级
+针对性越强则其优先级就越高;内联样式&amp;gt;id选择器&amp;gt;伪类选择器&amp;gt;属性选择器&amp;gt;类选择器&amp;gt;元素选择器&amp;gt;通用选择器.
+
+class 和 id 的使用场景
+class有普遍性一般在内部用来定义部分">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.558Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS选择器">
+<meta name="twitter:description" content="CSS常见选择器的类别
+有①通用选择器②标签选择器③id选择器④类选择器⑤属性选择器 ⑥分组选择器(多元素) ⑦派生选择器(后代)⑧子元素选择器 ⑨伪类选择器
+
+选择器的优先级
+针对性越强则其优先级就越高;内联样式&amp;gt;id选择器&amp;gt;伪类选择器&amp;gt;属性选择器&amp;gt;类选择器&amp;gt;元素选择器&amp;gt;通用选择器.
+
+class 和 id 的使用场景
+class有普遍性一般在内部用来定义部分">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CSS选择器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">CSS选择器</h1>
+    <h5 class="subtitle">2016-04-14</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-CSS选择器" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS常见选择器的类别"><span class="post-toc-text">CSS常见选择器的类别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#选择器的优先级"><span class="post-toc-text">选择器的优先级</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#class-和-id-的使用场景"><span class="post-toc-text">class 和 id 的使用场景</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用CSS选择器时命名空间的划定"><span class="post-toc-text">使用CSS选择器时命名空间的划定</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS选择器示例"><span class="post-toc-text">CSS选择器示例</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#常见伪类选择器"><span class="post-toc-text">常见伪类选择器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#first-child和-first-of-type的区别"><span class="post-toc-text">:first-child和:first-of-type的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#选择器及样式示例"><span class="post-toc-text">选择器及样式示例</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#text-align-center的作用解析"><span class="post-toc-text">text-align: center的作用解析</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#属性兼容性的查询"><span class="post-toc-text">属性兼容性的查询</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="CSS常见选择器的类别"><a href="#CSS常见选择器的类别" class="headerlink" title="CSS常见选择器的类别"></a>CSS常见选择器的类别</h4><ul>
+<li>有①通用选择器②标签选择器③id选择器④类选择器⑤属性选择器 ⑥分组选择器(多元素) ⑦派生选择器(后代)⑧子元素选择器 ⑨伪类选择器</li>
+</ul>
+<h4 id="选择器的优先级"><a href="#选择器的优先级" class="headerlink" title="选择器的优先级"></a>选择器的优先级</h4><ul>
+<li>针对性越强则其优先级就越高;内联样式&gt;id选择器&gt;伪类选择器&gt;属性选择器&gt;类选择器&gt;元素选择器&gt;通用选择器.</li>
+</ul>
+<h4 id="class-和-id-的使用场景"><a href="#class-和-id-的使用场景" class="headerlink" title="class 和 id 的使用场景"></a>class 和 id 的使用场景</h4><ul>
+<li>class有普遍性一般在内部用来定义部分有共同特性的元素的样式；id是唯一的，一般用于外部划分区块。</li>
+</ul>
+<h4 id="使用CSS选择器时命名空间的划定"><a href="#使用CSS选择器时命名空间的划定" class="headerlink" title="使用CSS选择器时命名空间的划定"></a>使用CSS选择器时命名空间的划定</h4><ul>
+<li>在html中，部分标签如p、li等使用频繁，如果没有划分区块划定命名空间，在选取时就会导致混乱，一个选择器可能会选取到所有的元素，我们就没办法针对部分元素修改其样式；划定命名空间后，就有针对性。</li>
+</ul>
+<h4 id="CSS选择器示例"><a href="#CSS选择器示例" class="headerlink" title="CSS选择器示例"></a>CSS选择器示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#header&#123;&#125;</span><br><span class="line">.header&#123;&#125;</span><br><span class="line">.header .logo&#123;&#125;</span><br><span class="line">.header.mobile&#123;&#125;</span><br><span class="line">.header p, .header h3&#123;&#125;</span><br><span class="line">#header .nav&gt;li&#123;&#125;</span><br><span class="line">#header a:hover&#123;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>#header 选择id为header的元素</li>
+<li>.header 选择class为header的元素</li>
+<li>.header .logo 选择header这个类下的属于logo这个类的元素</li>
+<li>.header.mobile 选择同时标记有header和mobile这两个类的元素</li>
+<li>.header p, .header h3 选择header这个类下的p元素和h3元素</li>
+<li>#header .nav&gt;li 选择header这个id下的标记有nav类的第一代li元素</li>
+<li>#header a:hover 选择header这个id下的a元素，修改鼠标悬停在上面时的样式</li>
+</ul>
+<h4 id="常见伪类选择器"><a href="#常见伪类选择器" class="headerlink" title="常见伪类选择器"></a>常见伪类选择器</h4><p> :hover 鼠标悬停时的样式；<br>:active鼠标按下保持的样式；<br>:focus在输入框选中时的样式；<br>E:first child 选择E元素，且该E元素是第一子元素；<br>E:first-of-type 选择E元素，且该E元素是同类标签的第一个。</p>
+<h4 id="first-child和-first-of-type的区别"><a href="#first-child和-first-of-type的区别" class="headerlink" title=":first-child和:first-of-type的区别"></a>:first-child和:first-of-type的区别</h4><ul>
+<li>E:first child 选择E元素，且该E元素是第一子元素，在一个父元素下有多个同类子元素的情况下可以用其选择第一个子元素；</li>
+<li>E:first-of-type 选择E元素，且该E元素是同类型标签的第一个；在一个区块内有多个同类型标签的情况下用来选择其中的第一个；</li>
+</ul>
+<h4 id="选择器及样式示例"><a href="#选择器及样式示例" class="headerlink" title="选择器及样式示例"></a>选择器及样式示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;first-child  vs first-of-child&lt;/title&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line"></span><br><span class="line">    .item1:first-of-type&#123;</span><br><span class="line">      background: red;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    .item1:first-child&#123;</span><br><span class="line">      color: blue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"> &lt;div class=&quot;item1&quot;&gt;111&lt;/div&gt;</span><br><span class="line"> &lt;div class=&quot;ct&quot;&gt;</span><br><span class="line">   &lt;p class=&quot;item1&quot;&gt;222&lt;/p&gt;</span><br><span class="line">   &lt;div class=&quot;item1&quot;&gt;333&lt;/div&gt;</span><br><span class="line">   &lt;div class=&quot;item1&quot;&gt;444&lt;/div&gt;</span><br><span class="line">   &lt;div class=&quot;item2&quot;&gt;</span><br><span class="line">     &lt;div class=&quot;item1&quot;&gt;555&lt;/div&gt;</span><br><span class="line">     &lt;div class=&quot;item1&quot;&gt;666&lt;/div&gt;</span><br><span class="line">   &lt;/div&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>输出红色背景解析：111是body下两个div类型的第一个；222是标记ct类这个div下的p类型的第一个；333是标记ct类这个div下的div类型的第一个；555是标记item2类这个div下的div类型的第一个。</li>
+<li>输出蓝色字体解析：111是body父元素下第一个div子元素；222是标记ct类这个div父元素下的第一个p子元素；555是标记item2类这个div父元素下第一个div子元素。</li>
+</ul>
+<h4 id="text-align-center的作用解析"><a href="#text-align-center的作用解析" class="headerlink" title="text-align: center的作用解析"></a>text-align: center的作用解析</h4><ul>
+<li>作用在块级元素上，让块级元素里面的行内元素水平居中。</li>
+</ul>
+<h4 id="属性兼容性的查询"><a href="#属性兼容性的查询" class="headerlink" title="属性兼容性的查询"></a>属性兼容性的查询</h4><ul>
+<li>在<a href="http://caniuse.com/" target="_blank" rel="external">caniuse.com</a>输入属性名称查询</li>
+</ul>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/04/15/CSS常用技巧/" title="CSS常用技巧" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/04/13/CSS列表及表单/" title="CSS列表及表单" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

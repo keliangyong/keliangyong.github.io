@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS常用技巧 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="CSS">
+  <meta name="description" content="CSS Sprite(雪碧图|精灵图)
+雪碧图指的是将一些较小的图标或其他小图片集合到一起成为一张大图，只需一次网络请求，在呈现时只需要用区块视窗和position搭配显示需要的图标，避免重复的网络请求减少资源损耗缩短等待时间。
+
+img标签和CSS背景的区分
+img标签一般用于需要链转(用a链接包裹)或需要改变图片的场景使用；
+而对于部分仅仅是呈现视觉效果，如小装饰、标志等基本固定不变的场景一般">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS常用技巧">
+<meta property="og:url" content="http://yoursite.com/2016/04/15/CSS常用技巧/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="CSS Sprite(雪碧图|精灵图)
+雪碧图指的是将一些较小的图标或其他小图片集合到一起成为一张大图，只需一次网络请求，在呈现时只需要用区块视窗和position搭配显示需要的图标，避免重复的网络请求减少资源损耗缩短等待时间。
+
+img标签和CSS背景的区分
+img标签一般用于需要链转(用a链接包裹)或需要改变图片的场景使用；
+而对于部分仅仅是呈现视觉效果，如小装饰、标志等基本固定不变的场景一般">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.547Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS常用技巧">
+<meta name="twitter:description" content="CSS Sprite(雪碧图|精灵图)
+雪碧图指的是将一些较小的图标或其他小图片集合到一起成为一张大图，只需一次网络请求，在呈现时只需要用区块视窗和position搭配显示需要的图标，避免重复的网络请求减少资源损耗缩短等待时间。
+
+img标签和CSS背景的区分
+img标签一般用于需要链转(用a链接包裹)或需要改变图片的场景使用；
+而对于部分仅仅是呈现视觉效果，如小装饰、标志等基本固定不变的场景一般">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CSS常用技巧</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">CSS常用技巧</h1>
+    <h5 class="subtitle">2016-04-15</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-CSS常用技巧" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS-Sprite-雪碧图-精灵图"><span class="post-toc-text">CSS Sprite(雪碧图|精灵图)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#img标签和CSS背景的区分"><span class="post-toc-text">img标签和CSS背景的区分</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#title和alt属性的作用"><span class="post-toc-text">title和alt属性的作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#background-url-abc-png-0-0-no-repeat-的含义"><span class="post-toc-text">background: url(abc.png) 0 0 no-repeat;的含义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#background-size的作用"><span class="post-toc-text">background-size的作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#让一个div水平居中，让图片水平居中"><span class="post-toc-text">让一个div水平居中，让图片水平居中</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#元素透明度的设置"><span class="post-toc-text">元素透明度的设置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#opacity-和-rgba在透明度设置上的区别"><span class="post-toc-text">opacity 和 rgba在透明度设置上的区别</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="CSS-Sprite-雪碧图-精灵图"><a href="#CSS-Sprite-雪碧图-精灵图" class="headerlink" title="CSS Sprite(雪碧图|精灵图)"></a>CSS Sprite(雪碧图|精灵图)</h4><ul>
+<li>雪碧图指的是将一些较小的图标或其他小图片集合到一起成为一张大图，只需一次网络请求，在呈现时只需要用区块视窗和position搭配显示需要的图标，避免重复的网络请求减少资源损耗缩短等待时间。</li>
+</ul>
+<h4 id="img标签和CSS背景的区分"><a href="#img标签和CSS背景的区分" class="headerlink" title="img标签和CSS背景的区分"></a>img标签和CSS背景的区分</h4><ul>
+<li>img标签一般用于需要链转(用a链接包裹)或需要改变图片的场景使用；</li>
+<li>而对于部分仅仅是呈现视觉效果，如小装饰、标志等基本固定不变的场景一般使用CSS背景图。</li>
+</ul>
+<h4 id="title和alt属性的作用"><a href="#title和alt属性的作用" class="headerlink" title="title和alt属性的作用"></a>title和alt属性的作用</h4><ul>
+<li>title是a标签中对于将要跳转过去的页面的内容做一个概述、提示；alt属性是img标签中当因为网络状况不佳或因其他原因导致图片无法加载时，代替图片用文字说明图片内容。</li>
+</ul>
+<h4 id="background-url-abc-png-0-0-no-repeat-的含义"><a href="#background-url-abc-png-0-0-no-repeat-的含义" class="headerlink" title="background: url(abc.png) 0 0 no-repeat;的含义"></a>background: url(abc.png) 0 0 no-repeat;的含义</h4><ul>
+<li>意思是加载一个背景图，地址是当前目录下的abc.png，其水平位置和垂直位置为0px(相对左边和上边的偏移量为0)，图片不重复显示。</li>
+</ul>
+<h4 id="background-size的作用"><a href="#background-size的作用" class="headerlink" title="background-size的作用"></a>background-size的作用</h4><ul>
+<li>可以来调整背景图的大小；IE8及一下版本不支持，opera mini 8部分支持，其他浏览器支持；</li>
+<li>常用的值有<code>XXpx XXpx</code>直接指定图片大小;<code>XX% XX%</code>设定相对于视窗区块的百分比大小;<code>contain</code>将图片进行缩放，直至视窗能完整显示图片的最大大小；<code>cover</code>将图片进行缩放，直至图片能完全覆盖视窗的最小大小。</li>
+</ul>
+<h4 id="让一个div水平居中，让图片水平居中"><a href="#让一个div水平居中，让图片水平居中" class="headerlink" title="让一个div水平居中，让图片水平居中"></a>让一个div水平居中，让图片水平居中</h4><ul>
+<li>让div元素的左右margin相等，即<code>margin：0 auto</code>(要有doc);</li>
+<li>用一个div块级元素去包裹这个图片，再用text-align:center让块元素里的图片居中。</li>
+</ul>
+<h4 id="元素透明度的设置"><a href="#元素透明度的设置" class="headerlink" title="元素透明度的设置"></a>元素透明度的设置</h4><ul>
+<li>可以使用<code>opacity:0~1</code>来设置元素的不透明度；IE8部分支持，其余浏览器支持此属性，IE8及更老版本可使用<code>filter:alpha(opacity=0~100)</code>来达到一样的效果。</li>
+<li>对于部分可以设置颜色的元素可以使用rgba设置颜色，其中的a即alpha设置0.0~1.0来确定元素颜色不透明度也就达到了设置元素不透明度的目的；IE9以上及其他浏览器都支持rgba。</li>
+</ul>
+<h4 id="opacity-和-rgba在透明度设置上的区别"><a href="#opacity-和-rgba在透明度设置上的区别" class="headerlink" title="opacity 和 rgba在透明度设置上的区别"></a>opacity 和 rgba在透明度设置上的区别</h4><ul>
+<li>opacity是直接设置元素的透明度泛用性更强，而rgba是针对部分可以设置颜色的元素通过改变颜色的透明度来让元素也达到透明的效果。</li>
+</ul>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/04/16/CSS浮动与定位/" title="CSS浮动与定位" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/04/14/CSS选择器/" title="CSS选择器" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript 正则表达式 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Javascript">
+  <meta name="description" content="\d，\w,\s,[a-zA-Z0-9],\b,.,*,+,?,x{3},^$分别是什么?\d是查找数字（digital）， 数字0~9会被匹配到 。\w是查找单词（word），字母、下划线、数字都会被匹配到。\s是查找空格（space），空格会被匹配到。[a-zA-Z0-9]查找单个在此范围内的字符，此例大小写字母和数字都会被匹配到，非全局。\b是指词边界（border），可以用两个\b将要匹配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 正则表达式">
+<meta property="og:url" content="http://yoursite.com/2016/05/02/正则表达式/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="\d，\w,\s,[a-zA-Z0-9],\b,.,*,+,?,x{3},^$分别是什么?\d是查找数字（digital）， 数字0~9会被匹配到 。\w是查找单词（word），字母、下划线、数字都会被匹配到。\s是查找空格（space），空格会被匹配到。[a-zA-Z0-9]查找单个在此范围内的字符，此例大小写字母和数字都会被匹配到，非全局。\b是指词边界（border），可以用两个\b将要匹配">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.668Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript 正则表达式">
+<meta name="twitter:description" content="\d，\w,\s,[a-zA-Z0-9],\b,.,*,+,?,x{3},^$分别是什么?\d是查找数字（digital）， 数字0~9会被匹配到 。\w是查找单词（word），字母、下划线、数字都会被匹配到。\s是查找空格（space），空格会被匹配到。[a-zA-Z0-9]查找单个在此范围内的字符，此例大小写字母和数字都会被匹配到，非全局。\b是指词边界（border），可以用两个\b将要匹配">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">javascript 正则表达式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">javascript 正则表达式</h1>
+    <h5 class="subtitle">2016-05-02</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-正则表达式" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#d，-w-s-a-zA-Z0-9-b-x-3-分别是什么"><span class="post-toc-text">\d，\w,\s,[a-zA-Z0-9],\b,.,*,+,?,x{3},^$分别是什么?</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#贪婪模式和非贪婪模式"><span class="post-toc-text">贪婪模式和非贪婪模式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小练习"><span class="post-toc-text">小练习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数trim-str-，去除字符串两边的空白字符"><span class="post-toc-text">函数trim(str)，去除字符串两边的空白字符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用正则实现-addClass-el-cls-、hasClass-el-cls-、removeClass-el-cls"><span class="post-toc-text">使用正则实现 addClass(el, cls)、hasClass(el, cls)、removeClass(el,cls)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数isEmail-str-，判断用户输入的是不是邮箱"><span class="post-toc-text">函数isEmail(str)，判断用户输入的是不是邮箱</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数isPhoneNum-str-，判断用户输入的是不是手机号"><span class="post-toc-text">函数isPhoneNum(str)，判断用户输入的是不是手机号</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数isValidUsername-str-，判断用户输入的是不是合法的用户名（长度6-20个字符，只能包括字母、数字、下划线）"><span class="post-toc-text">函数isValidUsername(str)，判断用户输入的是不是合法的用户名（长度6-20个字符，只能包括字母、数字、下划线）*</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数isValidPassword-str-判断用户输入的是不是合法密码（长度6-20个字符，包括大写字母、小写字母、数字、下划线至少两种）"><span class="post-toc-text">函数isValidPassword(str), 判断用户输入的是不是合法密码（长度6-20个字符，包括大写字母、小写字母、数字、下划线至少两种）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#写一个正则表达式，得到如下字符串里所有的颜色（-121212）"><span class="post-toc-text">写一个正则表达式，得到如下字符串里所有的颜色（#121212）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下面代码输出什么-为什么-改写代码，让其输出hunger-world"><span class="post-toc-text">下面代码输出什么? 为什么? 改写代码，让其输出hunger, world.</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#补全如下正则表达式，输出字符串中的注释内容-贪婪模式和非贪婪模式两种方法"><span class="post-toc-text">补全如下正则表达式，输出字符串中的注释内容. (贪婪模式和非贪婪模式两种方法)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#找出字符串中有效的标签"><span class="post-toc-text">找出字符串中有效的标签</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="d，-w-s-a-zA-Z0-9-b-x-3-分别是什么"><a href="#d，-w-s-a-zA-Z0-9-b-x-3-分别是什么" class="headerlink" title="\d，\w,\s,[a-zA-Z0-9],\b,.,*,+,?,x{3},^$分别是什么?"></a><code>\d，\w,\s,[a-zA-Z0-9],\b,.,*,+,?,x{3},^$</code>分别是什么?</h4><p><code>\d</code>是查找数字（digital）， 数字0~9会被匹配到 。<br><code>\w</code>是查找单词（word），字母、下划线、数字都会被匹配到。<br><code>\s</code>是查找空格（space），空格会被匹配到。<br><code>[a-zA-Z0-9]</code>查找<strong>单个</strong>在此范围内的字符，此例大小写字母和数字都会被匹配到，非全局。<br><code>\b</code>是指词边界（border），可以用两个\b将要匹配的字符包裹。<br><code>.</code>是指代任意字符除了回车、换行和分隔符，使用后类似模糊匹配。<br><code>*</code>是指匹配0个或多个，类似｛0，｝；<br><code>+</code>是指匹配1个或多个，类似｛1，｝<br><code>?</code>是指匹配0个或1个，类似｛0，1｝<br><code>x{3}</code>是指匹配含3个x的字符，就是xxx。<br><code>^</code>是指定整个字符串以哪个字符开头。<br><code>$</code>是指定整个字符串以哪个字符结尾。</p>
+<h4 id="贪婪模式和非贪婪模式"><a href="#贪婪模式和非贪婪模式" class="headerlink" title="贪婪模式和非贪婪模式"></a>贪婪模式和非贪婪模式</h4><ul>
+<li>贪婪模式是指匹配时按最大可能去匹配，直到下一个字符不满足条件为止；</li>
+<li>非贪婪模式是指匹配时按最小满足条件去匹配，只要满足条件后就不再匹配。</li>
+</ul>
+<h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><h4 id="函数trim-str-，去除字符串两边的空白字符"><a href="#函数trim-str-，去除字符串两边的空白字符" class="headerlink" title="函数trim(str)，去除字符串两边的空白字符"></a>函数trim(str)，去除字符串两边的空白字符</h4><pre><code>function trim(str){
+  return str.replace(/^\s+|\s+$/g,&apos;&apos;);
+}
+var str=&quot; dddff sad dfd &quot;;
+str=trim(str);
+console.log(str);  //&quot;dddff sad dfd&quot;
+</code></pre><h4 id="使用正则实现-addClass-el-cls-、hasClass-el-cls-、removeClass-el-cls"><a href="#使用正则实现-addClass-el-cls-、hasClass-el-cls-、removeClass-el-cls" class="headerlink" title="使用正则实现 addClass(el, cls)、hasClass(el, cls)、removeClass(el,cls)"></a>使用正则实现 addClass(el, cls)、hasClass(el, cls)、removeClass(el,cls)</h4><pre><code>// el为dom元素，cls为操作的class， el.className获取el元素的class**
+function hasClass(el, cls){
+  var regex=new RegExp(&apos;\\b&apos;+cls+&apos;\\b&apos;,&apos;g&apos;);
+  return regex.test(el.className);
+}
+function addClass(el, cls){
+  if(hasClass(el,cls)===false){
+    el.className += &quot; &quot;+cls;
+  }
+}
+function removeClass(el,cls){
+  if(hasClass(el,cls)===true){
+    var regex=new RegExp(&apos;\\b&apos;+cls+&apos;\\b&apos;,&apos;g&apos;);
+    el.className=el.className.replace(regex,&quot;&quot;);
+    el.className=el.className.replace(/\s{2}/g,&quot; &quot;);
+  }
+}
+var el={className:&quot;clear btn foot&quot;};
+hasClass(el,&apos;foot&apos;);    // true
+hasClass(el,&apos;header&apos;);  //  false
+addClass(el, &apos;foot&apos;);   //  &quot;clear btn foot&quot;
+addClass(el, &apos;header&apos;);  // &quot;clear btn foot header&quot;
+removeClass(el,&apos;btn&apos;);  //  &quot;clear foot header&quot;
+removeClass(el,&apos;hatt&apos;); //  &quot;clear foot header&quot;
+</code></pre><h4 id="函数isEmail-str-，判断用户输入的是不是邮箱"><a href="#函数isEmail-str-，判断用户输入的是不是邮箱" class="headerlink" title="函数isEmail(str)，判断用户输入的是不是邮箱"></a>函数isEmail(str)，判断用户输入的是不是邮箱</h4><pre><code>function isEmail(str){
+  return (/^[a-zA-Z0-9]\w+@\w+\.\w+/.test(str));
+}
+</code></pre><h4 id="函数isPhoneNum-str-，判断用户输入的是不是手机号"><a href="#函数isPhoneNum-str-，判断用户输入的是不是手机号" class="headerlink" title="函数isPhoneNum(str)，判断用户输入的是不是手机号"></a>函数isPhoneNum(str)，判断用户输入的是不是手机号</h4><pre><code>function isPhoneNum(str){
+  return (/^1[3-8]\d{9}$/.test(str));
+  }
+</code></pre><h4 id="函数isValidUsername-str-，判断用户输入的是不是合法的用户名（长度6-20个字符，只能包括字母、数字、下划线）"><a href="#函数isValidUsername-str-，判断用户输入的是不是合法的用户名（长度6-20个字符，只能包括字母、数字、下划线）" class="headerlink" title="函数isValidUsername(str)，判断用户输入的是不是合法的用户名（长度6-20个字符，只能包括字母、数字、下划线）*"></a>函数isValidUsername(str)，判断用户输入的是不是合法的用户名（长度6-20个字符，只能包括字母、数字、下划线）*</h4><pre><code>function isValidUsername(str){
+  return (/^\w{6,20}$/.test(str));
+}
+</code></pre><h4 id="函数isValidPassword-str-判断用户输入的是不是合法密码（长度6-20个字符，包括大写字母、小写字母、数字、下划线至少两种）"><a href="#函数isValidPassword-str-判断用户输入的是不是合法密码（长度6-20个字符，包括大写字母、小写字母、数字、下划线至少两种）" class="headerlink" title="函数isValidPassword(str), 判断用户输入的是不是合法密码（长度6-20个字符，包括大写字母、小写字母、数字、下划线至少两种）"></a>函数isValidPassword(str), 判断用户输入的是不是合法密码（长度6-20个字符，包括大写字母、小写字母、数字、下划线至少两种）</h4><pre><code>function isValidPassword(str){
+  var i=0;
+  if(/^\w{6,20}$/.test(str)){
+    if(/[a-z]/.test(str)){
+      i++;
+    };
+    if(/[A-Z]/.test(str)){
+      i++
+    };
+    if(/[0-9]/.test(str)){
+      i++
+    };
+    if(/_/.test(str)){
+      i++
+    };
+    if(i&gt;1){
+      return true;
+    }else return false;;
+  }else return false;
+}
+</code></pre><h4 id="写一个正则表达式，得到如下字符串里所有的颜色（-121212）"><a href="#写一个正则表达式，得到如下字符串里所有的颜色（-121212）" class="headerlink" title="写一个正则表达式，得到如下字符串里所有的颜色（#121212）"></a>写一个正则表达式，得到如下字符串里所有的颜色（#121212）</h4><pre><code>var re = /#\b[a-fA-F0-9]{3}\b|#\b[a-fA-F0-9]{6}\b/g;
+var subj = &quot;color: #121212; background-color: #AA00ef; width: 12px; bad-colors: f#fddee #fd2 &quot;;
+alert( subj.match(re) ) ; // [&quot;#121212&quot;, &quot;#AA00ef&quot;, &quot;#fd2&quot;]
+</code></pre><h4 id="下面代码输出什么-为什么-改写代码，让其输出hunger-world"><a href="#下面代码输出什么-为什么-改写代码，让其输出hunger-world" class="headerlink" title="下面代码输出什么? 为什么? 改写代码，让其输出hunger, world."></a>下面代码输出什么? 为什么? 改写代码，让其输出hunger, world.</h4><pre><code>var str = &apos;hello  &quot;hunger&quot; , hello &quot;world&quot;&apos;;
+var pat =  /&quot;.*&quot;/g;
+str.match(pat);    //  [&quot;&quot;hunger&quot; , hello &quot;world&quot;&quot;] 因为使用&apos;*&apos;默认是最大可能匹配 也即贪婪模式
+//代码修改如下
+var str = &apos;hello  &quot;hunger&quot; , hello &quot;world&quot;&apos;;
+var pat =  /&quot;.*?&quot;/g;
+str.match(pat);     // 使用&apos;？&apos;让其变成非贪婪模式
+</code></pre><h4 id="补全如下正则表达式，输出字符串中的注释内容-贪婪模式和非贪婪模式两种方法"><a href="#补全如下正则表达式，输出字符串中的注释内容-贪婪模式和非贪婪模式两种方法" class="headerlink" title="补全如下正则表达式，输出字符串中的注释内容. (贪婪模式和非贪婪模式两种方法)"></a>补全如下正则表达式，输出字符串中的注释内容. (贪婪模式和非贪婪模式两种方法)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 非贪婪模式</span><br><span class="line">str = &apos;.. &lt;!-- My -- comment \n test --&gt; ..  &lt;!----&gt; .. &apos;</span><br><span class="line">re = /&lt;!--[\W\w]*?--&gt;/g;</span><br><span class="line">console.log(str.match(re)) // &apos;&lt;!-- My -- comment \n test --&gt;&apos;, &apos;&lt;!----&gt;&apos;</span><br><span class="line"></span><br><span class="line">// 贪婪模式</span><br><span class="line">str = &apos;.. &lt;!-- My -- comment \n test --&gt; ..  &lt;!----&gt; .. &apos;</span><br><span class="line">re = /&lt;!--[^&gt;]*--&gt;/g;</span><br><span class="line">console.log(str.match(re)) // &apos;&lt;!-- My -- comment \n test --&gt;&apos;, &apos;&lt;!----&gt;&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="找出字符串中有效的标签"><a href="#找出字符串中有效的标签" class="headerlink" title="找出字符串中有效的标签"></a>找出字符串中有效的标签</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var re = /&lt;[^&gt;]+&gt;/g;</span><br><span class="line">var str = &apos;&lt;&gt; &lt;a href=&quot;/&quot;&gt; &lt;input type=&quot;radio&quot; checked&gt; &lt;b&gt;&apos;</span><br><span class="line">console.log(str.match(re)); // &apos;&lt;a href=&quot;/&quot;&gt;&apos;, &apos;&lt;input type=&quot;radio&quot; checked&gt;&apos;, &apos;&lt;b&gt;&apos;</span><br></pre></td></tr></table></figure>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/05/03/Dom、事件/" title="javascript Dom、事件" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/05/01/JavaScript-闭包、定时器/" title="javascript 闭包、定时器" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

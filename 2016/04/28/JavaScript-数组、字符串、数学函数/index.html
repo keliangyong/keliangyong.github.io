@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript 数组、字符串、数学函数 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Javascript">
+  <meta name="description" content="数组方法中的push、pop、shift、unshift、join、split
+push是推，向数组的末尾添加一个数据；pop是拿掉，把数组中最后一个数去掉； 
+shift是将数组的第一个数移除；unshift是向数组首位添加一个数； 
+join是将数组里的每一项用自定义字符串接起来成一个字符串并返回，不会影响原数组；split是将字符串的以选定的字符分隔开并存储在数组中返回，也不会影响原字符串；">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 数组、字符串、数学函数">
+<meta property="og:url" content="http://yoursite.com/2016/04/28/JavaScript-数组、字符串、数学函数/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="数组方法中的push、pop、shift、unshift、join、split
+push是推，向数组的末尾添加一个数据；pop是拿掉，把数组中最后一个数去掉； 
+shift是将数组的第一个数移除；unshift是向数组首位添加一个数； 
+join是将数组里的每一项用自定义字符串接起来成一个字符串并返回，不会影响原数组；split是将字符串的以选定的字符分隔开并存储在数组中返回，也不会影响原字符串；">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-02a0b8ef3f4066a4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-3e7b4e6123e7b9e2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-2d9f76e1f23f2c9a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-866138efc1d0ed68?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-a45d4e3a351aec5e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.583Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript 数组、字符串、数学函数">
+<meta name="twitter:description" content="数组方法中的push、pop、shift、unshift、join、split
+push是推，向数组的末尾添加一个数据；pop是拿掉，把数组中最后一个数去掉； 
+shift是将数组的第一个数移除；unshift是向数组首位添加一个数； 
+join是将数组里的每一项用自定义字符串接起来成一个字符串并返回，不会影响原数组；split是将字符串的以选定的字符分隔开并存储在数组中返回，也不会影响原字符串；">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1826139-02a0b8ef3f4066a4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">javascript 数组、字符串、数学函数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">javascript 数组、字符串、数学函数</h1>
+    <h5 class="subtitle">2016-04-28</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-JavaScript-数组、字符串、数学函数" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数组方法中的push、pop、shift、unshift、join、split"><span class="post-toc-text">数组方法中的push、pop、shift、unshift、join、split</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#用-splice-实现-push、pop、shift、unshift方法"><span class="post-toc-text">用 splice 实现 push、pop、shift、unshift方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组小练习"><span class="post-toc-text">数组小练习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用数组做Html的拼接"><span class="post-toc-text">使用数组做Html的拼接</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数filterNumeric，可以找出目标数组中的数字"><span class="post-toc-text">函数filterNumeric，可以找出目标数组中的数字</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#addClass、removeClass函数的实现"><span class="post-toc-text">addClass、removeClass函数的实现</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#将字符串首字母大写并去掉连接符‘-’"><span class="post-toc-text">将字符串首字母大写并去掉连接符‘-’</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Sort函数依据age将对象排序"><span class="post-toc-text">Sort函数依据age将对象排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#字符串小练习"><span class="post-toc-text">字符串小练习</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ucFirst函数，返回第一个字母为大写的字符"><span class="post-toc-text">ucFirst函数，返回第一个字母为大写的字符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数truncate-str-maxlength-如果str的长度大于maxlength，会把str截断到maxlength长，并加上…"><span class="post-toc-text">函数truncate(str, maxlength), 如果str的长度大于maxlength，会把str截断到maxlength长，并加上…</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数学函数小练习"><span class="post-toc-text">数学函数小练习</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数limit2，保留数字小数点后两位，四舍五入"><span class="post-toc-text">函数limit2，保留数字小数点后两位，四舍五入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数minMax，获取从min到max之间的随机数，包括min不包括max"><span class="post-toc-text">函数minMax，获取从min到max之间的随机数，包括min不包括max</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数minMax，获取从min到max之间的随机整数，包括min包括max"><span class="post-toc-text">函数minMax，获取从min到max之间的随机整数，包括min包括max</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数minMax，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max-包括-的随机数"><span class="post-toc-text">函数minMax，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max(包括)的随机数</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="数组方法中的push、pop、shift、unshift、join、split"><a href="#数组方法中的push、pop、shift、unshift、join、split" class="headerlink" title="数组方法中的push、pop、shift、unshift、join、split"></a>数组方法中的push、pop、shift、unshift、join、split</h4><ul>
+<li>push是推，向数组的末尾添加一个数据；pop是拿掉，把数组中最后一个数去掉；<br><img src="http://upload-images.jianshu.io/upload_images/1826139-02a0b8ef3f4066a4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="push&amp;pop"> </li>
+<li>shift是将数组的第一个数移除；unshift是向数组首位添加一个数；<br><img src="http://upload-images.jianshu.io/upload_images/1826139-3e7b4e6123e7b9e2?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="shift&amp;unshift"> </li>
+<li>join是将数组里的每一项用<strong>自定义字符</strong>串接起来成一个字符串并返回，不会影响原数组；split是将字符串的以<strong>选定的字符</strong>分隔开并存储在数组中返回，也不会影响原字符串；<img src="http://upload-images.jianshu.io/upload_images/1826139-2d9f76e1f23f2c9a?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="join&amp;split"></li>
+</ul>
+<h4 id="用-splice-实现-push、pop、shift、unshift方法"><a href="#用-splice-实现-push、pop、shift、unshift方法" class="headerlink" title="用 splice 实现 push、pop、shift、unshift方法"></a>用 splice 实现 push、pop、shift、unshift方法</h4><p><img src="http://upload-images.jianshu.io/upload_images/1826139-866138efc1d0ed68?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="push&amp;pop"><br> <img src="http://upload-images.jianshu.io/upload_images/1826139-a45d4e3a351aec5e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="shift&amp;unshift"></p>
+<h3 id="数组小练习"><a href="#数组小练习" class="headerlink" title="数组小练习"></a>数组小练习</h3><h4 id="使用数组做Html的拼接"><a href="#使用数组做Html的拼接" class="headerlink" title="使用数组做Html的拼接"></a>使用数组做Html的拼接</h4><pre><code>var prod={
+  name:&apos;女装&apos;,
+  styles:[&apos;短款&apos;,&apos;冬季&apos;,&apos;春装&apos;]
+};
+function getTpl(data){
+  var arr=[&apos;&lt;dl class=&quot;product&quot;&gt;&apos;,&apos;&lt;/dl&gt;&apos;];
+  arr.splice(arr.length-1,0,(&apos;&lt;dt&gt;&apos;+data.name+&apos;&lt;/dt&gt;&apos;));
+  for(var i=0;i&lt;data.styles.length;i++){
+    arr.splice(arr.length-1,0,(&apos;&lt;dd&gt;&apos;+data.styles[i]+&apos;&lt;/dd&gt;&apos;));
+  }
+  return arr.join(&apos;&apos;);
+}
+var result=getTpl(prod);
+console.log(result);       // &lt;dl class=&quot;product&quot;&gt;&lt;dt&gt;女装&lt;/dt&gt;&lt;dd&gt;短款&lt;/dd&gt;&lt;dd&gt;冬季&lt;/dd&gt;&lt;dd&gt;春装&lt;/dd&gt;&lt;/dl&gt;
+</code></pre><h4 id="函数filterNumeric，可以找出目标数组中的数字"><a href="#函数filterNumeric，可以找出目标数组中的数字" class="headerlink" title="函数filterNumeric，可以找出目标数组中的数字"></a>函数filterNumeric，可以找出目标数组中的数字</h4><pre><code>arr = [&quot;a&quot;, 1, &quot;b&quot;, 2];
+function filterNumberic(arr){
+  var newarr=[];
+  for(var i in arr){
+    if((typeof arr[i]) === &apos;number&apos;)
+      newarr.push(arr[i]);
+  }
+  return newarr;
+}
+
+warr=filterNumberic(arr); 
+console.log(warr);
+</code></pre><h4 id="addClass、removeClass函数的实现"><a href="#addClass、removeClass函数的实现" class="headerlink" title="addClass、removeClass函数的实现"></a>addClass、removeClass函数的实现</h4><pre><code>var obj = {
+  className: &apos;open menu&apos;
+};
+function addClass(obj,val){
+  newarr=obj.className.split(&apos; &apos;);
+  for (var i=0; i&lt;newarr.length; i++){
+    if(newarr[i] === val){
+      console.log(obj.className);
+      return ;
+    }
+  }
+  obj.className=obj.className.replace(obj.className[obj.className.length-1],obj.className[obj.className.length-1]+&apos; &apos;+val);
+  console.log(obj.className);
+}
+function removeClass(obj,val){
+  newarr=obj.className.split(&apos; &apos;);
+  console.log(newarr);
+  for (var i=newarr.length-1; i&gt;-1; i--){
+    if(newarr[i] === val)
+      newarr.splice(i,1);
+  } 
+  obj.className=newarr.join(&apos; &apos;);
+  console.log(obj.className);
+}
+addClass(obj, &apos;new&apos;); // obj.className=&apos;open menu new&apos;
+addClass(obj, &apos;open&apos;);  // 因为open已经存在，此操作无任何办法
+addClass(obj, &apos;me&apos;); // obj.className=&apos;open menu new me&apos;
+console.log(obj.className);  // &quot;open menu new me&quot;
+removeClass(obj, &apos;open&apos;); // obj.className=&apos;menu new me&apos;
+removeClass(obj, &apos;blabla&apos;); // 不变
+</code></pre><h4 id="将字符串首字母大写并去掉连接符‘-’"><a href="#将字符串首字母大写并去掉连接符‘-’" class="headerlink" title="将字符串首字母大写并去掉连接符‘-’"></a>将字符串首字母大写并去掉连接符‘-’</h4><pre><code>function camelize(str){
+  var arr=str.split(&apos;-&apos;);
+  for(i in arr){
+    arr[i]=arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+  }
+  str=arr.join(&apos;&apos;)
+  console.log(str);
+}
+camelize(&quot;background-color&quot;); // BackgroundColor
+camelize(&quot;list-style-image&quot;); // ListStyleImage
+</code></pre><h4 id="Sort函数依据age将对象排序"><a href="#Sort函数依据age将对象排序" class="headerlink" title="Sort函数依据age将对象排序"></a>Sort函数依据age将对象排序</h4><pre><code>var john = { name: &quot;John Smith&quot;, age: 23 }
+var mary = { name: &quot;Mary Key&quot;, age: 18 }
+var bob = { name: &quot;Bob-small&quot;, age: 6 }
+var people = [ john, mary, bob ]
+function ageSort(arr){
+  arr.sort(function(a,b){
+    return a.age - b.age;
+  });
+  console.log(arr);
+}
+ageSort(people) // [ bob, mary, john ]
+</code></pre><h4 id="字符串小练习"><a href="#字符串小练习" class="headerlink" title="字符串小练习"></a>字符串小练习</h4><h4 id="ucFirst函数，返回第一个字母为大写的字符"><a href="#ucFirst函数，返回第一个字母为大写的字符" class="headerlink" title="ucFirst函数，返回第一个字母为大写的字符"></a>ucFirst函数，返回第一个字母为大写的字符</h4><pre><code>function ucFirst(char){
+  char=char.charAt(0).toUpperCase()+char.slice(1);
+  console.log(char);
+}
+ucFirst(&quot;hunger&quot;);   //  Hunger
+</code></pre><h4 id="函数truncate-str-maxlength-如果str的长度大于maxlength，会把str截断到maxlength长，并加上…"><a href="#函数truncate-str-maxlength-如果str的长度大于maxlength，会把str截断到maxlength长，并加上…" class="headerlink" title="函数truncate(str, maxlength), 如果str的长度大于maxlength，会把str截断到maxlength长，并加上…"></a>函数truncate(str, maxlength), 如果str的长度大于maxlength，会把str截断到maxlength长，并加上…</h4><pre><code>function turncate(str,maxlength){
+  if(str.charAt(maxlength)!==&apos;&apos;)
+  str=str.slice(0,maxlength)+&apos;...&apos;;
+console.log(str);
+}
+turncate(&quot;hello, this is hunger valley,&quot;, 10); // &quot;hello, thi...&quot;;
+turncate(&quot;hello world&quot;, 20); // &quot;hello world&quot;
+</code></pre><h4 id="数学函数小练习"><a href="#数学函数小练习" class="headerlink" title="数学函数小练习"></a>数学函数小练习</h4><h4 id="函数limit2，保留数字小数点后两位，四舍五入"><a href="#函数limit2，保留数字小数点后两位，四舍五入" class="headerlink" title="函数limit2，保留数字小数点后两位，四舍五入"></a>函数limit2，保留数字小数点后两位，四舍五入</h4><pre><code>function limit2(num){
+  num=Math.round(num*100)/100;
+  console.log(num);
+}
+var num1 = 3.456
+limit2( num1 );  //3.46
+limit2( 2.42 );    //2.42
+</code></pre><h4 id="函数minMax，获取从min到max之间的随机数，包括min不包括max"><a href="#函数minMax，获取从min到max之间的随机数，包括min不包括max" class="headerlink" title="函数minMax，获取从min到max之间的随机数，包括min不包括max"></a>函数minMax，获取从min到max之间的随机数，包括min不包括max</h4><pre><code>function minMax(min,max){
+  console.log((max-min)*Math.random()+min);  
+}
+minMax(50,100);  // 93.67403362954349  73.32116993708193   51.95918010535645
+</code></pre><h4 id="函数minMax，获取从min到max之间的随机整数，包括min包括max"><a href="#函数minMax，获取从min到max之间的随机整数，包括min包括max" class="headerlink" title="函数minMax，获取从min到max之间的随机整数，包括min包括max"></a>函数minMax，获取从min到max之间的随机整数，包括min包括max</h4><pre><code>function minMax(min,max){
+  console.log(Math.floor((max-min+1)*Math.random()+min));  
+}
+minMax(50,60);  // 57 55 53 52 54 50
+</code></pre><h4 id="函数minMax，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max-包括-的随机数"><a href="#函数minMax，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max-包括-的随机数" class="headerlink" title="函数minMax，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max(包括)的随机数"></a>函数minMax，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max(包括)的随机数</h4><pre><code>function getArr(min,max,len){
+  var arr=[];
+  for(var i=0;i&lt;len;i++){
+    arr.push(Math.round(1e14*((max-min)*Math.random()+min))/1e14);  
+  }
+  console.log(arr);
+  return arr;
+}
+getArr(50,60,3);  // [50.0677831803007, 50.09292999150542, 50.07795163429897]
+//把随机数扩大1e14倍，四舍五入后再/1e14，当出现59.99999999999999时近似出现60
+</code></pre></div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/04/29/JavaScript-时间对象、引用类型/" title="javascript 事件对象、引用类型" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/04/27/JavaScript-函数/" title="javascript 函数" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

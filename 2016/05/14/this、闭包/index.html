@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>This、闭包 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Javascript">
+  <meta name="description" content="apply、call 的作用及区别
+作用：在指定this值和参数值的前提下去调用函数或方法。
+区别：A for array,C for comma !  apply方法接受的是一个包含多个参数的数组，而call方法接受的是一个参数列表。
+theFunction.call( this, arg1, arg2, arg3... )
+theFunction.apply( this, [arg1,arg2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="This、闭包">
+<meta property="og:url" content="http://yoursite.com/2016/05/14/this、闭包/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="apply、call 的作用及区别
+作用：在指定this值和参数值的前提下去调用函数或方法。
+区别：A for array,C for comma !  apply方法接受的是一个包含多个参数的数组，而call方法接受的是一个参数列表。
+theFunction.call( this, arg1, arg2, arg3... )
+theFunction.apply( this, [arg1,arg2">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.639Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="This、闭包">
+<meta name="twitter:description" content="apply、call 的作用及区别
+作用：在指定this值和参数值的前提下去调用函数或方法。
+区别：A for array,C for comma !  apply方法接受的是一个包含多个参数的数组，而call方法接受的是一个参数列表。
+theFunction.call( this, arg1, arg2, arg3... )
+theFunction.apply( this, [arg1,arg2">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">This、闭包</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">This、闭包</h1>
+    <h5 class="subtitle">2016-05-14</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-this、闭包" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#apply、call-的作用及区别"><span class="post-toc-text">apply、call 的作用及区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小练习"><span class="post-toc-text">小练习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-以下代码输出什么"><span class="post-toc-text">1.以下代码输出什么?</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-下面代码输出什么，为什么"><span class="post-toc-text">2.下面代码输出什么，为什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-下面代码输出什么"><span class="post-toc-text">3.下面代码输出什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-下面代码输出什么，why"><span class="post-toc-text">4.下面代码输出什么，why</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-代码输出？"><span class="post-toc-text">5.代码输出？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-以下代码有什么问题，如何修改"><span class="post-toc-text">6.以下代码有什么问题，如何修改</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-下面代码输出什么-why"><span class="post-toc-text">7.下面代码输出什么? why</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="apply、call-的作用及区别"><a href="#apply、call-的作用及区别" class="headerlink" title="apply、call 的作用及区别"></a>apply、call 的作用及区别</h4><ul>
+<li>作用：在指定<code>this</code>值和<code>参数</code>值的前提下去调用函数或方法。</li>
+<li>区别：<code>A for array,C for comma !</code>  apply方法接受的是一个包含多个参数的数组，而call方法接受的是一个参数列表。<ul>
+<li><code>theFunction.call( this, arg1, arg2, arg3... )</code></li>
+<li><code>theFunction.apply( this, [arg1,arg2,arg3...] )</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><h4 id="1-以下代码输出什么"><a href="#1-以下代码输出什么" class="headerlink" title="1.以下代码输出什么?"></a><strong>1.以下代码输出什么?</strong></h4><pre><code>var john = { 
+  firstName: &quot;John&quot; 
+}
+function func() { 
+  alert(this.firstName + &quot;: hi!&quot;)
+}
+john.sayHi = func   // 把 func 拷贝了一份，存在对象john的sayHi属性中
+john.sayHi()    // 输出 &quot;john: hi!&quot;  这个函数的拥有者是john这个对象 this指向john
+</code></pre><h4 id="2-下面代码输出什么，为什么"><a href="#2-下面代码输出什么，为什么" class="headerlink" title="2.下面代码输出什么，为什么"></a><strong>2.下面代码输出什么，为什么</strong></h4><pre><code>func()         // 输出 window对象 这个函数的拥有者是window对象或称全局对象
+
+function func() { 
+  alert(this)        
+}
+</code></pre><h4 id="3-下面代码输出什么"><a href="#3-下面代码输出什么" class="headerlink" title="3.下面代码输出什么"></a><strong>3.下面代码输出什么</strong></h4><pre><code>function fn0(){
+  function fn(){
+    console.log(this);
+  }
+  fn();
+}
+
+fn0();  // 输出window对象 fn0这个函数的拥有者是window对象 其内部的this指向window对象
+
+
+document.addEventListener(&apos;click&apos;, function(e){
+  console.log(this);     // 点击 输出document对象 实质是拷贝了一份函数给document的click属性 这个函数属于document对象
+  setTimeout(function(){
+    console.log(this);   // 200毫秒后 输出window对象 setTimeout是运行在全局环境下的 属于window对象
+  }, 200);
+}, false);
+</code></pre><h4 id="4-下面代码输出什么，why"><a href="#4-下面代码输出什么，why" class="headerlink" title="4.下面代码输出什么，why"></a><strong>4.下面代码输出什么，why</strong></h4><pre><code>var john = { 
+  firstName: &quot;John&quot; 
+}
+
+function func() { 
+  alert( this.firstName )
+}
+func.call(john)  // 输出 &quot;John&quot; call在指定了john作为this的前提下去调用了func
+</code></pre><h4 id="5-代码输出？"><a href="#5-代码输出？" class="headerlink" title="5.代码输出？"></a><strong>5.代码输出？</strong></h4><pre><code>var john = { 
+  firstName: &quot;John&quot;,
+  surname: &quot;Smith&quot;
+}
+
+function func(a, b ) { 
+  alert( this[a] + &apos; &apos; + this[b] )
+}
+func.call(john, &apos;firstName&apos;, &apos;surname&apos;)  // 输出 &quot;John Smith&quot; call在指定john作为this的前提下调用了func
+</code></pre><h4 id="6-以下代码有什么问题，如何修改"><a href="#6-以下代码有什么问题，如何修改" class="headerlink" title="6.以下代码有什么问题，如何修改"></a><strong>6.以下代码有什么问题，如何修改</strong></h4><pre><code>var module= {
+  bind: function(){
+    $btn.on(&apos;click&apos;, function(){
+      console.log(this) //this指的是btn这个元素 实质拷了一份函数给btn的click属性 函数属于btn
+      this.showMsg();  // 报错 这不是一个函数
+    })
+  },
+
+  showMsg: function(){
+    console.log(&apos;饥人谷&apos;);
+  }
+}
+
+var module= {
+  bind: function(){
+    var self=this;
+    $btn.on(&apos;click&apos;, function(){
+      console.log(this) 
+      self.showMsg(); // 本来我是直接改成module的 看了老师对育薇同学的点评   发现以后改名的话会出问题 其他人不容易发现里面这个东西。。维护太艰难 也意识到工程化模块化的重要性了
+    })
+  },
+
+  showMsg: function(){
+    console.log(&apos;饥人谷&apos;);
+  }
+}
+</code></pre><h4 id="7-下面代码输出什么-why"><a href="#7-下面代码输出什么-why" class="headerlink" title="7.下面代码输出什么? why"></a><strong>7.下面代码输出什么? why</strong></h4><pre><code>obj = {
+  go: function() { alert(this) }
+}
+
+obj.go();    // 输出 obj对象 这个函数属于obj
+
+(obj.go)();     // 输出 obj对象 全局中并没有这个函数 函数还是在obj中是属于obj的
+
+(a = obj.go)();     // 输出 window对象 函数被赋值给了全局变量a再遇到括号执行了 这个函数属于window对象
+
+(0 || obj.go)();     // 输出 obj对象 看了同学们的解释才知道 多了一个传递的过程 以一个全局变量做中转来存储结果 所以与上一例相同
+</code></pre></div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/05/16/Http/" title="Http" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/05/12/同源策略、跨域/" title="同源策略、跨域" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

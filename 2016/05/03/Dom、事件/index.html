@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript Dom、事件 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Javascript">
+  <meta name="description" content="dom 对象的 innerText 和 innerHTML 的区别
+innerText是指内部文本；读取时会将节点内部的所有文本内容做一个拼接后输出；写入时写入的内容覆盖节点内部所有的内容，并且输入内容会强行转义为文本。
+interHTML是指内部html构成；读取时会将内部的子节点及其内容等原封不动输出；写入时也是覆盖内部内容，输入内容含标签是会正常起作用。
+
+elem.children 和 e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript Dom、事件">
+<meta property="og:url" content="http://yoursite.com/2016/05/03/Dom、事件/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="dom 对象的 innerText 和 innerHTML 的区别
+innerText是指内部文本；读取时会将节点内部的所有文本内容做一个拼接后输出；写入时写入的内容覆盖节点内部所有的内容，并且输入内容会强行转义为文本。
+interHTML是指内部html构成；读取时会将内部的子节点及其内容等原封不动输出；写入时也是覆盖内部内容，输入内容含标签是会正常起作用。
+
+elem.children 和 e">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.559Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript Dom、事件">
+<meta name="twitter:description" content="dom 对象的 innerText 和 innerHTML 的区别
+innerText是指内部文本；读取时会将节点内部的所有文本内容做一个拼接后输出；写入时写入的内容覆盖节点内部所有的内容，并且输入内容会强行转义为文本。
+interHTML是指内部html构成；读取时会将内部的子节点及其内容等原封不动输出；写入时也是覆盖内部内容，输入内容含标签是会正常起作用。
+
+elem.children 和 e">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">javascript Dom、事件</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">javascript Dom、事件</h1>
+    <h5 class="subtitle">2016-05-03</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-Dom、事件" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dom-对象的-innerText-和-innerHTML-的区别"><span class="post-toc-text">dom 对象的 innerText 和 innerHTML 的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#elem-children-和-elem-childNodes-的区别"><span class="post-toc-text">elem.children 和 elem.childNodes 的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#查询元素有几种常见的方法"><span class="post-toc-text">查询元素有几种常见的方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建一个元素、给元素设置属性"><span class="post-toc-text">创建一个元素、给元素设置属性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#元素的添加、删除"><span class="post-toc-text">元素的添加、删除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#DOM0-事件和-DOM2-级在事件监听使用方式上的区别"><span class="post-toc-text">DOM0 事件和 DOM2 级在事件监听使用方式上的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#attachEvent-与-addEventListener-的区别"><span class="post-toc-text">attachEvent 与 addEventListener 的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#IE事件冒泡和DOM2事件传播机制"><span class="post-toc-text">IE事件冒泡和DOM2事件传播机制</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#阻止事件冒泡、阻止默认事件"><span class="post-toc-text">阻止事件冒泡、阻止默认事件</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="dom-对象的-innerText-和-innerHTML-的区别"><a href="#dom-对象的-innerText-和-innerHTML-的区别" class="headerlink" title="dom 对象的 innerText 和 innerHTML 的区别"></a>dom 对象的 innerText 和 innerHTML 的区别</h4><ul>
+<li><code>innerText</code>是指内部文本；读取时会将节点内部的所有文本内容做一个拼接后输出；写入时写入的内容覆盖节点内部所有的内容，并且输入内容会强行转义为文本。</li>
+<li><code>interHTML</code>是指内部html构成；读取时会将内部的子节点及其内容等原封不动输出；写入时也是覆盖内部内容，输入内容含标签是会正常起作用。</li>
+</ul>
+<h4 id="elem-children-和-elem-childNodes-的区别"><a href="#elem-children-和-elem-childNodes-的区别" class="headerlink" title="elem.children 和 elem.childNodes 的区别"></a>elem.children 和 elem.childNodes 的区别</h4><ul>
+<li><code>elem.children</code>得到的是<code>elem</code>这个节点的子Html节点的集合（放在数组中）不包含空白文本节点；</li>
+<li><code>elem.childNodes</code>得到的是<code>elem</code>这个节点的子节点的集合（放在数组中），但是会包括空白文本节点。所以一般使用<code>elem.children</code>比较多。</li>
+</ul>
+<h4 id="查询元素有几种常见的方法"><a href="#查询元素有几种常见的方法" class="headerlink" title="查询元素有几种常见的方法"></a>查询元素有几种常见的方法</h4><ul>
+<li><code>getElementById</code>：通过id来选择元素，返回对应id的<strong>元素节点</strong>包含其内部元素节点，在<code>document</code>对象下使用；</li>
+<li><code>getElementsByClassName</code>：通过类名来选择元素，返回一个储存duiy对应类名的<strong>类数组对象</strong>，要用arr[i]来使用，在<code>document</code>和<code>element</code>下使用；</li>
+<li><code>getElementsByTagName</code>：通过标签名来选择元素，返回一个储存duiy对应类名的<strong>类数组对象</strong>，要用arr[i]来使用，在<code>document</code>和<code>enement</code>下使用；</li>
+<li><code>getElementByName</code>：用来选择一些具有name属性的html元素，比如form、img等，返回一个储存对应类名的<strong>类数组对象</strong>，要用arr[i]来使用，在<code>document</code>下使用；IE浏览器中会返回没有name属性的同名id元素！</li>
+<li><code>querrSelector</code>：类似css选择器语法，会返回匹配的<strong>元素节点</strong>，如果有多个满足条件的元素节点将只返回第一个。</li>
+<li><code>querySelectorAll</code>：与<code>querrSelector</code>类似，不过它会返回所有满足条件的元素节点。</li>
+</ul>
+<h4 id="创建一个元素、给元素设置属性"><a href="#创建一个元素、给元素设置属性" class="headerlink" title="创建一个元素、给元素设置属性"></a>创建一个元素、给元素设置属性</h4><ul>
+<li>用<code>var element=document.createElement（元素名）</code>开创建一个元素；</li>
+<li>用<code>元素名.setAttribute（&#39;属性名&#39;，&#39;值&#39;）</code>来给元素设置属性。</li>
+</ul>
+<h4 id="元素的添加、删除"><a href="#元素的添加、删除" class="headerlink" title="元素的添加、删除"></a>元素的添加、删除</h4><ul>
+<li>用<code>node.appendChild（新元素节点）</code>将元素节点插入到node节点作为最后一个子节点；也可以用<code>node.inserBefore（新元素节点，子参照节点）</code>将元素插入到node的参照子节点前；</li>
+<li>用<code>removeChild（要移除的元素）</code>将节点的子元素删除。</li>
+</ul>
+<h4 id="DOM0-事件和-DOM2-级在事件监听使用方式上的区别"><a href="#DOM0-事件和-DOM2-级在事件监听使用方式上的区别" class="headerlink" title="DOM0 事件和 DOM2 级在事件监听使用方式上的区别"></a>DOM0 事件和 DOM2 级在事件监听使用方式上的区别</h4><ul>
+<li><code>DOM0</code>事件是指直接将事件绑定在元素上，使用时直接定义<code>elem.event=执行内容</code>；在监听方式上因为是直接绑定在元素上，所以只能绑定一个事件。</li>
+<li><code>DOM2</code>级事件规定了事件的三个阶段：捕获、目标、冒泡；在js代码中使用<code>addEventListener</code>监听函数对元素新增一个事件侦听器，可以对一个元素添加多个侦听器；可以指定在哪个阶段触发处理程序。</li>
+</ul>
+<h4 id="attachEvent-与-addEventListener-的区别"><a href="#attachEvent-与-addEventListener-的区别" class="headerlink" title="attachEvent 与 addEventListener 的区别"></a>attachEvent 与 addEventListener 的区别</h4><ul>
+<li>适用的浏览器版本不同：<code>addEventListener</code>用于标准主流浏览器；<code>attachEvent</code>是针对老版本的IE浏览器。</li>
+<li>参数数量及相应的触发阶段不同：<code>addEventListener</code>有三个传递参数，最后一个参数可以定义处理程序在捕获/冒泡阶段触发；而<code>attachEvent</code>只有两个传递参数，只能在冒泡阶段触发。</li>
+<li>第一个参数的形式不同：<code>addEventListener</code>第一个参数就是事件如<code>click</code>；而<code>attachEvent</code>的第一个参数需要在前面加<code>on</code>如<code>onclick</code>;</li>
+<li>处理程序的作用域不同：<code>addEventListener</code>所触发处理程序的作用域是元素本身，this指代的是触发元素和target类似；而<code>attachEvent</code>触发的处理程序会在全局环境下运行，this指代的是window。</li>
+<li>在听一个事件上绑定多个事件处理程序时执行顺序不同：<code>addEventListener</code>会按添加顺序配合第三个参数执行；而<code>attachEvent</code>的执行顺序是无序的。</li>
+</ul>
+<h4 id="IE事件冒泡和DOM2事件传播机制"><a href="#IE事件冒泡和DOM2事件传播机制" class="headerlink" title="IE事件冒泡和DOM2事件传播机制"></a>IE事件冒泡和DOM2事件传播机制</h4><ul>
+<li>IE事件冒泡：事件发生在触发元素上，从触发元素开始，事件往其父元素传播，类似水中冒气泡般再一级一级往上传播，最终到html根节点。</li>
+<li>DOM2事件传播机制：DOM2事件传播分三个阶段，捕获阶段、处于目标阶段、冒泡阶段（注意，只能选择捕获或冒泡其中的一个阶段来让处理程序执行）；用户行为或其他事件发生后，根节点最先知道，而后一级一级往下传递直到到达触发触发元素的身上，此为捕获阶段；事件到达目标元素身上，此为处于目标阶段；从目标元素身上又一层一层往上传递，直至到达根节点，此为冒泡阶段。</li>
+</ul>
+<h4 id="阻止事件冒泡、阻止默认事件"><a href="#阻止事件冒泡、阻止默认事件" class="headerlink" title="阻止事件冒泡、阻止默认事件"></a>阻止事件冒泡、阻止默认事件</h4><ul>
+<li>在想要截断的元素节点中的处理程序中添加<code>e.stoppropagation( )</code>让事件停止冒泡；</li>
+<li>在目标元素添加仅包含<code>e.preventDeafault( )</code>的处理程序来阻止默认事件。</li>
+</ul>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/05/04/web服务器与http请求/" title="web服务器与http请求" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/05/02/正则表达式/" title="javascript 正则表达式" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Jquery 常用方法 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Jquery">
+  <meta name="description" content="Jquery 中， $(document).ready()和window.onload 的区别
+$(document).ready()是指当DOM加载完成可以被javascript去操作时就会执行ready括号中的函数。
+和window.onload 的区别如下：  1.$(document).ready()是jquery中的方法，等DOM树就绪后就会执行；window.onload是原生js中的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jquery 常用方法">
+<meta property="og:url" content="http://yoursite.com/2016/05/10/Jquery常用方法/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="Jquery 中， $(document).ready()和window.onload 的区别
+$(document).ready()是指当DOM加载完成可以被javascript去操作时就会执行ready括号中的函数。
+和window.onload 的区别如下：  1.$(document).ready()是jquery中的方法，等DOM树就绪后就会执行；window.onload是原生js中的">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.628Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Jquery 常用方法">
+<meta name="twitter:description" content="Jquery 中， $(document).ready()和window.onload 的区别
+$(document).ready()是指当DOM加载完成可以被javascript去操作时就会执行ready括号中的函数。
+和window.onload 的区别如下：  1.$(document).ready()是jquery中的方法，等DOM树就绪后就会执行；window.onload是原生js中的">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Jquery 常用方法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">Jquery 常用方法</h1>
+    <h5 class="subtitle">2016-05-10</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-Jquery常用方法" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jquery/">Jquery</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Jquery-中，-document-ready-和window-onload-的区别"><span class="post-toc-text">Jquery 中， $(document).ready()和window.onload 的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#node-html-和-node-text-的区别"><span class="post-toc-text">$node.html() 和 $node.text() 的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#extend-的作用和用法"><span class="post-toc-text">$.extend 的作用和用法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JQuery-的链式调用"><span class="post-toc-text">JQuery 的链式调用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JQuery-ajax-中缓存怎样控制"><span class="post-toc-text">JQuery ajax 中缓存怎样控制</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jquery-中-data-函数的作用"><span class="post-toc-text">jquery 中 data 函数的作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小练习"><span class="post-toc-text">小练习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#写出以下功能对应的-Jq-方法："><span class="post-toc-text">写出以下功能对应的 Jq 方法：</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="Jquery-中，-document-ready-和window-onload-的区别"><a href="#Jquery-中，-document-ready-和window-onload-的区别" class="headerlink" title="Jquery 中， $(document).ready()和window.onload 的区别"></a>Jquery 中， <code>$(document).ready()</code>和<code>window.onload</code> 的区别</h4><ul>
+<li><code>$(document).ready()</code>是指当DOM加载完成可以被javascript去操作时就会执行ready括号中的函数。</li>
+<li>和<code>window.onload</code> 的区别如下：<br>  1.<code>$(document).ready()</code>是jquery中的方法，等DOM树就绪后就会执行；<code>window.onload</code>是原生js中的一个对象，不仅要等DOM树就绪还要图像、内部框架等，页面整个加载完呈现出来才会执行。<br> 2.<code>$(document).ready()</code>像事件绑定的原理，可以设置多次，DOM加载完就执行所有预先设置的函数；<code>window.onload</code>因为是类似给window对象的onload属性赋值所以只能执行一个，后设置的将覆盖前面的。<br> 3.<code>$(document).ready()</code>可以简写成<code>$(func)</code>；<code>window.onload</code>没有简写。</li>
+<li>其他写法：<code>$(document).ready()</code>可以简写成<code>$(func)</code>；替代方法的话没有，但是需要注意jquery中的另外一个<code>$(window).load( )</code>它会等图像、内部框架等，页面整个加载呈现完才执行而不仅仅是DOM。</li>
+</ul>
+<h4 id="node-html-和-node-text-的区别"><a href="#node-html-和-node-text-的区别" class="headerlink" title="$node.html() 和 $node.text() 的区别"></a>$node.html() 和 $node.text() 的区别</h4><ul>
+<li>和原生Js类似；<code>$node.html()</code>是获取或设置node节点的html内容，输出时包含标签代码写入时标签代码也会正常生效；</li>
+<li><code>$node.text()</code>是获取或设置node节点的文本内容，输出时是把内部所有文本做一个拼接后输出，输入时把节点内部整个清空放入输入值（注意标签代码会被转义为文本）。</li>
+</ul>
+<h4 id="extend-的作用和用法"><a href="#extend-的作用和用法" class="headerlink" title="$.extend 的作用和用法"></a>$.extend 的作用和用法</h4><ul>
+<li><code>$.extend</code>的作用是将多个对象的值（与目标对象比较，把目标对象所没有的值添加到目标对象中）合并到目标对象中。</li>
+<li>用法：<code>$.extend(true,target,obj1[,objn])</code>，若不需要深拷贝请将第一个参数true去掉（注意不支持false！）。<br>注意数组或对象浅拷贝时target的值可能会被覆盖而不是添加，此时最好用深拷贝！<br>目标对象可以是一个空对象（例如想合并两个对象，把其中一个作为目标对象的话会被修改，我既想得到合并后的对象，也想保留这两个对象，这时可以用一个空对象去做target） </li>
+</ul>
+<h4 id="JQuery-的链式调用"><a href="#JQuery-的链式调用" class="headerlink" title="JQuery 的链式调用"></a>JQuery 的链式调用</h4><ul>
+<li>链式调用：在jquery中，它的很多方法调用后的返回值依然是jequery对象，那么对于像对DOM进行操作的任务中我们就无需先取得元素赋值给新建变量，再针对这个新建变量进行操作；例如<code>$(&#39;#head&#39;)</code>它是一个表达式，和被选中的id为head的这个元素是等价的，<code>$(&#39;#head&#39;).find(&#39;.box&#39;)</code>就表示先选中id为head的元素再在head元素下寻找class为box的元素，当然后面还可以接着给它绑定事件。</li>
+<li>链式调用非常方便，真的是<code>write less do more！</code>，而且思路也很清晰，让代码看起来更简洁易懂。</li>
+</ul>
+<h4 id="JQuery-ajax-中缓存怎样控制"><a href="#JQuery-ajax-中缓存怎样控制" class="headerlink" title="JQuery ajax 中缓存怎样控制"></a>JQuery ajax 中缓存怎样控制</h4><ul>
+<li>一般来说浏览器会将每次请求的内容缓存起来，这样的话下次是同样的请求就直接在本地调用无需再发请求，但有时候如果是版本更新或者不想让浏览器使用缓存时怎么办呢？</li>
+<li>在<code>jquery.ajax(opts)</code>中有一个参数是cache，我们把它设为false即可让浏览器不读取本地缓存，其原理是类似在请求中加时间戳，这样浏览器以为两次请求是不同的而不会去调用缓存，但时间戳并不影响数据的获取，我们得到的依然是我们想要的。</li>
+</ul>
+<h4 id="jquery-中-data-函数的作用"><a href="#jquery-中-data-函数的作用" class="headerlink" title="jquery 中 data 函数的作用"></a>jquery 中 data 函数的作用</h4><ul>
+<li>在jquery中data函数允许我们把一些数据绑定到DOM元素上，避免循环引用的内存泄露风险；例如<code>$(&#39;#head&#39;).data(name:&#39;hello&#39;)</code>是在id为head的这个元素上绑定了一个数据，其名为name，值为’hello’，下次这样引用<code>$(&#39;#head&#39;).data(name)</code>。</li>
+</ul>
+<h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><h4 id="写出以下功能对应的-Jq-方法："><a href="#写出以下功能对应的-Jq-方法：" class="headerlink" title="写出以下功能对应的 Jq 方法："></a>写出以下功能对应的 Jq 方法：</h4><p>1.给元素 $node 添加 class active，给元素 $noed 删除 class active</p>
+<pre><code>$node.addClass(&apos;active&apos;);
+$noed.removeClass(&apos;active&apos;);
+</code></pre><p>2.展示元素$node, 隐藏元素$node</p>
+<pre><code>$node.show(); //展示         
+$node.hide()；//隐藏  
+</code></pre><p>3.获取元素$node 的 属性: id、src、title， 修改以上属性</p>
+<pre><code>$node.attr(&apos;id&apos;);
+$node.attr(&apos;src&apos;);
+$node.attr(&apos;title&apos;);
+$node.attr({
+  id:&apos; &apos;，
+  src:&apos; &apos;，
+  title:&apos; &apos;，
+});
+</code></pre><p>4.给$node 添加自定义属性data-src</p>
+<pre><code>$node.attr(&apos;data-src&apos;:&apos; &apos;);
+</code></pre><p>5.在$ct 内部最开头添加元素$node</p>
+<pre><code>$ct.prepend($node);
+</code></pre><p>6.在$ct 内部最末尾添加元素$node</p>
+<pre><code>$ct.append($node);
+</code></pre><p>7.删除$node</p>
+<pre><code>$node.remove();
+</code></pre><p>8.把$ct里内容清空</p>
+<pre><code>$ct.text(&apos;&apos;);
+$ct.empty();
+</code></pre><p>9.在$ct 里设置 html <div class="btn"></div></p>
+<pre><code>$ct.html(&apos;&lt;div class=&quot;btn&quot;&gt;&lt;/div&gt;&apos;);
+</code></pre><p>10.获取、设置$node 的宽度、高度(分别不包括内边距、包括内边距、包括边框、包括外边距)</p>
+<pre><code>$node.width();    //获得宽度 不包括内边距 仅内容大小
+$node.width(30);    //设置宽度 
+$node.height();     //获得高度   
+$node.height(30);    //设置高度  
+$node.innerWidth();    //包含内边距用inner
+$node.outerWidth();   //包含边框用outer
+$node.outerWidth(true);  //包含外边距用outer+true
+</code></pre><p>11.获取窗口滚动条垂直滚动距离</p>
+<pre><code>$(document).scrollTop();
+</code></pre><p>12.获取$node 到根节点水平、垂直偏移距离</p>
+<pre><code>$node.offset();
+</code></pre><p>13.修改$node 的样式，字体颜色设置红色，字体大小设置14px</p>
+<pre><code>$node.css({
+  &apos;color&apos;: &apos;red&apos;,
+  &apos;font-size&apos;: &apos;14px&apos;
+});
+</code></pre><p>14.遍历节点，把每个节点里面的文本内容重复一遍</p>
+<pre><code>.each(function(index,element){
+  $(this).text($(this).text()+$(this).text());
+});
+</code></pre><p>15.从$ct 里查找 class 为 .item的子元素</p>
+<pre><code>$ct.find(&apos;.item&apos;);
+</code></pre><p>16.获取$ct 里面的所有孩子</p>
+<pre><code>$ct.children();
+</code></pre><p>17.对于$node，向上找到 class 为’.ct’的父亲，在从该父亲找到’.panel’的孩子</p>
+<pre><code>$node.parents(&apos;.ct&apos;).find(&apos;.panel&apos;)
+</code></pre><p>18.获取选择元素的数量</p>
+<pre><code>.length;
+</code></pre><p>19.获取当前元素在兄弟中的排行</p>
+<pre><code>.index()；
+</code></pre></div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/05/12/同源策略、跨域/" title="同源策略、跨域" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/05/09/Jquery-DOM&事件/" title="Jquery Dom、事件" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

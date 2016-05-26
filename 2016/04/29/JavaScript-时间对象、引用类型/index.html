@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript 事件对象、引用类型 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Javascript">
+  <meta name="description" content="基础类型和复杂类型
+基础类型有 数值型、布尔型、字符串、null和undefined；特征是都比较简单，占用空间小使用的是栈内存类似一片规划好的整齐排列的地；变量名所在的空间里存放的就是具体值。
+复杂类型有 数组、函数、对象、正则；特征是较复杂是简单类型组合而成的数据，占用空间较大，家门口的田地放不下，使用的是堆内存类似去草原圈一块地，一般变量名里存放的是指向堆内存的地址，就好像在家门口那块地放上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 事件对象、引用类型">
+<meta property="og:url" content="http://yoursite.com/2016/04/29/JavaScript-时间对象、引用类型/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="基础类型和复杂类型
+基础类型有 数值型、布尔型、字符串、null和undefined；特征是都比较简单，占用空间小使用的是栈内存类似一片规划好的整齐排列的地；变量名所在的空间里存放的就是具体值。
+复杂类型有 数组、函数、对象、正则；特征是较复杂是简单类型组合而成的数据，占用空间较大，家门口的田地放不下，使用的是堆内存类似去草原圈一块地，一般变量名里存放的是指向堆内存的地址，就好像在家门口那块地放上">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.594Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript 事件对象、引用类型">
+<meta name="twitter:description" content="基础类型和复杂类型
+基础类型有 数值型、布尔型、字符串、null和undefined；特征是都比较简单，占用空间小使用的是栈内存类似一片规划好的整齐排列的地；变量名所在的空间里存放的就是具体值。
+复杂类型有 数组、函数、对象、正则；特征是较复杂是简单类型组合而成的数据，占用空间较大，家门口的田地放不下，使用的是堆内存类似去草原圈一块地，一般变量名里存放的是指向堆内存的地址，就好像在家门口那块地放上">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">javascript 事件对象、引用类型</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">javascript 事件对象、引用类型</h1>
+    <h5 class="subtitle">2016-04-29</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-JavaScript-时间对象、引用类型" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#基础类型和复杂类型"><span class="post-toc-text">基础类型和复杂类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#基础类型和复杂类型实践"><span class="post-toc-text">基础类型和复杂类型实践</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小练习"><span class="post-toc-text">小练习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数getIntv，获取从当前时间到指定日期的间隔时间"><span class="post-toc-text">函数getIntv，获取从当前时间到指定日期的间隔时间</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数getChsDate-char-把数字日期改成中文日期"><span class="post-toc-text">函数getChsDate(char)把数字日期改成中文日期</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数getLastNDays-num-获取n天前的日期"><span class="post-toc-text">函数getLastNDays(num)获取n天前的日期</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#计算一段代码运行的时间"><span class="post-toc-text">计算一段代码运行的时间</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#楼梯有200级，每次走1级或是2级，从底走到顶一共有多少种走法"><span class="post-toc-text">楼梯有200级，每次走1级或是2级，从底走到顶一共有多少种走法?</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一个深拷贝的方法，运用递归"><span class="post-toc-text">一个深拷贝的方法，运用递归</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="基础类型和复杂类型"><a href="#基础类型和复杂类型" class="headerlink" title="基础类型和复杂类型"></a>基础类型和复杂类型</h4><ul>
+<li>基础类型有 数值型、布尔型、字符串、null和undefined；特征是都比较简单，占用空间小使用的是栈内存类似一片规划好的整齐排列的地；变量名所在的空间里存放的就是具体值。</li>
+<li>复杂类型有 数组、函数、对象、正则；特征是较复杂是简单类型组合而成的数据，占用空间较大，家门口的田地放不下，使用的是堆内存类似去草原圈一块地，一般变量名里存放的是指向堆内存的地址，就好像在家门口那块地放上一张去草原那块地的地图一样。</li>
+</ul>
+<h4 id="基础类型和复杂类型实践"><a href="#基础类型和复杂类型实践" class="headerlink" title="基础类型和复杂类型实践"></a>基础类型和复杂类型实践</h4><pre><code>var obj1 = {a:1, b:2};
+var obj2 = {a:1, b:2};
+console.log(obj1 == obj2); // false  obj1/2里存放的是两个不同的地址 两个地址指向两个地方 虽然这两个地方放的东西是一样的 但本质上这两个地址是不同的  
+console.log(obj1 = obj2); // 输出obj1   将obj2里存的地址赋给obj1后 会返回变更后的obj1
+console.log(obj1 == obj2); // true obj1和obj2存的是同一个地址 两者相等
+</code></pre><h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><h4 id="函数getIntv，获取从当前时间到指定日期的间隔时间"><a href="#函数getIntv，获取从当前时间到指定日期的间隔时间" class="headerlink" title="函数getIntv，获取从当前时间到指定日期的间隔时间"></a>函数getIntv，获取从当前时间到指定日期的间隔时间</h4><pre><code>function getIntv(char){
+  var intv=(Date.parse(char)-Date.now());
+  var a=1000*60*60*24;
+  var day=Math.floor(intv/a);
+  var hours=Math.floor((intv-day*a)/a*24);
+  var minute=Math.floor((intv-day*a-hours*a/24)/a*24*60);
+  var second=Math.floor((intv-day*a-hours*a/24-minute*a/24/60)/a*24*60*60);
+  return &apos;倒计时&apos;+day+&apos;天&apos;+hours+&apos;小时&apos;+minute+&apos;分&apos;+second+&apos;秒&apos;;
+}
+var str = getIntv(&quot;2016-05-01&quot;);
+console.log(str);  // 倒计时7天18小时22分4秒
+</code></pre><h4 id="函数getChsDate-char-把数字日期改成中文日期"><a href="#函数getChsDate-char-把数字日期改成中文日期" class="headerlink" title="函数getChsDate(char)把数字日期改成中文日期"></a>函数getChsDate(char)把数字日期改成中文日期</h4><pre><code>function getChsDate(char){
+  var char=(char.split(&apos;-&apos;));
+  var newarr=[];
+  chs=[&apos;零&apos;,&apos;一&apos;,&apos;二&apos;,&apos;三&apos;,&apos;四&apos;,&apos;五&apos;,&apos;六&apos;,&apos;七&apos;,&apos;八&apos;,&apos;九&apos;,&apos;十&apos;];
+  for(var i in char){
+    newarr.push(char[i].split(&apos;&apos;));
+  }
+  year=chs[newarr[0][0]]+chs[newarr[0][1]]+chs[newarr[0][2]]+chs[newarr[0][3]]+&apos;年&apos;;
+  if ([newarr[1][0]===1]){
+    month=&apos;十&apos;+chs[newarr[1][1]]+&apos;月&apos;;
+  }else {
+    month=chs[newarr[1][1]]+&apos;月&apos;;
+  }
+  switch (newarr[2][0]){
+    case &quot;0&quot;:
+    day=chs[newarr[2][1]]+&apos;日&apos;;break;
+    case &quot;1&quot;:
+    day=&apos;十&apos;+chs[newarr[2][1]]+&apos;日&apos;;break;
+    case &quot;2&quot;:
+    day=&apos;二十&apos;+chs[newarr[2][1]]+&apos;日&apos;;break;
+    default:
+    day=&apos;三十&apos;+chs[newarr[2][1]]+&apos;日&apos;;
+  }
+  month=month.replace(&apos;零&apos;,&apos;&apos;);
+  day=day.replace(&apos;零&apos;,&apos;&apos;);
+  return year+month+day;
+}
+var str = getChsDate(&apos;2015-10-10&apos;);
+console.log(str);  // 二零一五年十月十日
+</code></pre><h4 id="函数getLastNDays-num-获取n天前的日期"><a href="#函数getLastNDays-num-获取n天前的日期" class="headerlink" title="函数getLastNDays(num)获取n天前的日期"></a>函数getLastNDays(num)获取n天前的日期</h4><pre><code>function getLastNDays(num){
+  var time=new Date(Date.now()-num*24*3600*1000);
+  return time.getFullYear()+&apos;-&apos;+time.getMonth()+&apos;-&apos;+time.getDate();
+}
+var lastWeek =  getLastNDays(7); // &quot;2016-3-16&quot;
+var lastMonth = getLastNDays(30); // &quot;2016-2-24&quot;
+</code></pre><h4 id="计算一段代码运行的时间"><a href="#计算一段代码运行的时间" class="headerlink" title="计算一段代码运行的时间"></a>计算一段代码运行的时间</h4><pre><code>var Runtime = (function(){
+  return {
+    start: function(){
+      t1=Date.now();
+    },
+    end: function(){
+      t2=Date.now();
+    },
+    get: function(){
+      return &apos;这段代码运行的时间为：&apos;+((t2-t1)/1000)+&apos;秒&apos;;
+    }
+  };
+}());
+Runtime.start();
+for (var i=0;i&lt;10000;i++)
+  console.log(1);
+Runtime.end();
+console.log(  Runtime.get() ); // 这段代码运行的时间为：1.069秒
+</code></pre><h4 id="楼梯有200级，每次走1级或是2级，从底走到顶一共有多少种走法"><a href="#楼梯有200级，每次走1级或是2级，从底走到顶一共有多少种走法" class="headerlink" title="楼梯有200级，每次走1级或是2级，从底走到顶一共有多少种走法?"></a>楼梯有200级，每次走1级或是2级，从底走到顶一共有多少种走法?</h4><pre><code>function way(step){
+  if (step&lt;2){
+    step=1;
+  }else {
+    step=way(step-1)+way(step-2);
+  }
+  return step; 
+}
+console.log(way(7));    //  21种方法  7级台阶
+console.log(way(10));   //  89        10级台阶
+console.log(way(15));   //  987       15级台阶
+console.log(way(45)); // 1836311903 45级台阶
+</code></pre><h4 id="一个深拷贝的方法，运用递归"><a href="#一个深拷贝的方法，运用递归" class="headerlink" title="一个深拷贝的方法，运用递归"></a>一个深拷贝的方法，运用递归</h4><pre><code>function arrayCopy(obj){
+  var newobj=obj;
+  for(i in obj){
+    if(typeof obj[i]!==&apos;object&apos;)
+      newobj[i]=obj[i];
+    else{
+      newobj[i]=arrayCopy(obj[i]);
+    }
+  }
+  return newobj;
+}
+var obj1={&quot;array&quot;:[4,5,[2,3,5,],78],&quot;name&quot;: &quot;张三&quot;, &quot;工作同事&quot;:{&quot;name&quot;: &quot;李四&quot;, &quot;habit&quot;: &quot;爬山&quot;}};
+var obj2=arrayCopy(obj1);  // Object {array: Array[4], name: &quot;张三&quot;, 工作同事: Object}
+var obj3=[4,5,[2,3,5,],78,{&quot;name&quot;: &quot;张三&quot;, &quot;工作同事&quot;:{&quot;name&quot;: &quot;李四&quot;, &quot;habit&quot;: &quot;爬山&quot;}}];
+var obj4=arrayCopy(obj3);  // [4, 5, Array[3], 78, Object]
+</code></pre></div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/05/01/JavaScript-闭包、定时器/" title="javascript 闭包、定时器" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/04/28/JavaScript-数组、字符串、数学函数/" title="javascript 数组、字符串、数学函数" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

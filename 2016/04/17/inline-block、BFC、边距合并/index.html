@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>inline-block、BFC、边距合并 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="CSS">
+  <meta name="description" content="外边距合并及破解方法
+同一个BFC中常规文档流的两个在垂直方向“相邻”的块级盒子会出现外边距合并。
+两个外边距都是正数时取其中最大的那个作为外边距；一正一负时则相加作为之间的外边距；都是负数时取其中绝对值较大的作为之间的外边距。
+创建新的BFC、脱离文档流、用bordr/padding将其分隔开。
+
+去除inline-block内缝隙的几种常见方法
+相邻的标签不要有空格，可以把结束符放在下一行标签">
+<meta property="og:type" content="article">
+<meta property="og:title" content="inline-block、BFC、边距合并">
+<meta property="og:url" content="http://yoursite.com/2016/04/17/inline-block、BFC、边距合并/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="外边距合并及破解方法
+同一个BFC中常规文档流的两个在垂直方向“相邻”的块级盒子会出现外边距合并。
+两个外边距都是正数时取其中最大的那个作为外边距；一正一负时则相加作为之间的外边距；都是负数时取其中绝对值较大的作为之间的外边距。
+创建新的BFC、脱离文档流、用bordr/padding将其分隔开。
+
+去除inline-block内缝隙的几种常见方法
+相邻的标签不要有空格，可以把结束符放在下一行标签">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.630Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="inline-block、BFC、边距合并">
+<meta name="twitter:description" content="外边距合并及破解方法
+同一个BFC中常规文档流的两个在垂直方向“相邻”的块级盒子会出现外边距合并。
+两个外边距都是正数时取其中最大的那个作为外边距；一正一负时则相加作为之间的外边距；都是负数时取其中绝对值较大的作为之间的外边距。
+创建新的BFC、脱离文档流、用bordr/padding将其分隔开。
+
+去除inline-block内缝隙的几种常见方法
+相邻的标签不要有空格，可以把结束符放在下一行标签">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">inline-block、BFC、边距合并</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">inline-block、BFC、边距合并</h1>
+    <h5 class="subtitle">2016-04-17</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-inline-block、BFC、边距合并" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#外边距合并及破解方法"><span class="post-toc-text">外边距合并及破解方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#去除inline-block内缝隙的几种常见方法"><span class="post-toc-text">去除inline-block内缝隙的几种常见方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#父容器使用overflow-auto-hidden撑开高度的原理"><span class="post-toc-text">父容器使用overflow: auto| hidden撑开高度的原理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#BFC的形成及其作用"><span class="post-toc-text">BFC的形成及其作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#浮动导致的父容器高度塌陷的原理及解决方法"><span class="post-toc-text">浮动导致的父容器高度塌陷的原理及解决方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#用伪类去撑开父容器高度（消除浮动影响）"><span class="post-toc-text">用伪类去撑开父容器高度（消除浮动影响）</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="外边距合并及破解方法"><a href="#外边距合并及破解方法" class="headerlink" title="外边距合并及破解方法"></a>外边距合并及破解方法</h4><ul>
+<li>同一个BFC中常规文档流的两个在垂直方向“相邻”的块级盒子会出现外边距合并。</li>
+<li>两个外边距都是正数时取其中最大的那个作为外边距；一正一负时则相加作为之间的外边距；都是负数时取其中绝对值较大的作为之间的外边距。</li>
+<li>创建新的BFC、脱离文档流、用bordr/padding将其分隔开。</li>
+</ul>
+<h4 id="去除inline-block内缝隙的几种常见方法"><a href="#去除inline-block内缝隙的几种常见方法" class="headerlink" title="去除inline-block内缝隙的几种常见方法"></a>去除<code>inline-block</code>内缝隙的几种常见方法</h4><ul>
+<li>相邻的标签不要有空格，可以把结束符放在下一行标签的前面；</li>
+<li>使用负margin，一般是margin: -4px;</li>
+<li>父容器设置font-size: 0，并重新设置子元素字体撑开高度；</li>
+<li>也可以用浮动代替inline-block，注意清除浮动。</li>
+</ul>
+<h4 id="父容器使用overflow-auto-hidden撑开高度的原理"><a href="#父容器使用overflow-auto-hidden撑开高度的原理" class="headerlink" title="父容器使用overflow: auto| hidden撑开高度的原理"></a>父容器使用<code>overflow: auto| hidden</code>撑开高度的原理</h4><ul>
+<li>原本因浮动或定位导致的子元素与父容器不在同一个维度，因为使用<code>overflow: auto| hidden</code>后，父容器就形成了一个新的BFC，里面的布局不会受到外面元素的影响，BFC内的元素重新按顺序一个个排列，撑开高度。</li>
+</ul>
+<h4 id="BFC的形成及其作用"><a href="#BFC的形成及其作用" class="headerlink" title="BFC的形成及其作用"></a>BFC的形成及其作用</h4><ul>
+<li>BFC是块级格式上下文，是一个独立的布局区间，其内部的元素排列不受外部元素影响。</li>
+<li>浮动、绝对定位、非块级盒子的块级容器（inline-block、table cell、table caption）以及overflow值不为visible的块级盒子都可以形成BFC。</li>
+<li>形成BFC就形成了一个独立的区间，不会受外部元素的影响；可以用来清除浮动造成的不良影响、去除外边距折叠。</li>
+</ul>
+<h4 id="浮动导致的父容器高度塌陷的原理及解决方法"><a href="#浮动导致的父容器高度塌陷的原理及解决方法" class="headerlink" title="浮动导致的父容器高度塌陷的原理及解决方法"></a>浮动导致的父容器高度塌陷的原理及解决方法</h4><ul>
+<li>指的是因为子元素浮动，因而就脱离了文档流，未设置高度的父容器认为子元素不存在，所以父容器高度会坍塌，从而影响排版显示。</li>
+<li>①在浮动元素的后面加一个空元素并<code>clear:both</code>，虽然父容器无法感知浮动元素，但是空元素能告诉他高度应该撑到哪，用空div或空内容的：after都可以，注意display:block。<br>②可以用浮动、绝对定位、<code>overflow：hidden/auto</code>、display：inline-block等创建新的BFC，形成独立布局空间，让父元素感知浮动的子元素。</li>
+</ul>
+<h4 id="用伪类去撑开父容器高度（消除浮动影响）"><a href="#用伪类去撑开父容器高度（消除浮动影响）" class="headerlink" title="用伪类去撑开父容器高度（消除浮动影响）"></a>用伪类去撑开父容器高度（消除浮动影响）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.clearfix:after&#123;</span><br><span class="line">    content: &apos;&apos;;</span><br><span class="line">    display: block;</span><br><span class="line">    clear: both;</span><br><span class="line">&#125;</span><br><span class="line">.clearfix&#123;</span><br><span class="line">    *zoom: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>BFC是独立布局空间，不受外部元素影响，重新感知浮动的元素撑开空间；而空内容的伪类是以clear作为媒介，感知到浮动元素，再以自身为截止点让父容器撑开高度。</li>
+</ul>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/04/18/负边距及三栏布局/" title="负边距及三栏布局" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/04/16/CSS浮动与定位/" title="CSS浮动与定位" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

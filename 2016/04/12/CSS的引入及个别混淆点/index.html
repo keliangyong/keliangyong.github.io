@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS的引入 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="CSS">
+  <meta name="description" content="CSS样式的引入方式及link和@import的区别
+样式有3种引入方式：①外部式：在&amp;lt;head&amp;gt;下使用link或@import引入xx.css文件。②内部式：在&amp;lt;head&amp;gt;下使用&amp;lt;style&amp;gt;书写。③内联式：在对应标签的起始符中直接添加style样式。
+link和@import有以下区别：（一般使用link）①link的css载入与页面加载同步；而@impor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS的引入">
+<meta property="og:url" content="http://yoursite.com/2016/04/12/CSS的引入及个别混淆点/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="CSS样式的引入方式及link和@import的区别
+样式有3种引入方式：①外部式：在&amp;lt;head&amp;gt;下使用link或@import引入xx.css文件。②内部式：在&amp;lt;head&amp;gt;下使用&amp;lt;style&amp;gt;书写。③内联式：在对应标签的起始符中直接添加style样式。
+link和@import有以下区别：（一般使用link）①link的css载入与页面加载同步；而@impor">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-35fc674d3bf34c18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.552Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS的引入">
+<meta name="twitter:description" content="CSS样式的引入方式及link和@import的区别
+样式有3种引入方式：①外部式：在&amp;lt;head&amp;gt;下使用link或@import引入xx.css文件。②内部式：在&amp;lt;head&amp;gt;下使用&amp;lt;style&amp;gt;书写。③内联式：在对应标签的起始符中直接添加style样式。
+link和@import有以下区别：（一般使用link）①link的css载入与页面加载同步；而@impor">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1826139-35fc674d3bf34c18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CSS的引入</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">CSS的引入</h1>
+    <h5 class="subtitle">2016-04-12</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-CSS的引入及个别混淆点" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS样式的引入方式及link和-import的区别"><span class="post-toc-text">CSS样式的引入方式及link和@import的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文件路径-main-css-、-main-css、main-css的区别"><span class="post-toc-text">文件路径../main.css 、./main.css、main.css的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在调试中console-log的作用"><span class="post-toc-text">在调试中console.log的作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#text-align-justify是什么"><span class="post-toc-text">text-align: justify是什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#px、em、rem三者的区别"><span class="post-toc-text">px、em、rem三者的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#chrome-审查元素的功能简介："><span class="post-toc-text">chrome 审查元素的功能简介：</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="CSS样式的引入方式及link和-import的区别"><a href="#CSS样式的引入方式及link和-import的区别" class="headerlink" title="CSS样式的引入方式及link和@import的区别"></a>CSS样式的引入方式及<code>link</code>和<code>@import</code>的区别</h4><ul>
+<li>样式有3种引入方式：<br>①<strong>外部式</strong>：在<code>&lt;head&gt;</code>下使用<code>link</code>或<code>@import</code>引入xx.css文件。<br>②<strong>内部式</strong>：在<code>&lt;head&gt;</code>下使用<code>&lt;style&gt;</code>书写。<br>③<strong>内联式</strong>：在对应标签的起始符中直接添加<code>style</code>样式。</li>
+<li><code>link</code>和<code>@import</code>有以下区别：（一般使用<code>link</code>）<br>①<code>link</code>的css载入与页面加载同步；而<code>@import</code>的css是在页面加载完成后引入的。<br>②<code>link</code>无兼容性问题；而<code>@import</code>是CSS2.1时提出的，部分低版本浏览器不支持。<br>③<code>link</code>支持使用Javascript控制DOM去改变样式；而<code>@import</code>不支持。<br>④<code>link</code>还可用于定义RSS等其他事务；而<code>@import</code>只能用于加载css。</li>
+</ul>
+<h4 id="文件路径-main-css-、-main-css、main-css的区别"><a href="#文件路径-main-css-、-main-css、main-css的区别" class="headerlink" title="文件路径../main.css 、./main.css、main.css的区别"></a>文件路径../main.css 、./main.css、main.css的区别</h4><ul>
+<li><code>../main.css</code>是指上一级目录中的css文件，而<code>./main.css</code>、<code>main.css</code>都是指本目录下的css文件。</li>
+</ul>
+<h4 id="在调试中console-log的作用"><a href="#在调试中console-log的作用" class="headerlink" title="在调试中console.log的作用"></a>在调试中<code>console.log</code>的作用</h4><ul>
+<li><code>console.log</code>是用于调试Javascript用的，一步步追根溯源让控制台打印出对应数据，查看是否则正确，找出问题的关键点。相比于alert，console能显示具体内容、且不打断页面、也可在控制台显示其他内容。</li>
+</ul>
+<h4 id="text-align-justify是什么"><a href="#text-align-justify是什么" class="headerlink" title="text-align: justify是什么"></a>text-align: justify是什么</h4><ul>
+<li><code>text-align: justify</code>是让文本两端对齐的属性，通过调整字间距让两端对齐。</li>
+</ul>
+<h4 id="px、em、rem三者的区别"><a href="#px、em、rem三者的区别" class="headerlink" title="px、em、rem三者的区别"></a>px、em、rem三者的区别</h4><ul>
+<li>3个都是字体大小的“单位”，与数字结合定义字体大小，但有区别。</li>
+<li><code>px</code>的大小是相对于显示分辨率而言的、<code>em</code>的大小则是相对于其父元素而言的、<code>rem</code>的大小是相对于根元素而言的。</li>
+</ul>
+<h4 id="chrome-审查元素的功能简介："><a href="#chrome-审查元素的功能简介：" class="headerlink" title="chrome 审查元素的功能简介："></a>chrome 审查元素的功能简介：</h4><p><img src="http://upload-images.jianshu.io/upload_images/1826139-35fc674d3bf34c18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_1459513770459_chrome.png"></p>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/04/13/CSS列表及表单/" title="CSS列表及表单" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/04/11/Html基础/" title="Html基础" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

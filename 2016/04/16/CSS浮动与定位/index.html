@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS浮动与定位 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="CSS">
+  <meta name="description" content="文档流的概念，如何让元素脱离文档流
+文档流指的是浏览器按照html的内容按顺序解析并呈现，遇到行内元素就往行内放，遇到块级元素就空一行放置，依次排列；
+定位中的fixed、定位中的absolute、浮动都可以让元素脱离文档流。
+
+定位方式简介
+有static、fixed、absolute、relative这四种定位方式；
+static是静止，不进行定位，元素还是处于正常的文档流中，忽略上下左右的偏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS浮动与定位">
+<meta property="og:url" content="http://yoursite.com/2016/04/16/CSS浮动与定位/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="文档流的概念，如何让元素脱离文档流
+文档流指的是浏览器按照html的内容按顺序解析并呈现，遇到行内元素就往行内放，遇到块级元素就空一行放置，依次排列；
+定位中的fixed、定位中的absolute、浮动都可以让元素脱离文档流。
+
+定位方式简介
+有static、fixed、absolute、relative这四种定位方式；
+static是静止，不进行定位，元素还是处于正常的文档流中，忽略上下左右的偏">
+<meta property="og:image" content="https://leanote.com/api/file/getImage?fileId=570a2374ab64413e68000896">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.551Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS浮动与定位">
+<meta name="twitter:description" content="文档流的概念，如何让元素脱离文档流
+文档流指的是浏览器按照html的内容按顺序解析并呈现，遇到行内元素就往行内放，遇到块级元素就空一行放置，依次排列；
+定位中的fixed、定位中的absolute、浮动都可以让元素脱离文档流。
+
+定位方式简介
+有static、fixed、absolute、relative这四种定位方式；
+static是静止，不进行定位，元素还是处于正常的文档流中，忽略上下左右的偏">
+<meta name="twitter:image" content="https://leanote.com/api/file/getImage?fileId=570a2374ab64413e68000896">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CSS浮动与定位</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">CSS浮动与定位</h1>
+    <h5 class="subtitle">2016-04-16</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-CSS浮动与定位" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#文档流的概念，如何让元素脱离文档流"><span class="post-toc-text">文档流的概念，如何让元素脱离文档流</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#定位方式简介"><span class="post-toc-text">定位方式简介</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#absolute-relative-fixed-偏移的参考点"><span class="post-toc-text">absolute, relative, fixed 偏移的参考点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#z-index-的使用"><span class="post-toc-text">z-index 的使用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#position-relative和负margin使元素位置发生偏移的区别"><span class="post-toc-text">position:relative和负margin使元素位置发生偏移的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#让一个固定宽高的元素在页面上垂直水平居中"><span class="post-toc-text">让一个固定宽高的元素在页面上垂直水平居中</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#浮动元素的特征及对其他元素的影响"><span class="post-toc-text">浮动元素的特征及对其他元素的影响</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#清除浮动"><span class="post-toc-text">清除浮动</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="文档流的概念，如何让元素脱离文档流"><a href="#文档流的概念，如何让元素脱离文档流" class="headerlink" title="文档流的概念，如何让元素脱离文档流"></a>文档流的概念，如何让元素脱离文档流</h4><ul>
+<li>文档流指的是浏览器按照html的内容按顺序解析并呈现，遇到行内元素就往行内放，遇到块级元素就空一行放置，依次排列；</li>
+<li>定位中的fixed、定位中的absolute、浮动都可以让元素脱离文档流。</li>
+</ul>
+<h4 id="定位方式简介"><a href="#定位方式简介" class="headerlink" title="定位方式简介"></a>定位方式简介</h4><ul>
+<li>有<code>static</code>、<code>fixed</code>、<code>absolute</code>、<code>relative</code>这四种定位方式；</li>
+<li><code>static</code>是静止，不进行定位，元素还是处于正常的文档流中，忽略上下左右的偏移和z-index声明，是默认值。</li>
+<li><code>fixed</code>是把元素固定住，是相对于浏览器来定位的，会脱离文档流，可以使用left、right、top、bottom来改变固定的位置；一般用于广告、一些固定提示栏等你想要固定持续显示的内容。</li>
+<li><code>absolute</code>是相对于上一个使用定位（static除外）的祖先元素进行定位的，如果没有使用定位的祖先元素，就相对于html文档页面进行定位，会脱离文档流，同样使用left、right、top、bottom来设定偏移的位置；一般用于使用相对位置的场景，在父元素上加个relative，在给子元素设定absolute进行相对偏移。</li>
+<li><code>relative</code>是相对于元素自身在文档流中的位置进行偏移的，注意它并不会脱离文档流，使用left、right、top、bottom来设定相对偏移的位置，一般用于微调整元素自身位置。</li>
+</ul>
+<h4 id="absolute-relative-fixed-偏移的参考点"><a href="#absolute-relative-fixed-偏移的参考点" class="headerlink" title="absolute, relative, fixed 偏移的参考点"></a>absolute, relative, fixed 偏移的参考点</h4><ul>
+<li><code>absolute</code>, <code>relative</code>, <code>fixed</code>偏移的参考点分别是上一个使用除static以外定位的祖先元素（若没有找到，则相对于html元素即文档）、元素自身原本在文档流中的位置、浏览器窗口。</li>
+</ul>
+<h4 id="z-index-的使用"><a href="#z-index-的使用" class="headerlink" title="z-index 的使用"></a>z-index 的使用</h4><ul>
+<li>可以设定元素的堆叠顺序（可以理解为Z轴高度，越高离我们视野就越近，高度比它小的就被盖住了），值越大，堆叠优先级越高；使用时将你所要展示出来的元素的z-index值设得比其他遮挡它的元素的值大就可以。</li>
+</ul>
+<h4 id="position-relative和负margin使元素位置发生偏移的区别"><a href="#position-relative和负margin使元素位置发生偏移的区别" class="headerlink" title="position:relative和负margin使元素位置发生偏移的区别"></a>position:relative和负margin使元素位置发生偏移的区别</h4><ul>
+<li><code>position:relative</code>是单单把作用到的元素进行一个位置偏移，而其他的元素不会因此发生位置的改变；而负<code>margin</code>是调整外边距，这样会影响到它周围元素布局和位置。</li>
+</ul>
+<h4 id="让一个固定宽高的元素在页面上垂直水平居中"><a href="#让一个固定宽高的元素在页面上垂直水平居中" class="headerlink" title="让一个固定宽高的元素在页面上垂直水平居中"></a>让一个固定宽高的元素在页面上垂直水平居中</h4><ul>
+<li>用<code>position: absolute</code>设置这个元素相对于页面的top和left为50%，此时该元素的左上角这个点就垂直水平居中了，之后再用-margin让其往左、往上分别移动其宽高的一半，达到垂直水平居中的目的。<img src="https://leanote.com/api/file/getImage?fileId=570a2374ab64413e68000896" alt=""></li>
+</ul>
+<h4 id="浮动元素的特征及对其他元素的影响"><a href="#浮动元素的特征及对其他元素的影响" class="headerlink" title="浮动元素的特征及对其他元素的影响"></a>浮动元素的特征及对其他元素的影响</h4><ul>
+<li>浮动元素会脱离文档流，不占据空间；</li>
+<li>其他浮动元素跟它处于同一层，会紧挨着它的边框放置，如果有其他元素有清除浮动，则会另起一行放置；</li>
+<li>普通元素因它脱离文档流，所以会认为它不存在，会顶上它的位置，所以普通元素的一部分会被挡住；</li>
+<li>文字遇到浮动元素边框会避开另起一行有环绕效果。</li>
+</ul>
+<h4 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h4><ul>
+<li>清除浮动指的是用clear属性来设置是否允许它自身周围存在浮动元素，这样可以让浮动元素因被排斥或排斥其他浮动元素而再往下占据一行，从而消除对其他元素的影响；可以设置clear：left、right、both来选择不允许哪一边存在浮动元素。</li>
+</ul>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/04/17/inline-block、BFC、边距合并/" title="inline-block、BFC、边距合并" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/04/15/CSS常用技巧/" title="CSS常用技巧" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

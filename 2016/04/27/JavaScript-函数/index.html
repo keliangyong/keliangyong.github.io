@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript 函数 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Javascript">
+  <meta name="description" content="函数声明和函数表达式
+函数声明和函数表达式都是创建函数的方法；
+函数声明会触发函数提升，而函数表达式不会； 
+函数声明是一个声明不需要在大括号后面加;，但是函数表达式是一个语句，结尾需要加;
+函数声明一般带有函数名以便调用，函数表达式不带函数名（如果带函数名也只是在函数内部自己调用，外部不可用）。
+
+变量的声明前置、函数的声明前置
+js的工作方式是先解析代码，提前知道所有变量的声明或函数的声明，再">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 函数">
+<meta property="og:url" content="http://yoursite.com/2016/04/27/JavaScript-函数/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="函数声明和函数表达式
+函数声明和函数表达式都是创建函数的方法；
+函数声明会触发函数提升，而函数表达式不会； 
+函数声明是一个声明不需要在大括号后面加;，但是函数表达式是一个语句，结尾需要加;
+函数声明一般带有函数名以便调用，函数表达式不带函数名（如果带函数名也只是在函数内部自己调用，外部不可用）。
+
+变量的声明前置、函数的声明前置
+js的工作方式是先解析代码，提前知道所有变量的声明或函数的声明，再">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-89ff5a7e758218fe?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-e0357364a5acaa5b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-b048c6a57350e263?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-a9d36eea4d2e6fd6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-c6f780ae23a0e1c5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-e27e3d09a8ed0c0c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-cc5ec6a5ef308b86?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-1e6f08ee04994c06?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.572Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript 函数">
+<meta name="twitter:description" content="函数声明和函数表达式
+函数声明和函数表达式都是创建函数的方法；
+函数声明会触发函数提升，而函数表达式不会； 
+函数声明是一个声明不需要在大括号后面加;，但是函数表达式是一个语句，结尾需要加;
+函数声明一般带有函数名以便调用，函数表达式不带函数名（如果带函数名也只是在函数内部自己调用，外部不可用）。
+
+变量的声明前置、函数的声明前置
+js的工作方式是先解析代码，提前知道所有变量的声明或函数的声明，再">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1826139-89ff5a7e758218fe?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">javascript 函数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">javascript 函数</h1>
+    <h5 class="subtitle">2016-04-27</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-JavaScript-函数" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数声明和函数表达式"><span class="post-toc-text">函数声明和函数表达式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#变量的声明前置、函数的声明前置"><span class="post-toc-text">变量的声明前置、函数的声明前置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#arguments-是什么"><span class="post-toc-text">arguments 是什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数的重载"><span class="post-toc-text">函数的重载</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#立即执行函数表达式"><span class="post-toc-text">立即执行函数表达式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数的作用域链"><span class="post-toc-text">函数的作用域链</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="函数声明和函数表达式"><a href="#函数声明和函数表达式" class="headerlink" title="函数声明和函数表达式"></a>函数声明和函数表达式</h4><ul>
+<li>函数声明和函数表达式都是创建函数的方法；</li>
+<li>函数声明会触发函数提升，而函数表达式不会；<br><img src="http://upload-images.jianshu.io/upload_images/1826139-89ff5a7e758218fe?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="前置"><br><img src="http://upload-images.jianshu.io/upload_images/1826139-e0357364a5acaa5b?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="不前置"> </li>
+<li>函数声明是一个声明不需要在大括号后面加<code>;</code>，但是函数表达式是一个语句，结尾需要加<code>;</code></li>
+<li>函数声明一般带有函数名以便调用，函数表达式不带函数名（如果带函数名也只是在函数内部自己调用，外部不可用）。</li>
+</ul>
+<h4 id="变量的声明前置、函数的声明前置"><a href="#变量的声明前置、函数的声明前置" class="headerlink" title="变量的声明前置、函数的声明前置"></a>变量的声明前置、函数的声明前置</h4><ul>
+<li>js的工作方式是先解析代码，提前知道所有变量的声明或函数的声明，再一行一行执行代码；这就产生了变量提升和函数提升。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-b048c6a57350e263?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="变量提升">函数声明前置与变量前置类似，它是将整个函数提升到代码顶部，同样只有使用function声明的函数才会前置。</li>
+</ul>
+<h4 id="arguments-是什么"><a href="#arguments-是什么" class="headerlink" title="arguments 是什么"></a>arguments 是什么</h4><ul>
+<li><strong><code>arguments</code>是一个包含函数运行时的所有参数的对象</strong>；<code>arguments[0]</code>代表传递给函数的第一个参数，以此类推；另外可以在函数内部使用<code>arguments[i]</code>对参数进行修改（内部有效）<img src="http://upload-images.jianshu.io/upload_images/1826139-a9d36eea4d2e6fd6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="arguments"> </li>
+</ul>
+<h4 id="函数的重载"><a href="#函数的重载" class="headerlink" title="函数的重载"></a>函数的重载</h4><ul>
+<li>在弱类型语言js中，无法去构造两个同名的函数，即使它们的参数数量不同，后声明的函数会把前面的函数覆盖掉！<img src="http://upload-images.jianshu.io/upload_images/1826139-c6f780ae23a0e1c5?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无法用形参重载"> </li>
+<li>但是可以通过arguments来代替不同的参数，上一问解答过，arguments包含所有传递给函数的参数，我们可以用arguments.length做判定条件，搭配任意变量来遍历每一个参数，从而达到函数重载的目的。<img src="http://upload-images.jianshu.io/upload_images/1826139-e27e3d09a8ed0c0c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="js函数重载"> </li>
+</ul>
+<h4 id="立即执行函数表达式"><a href="#立即执行函数表达式" class="headerlink" title="立即执行函数表达式"></a>立即执行函数表达式</h4><ul>
+<li>有时候我们定义一个函数后，会有立即调用的需求；那么就可以直接用一个括号把整个函数包裹起来后面紧跟着<code>（形参）</code>就可以让函数立刻执行，这就是立即执行函数表达式；另外它还具备表达式的一些功能，比如可以将函数返回值赋值给其他变量，也可以参与运算。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-cc5ec6a5ef308b86?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="例子"> </li>
+<li>立即执行函数可以省略函数名，这样就不会影响全局；另外因为其内部是函数，就可以形成特有的作用域，可以封装一些外部无法访问的变量。<img src="http://upload-images.jianshu.io/upload_images/1826139-1e6f08ee04994c06?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="立即执行函数"> </li>
+</ul>
+<h4 id="函数的作用域链"><a href="#函数的作用域链" class="headerlink" title="函数的作用域链"></a>函数的作用域链</h4><ul>
+<li>作用域：指变量存在或作用的范围，js中作用域分两种，全局作用域和函数作用域；<ul>
+<li>在函数外部声明的变量在全局都可读；在函数内部声明的外部无法读取。</li>
+<li>注意：函数内部声明的变量会覆盖外部的全局变量（如果有的话）。</li>
+</ul>
+</li>
+<li>作用域链：函数也是对象，其内部有一个属性[scope]储存了这个函数可能用到的所有变量；这些变量被称为是这个函数的作用域链<ul>
+<li>创建函数时，js会将所有全局变量放入作用域链中；</li>
+<li>调用函数时，会临时将一部分活动的对象（函数的所有局部变量、命名参数、参数集合）加入到作用域链顶端；</li>
+<li>函数执行时，会先去作用域中寻找局部变量或命名参数等，如果找不到的话，才会进一步到全局变量中去找。</li>
+</ul>
+</li>
+</ul>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/04/28/JavaScript-数组、字符串、数学函数/" title="javascript 数组、字符串、数学函数" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/04/25/初识-JavaScript/" title="初始javascript" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

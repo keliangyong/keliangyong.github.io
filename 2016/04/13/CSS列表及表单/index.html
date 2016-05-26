@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS列表及表单 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="CSS">
+  <meta name="description" content="有序列表、无序列表、自定义列表的使用及语义上的区别
+三种列表按其字面意思理解使用即可；当制作的列表需要体现顺序时就使用有序列表，反之就可使用无序列表，针对较复杂或嵌套较多的则可以使用自定义列表结构更清晰明了。三者都可以嵌套，例子见下图： 
+
+列表前面的点或者数字的去除
+对列表元素li使用样式｛list-style:none｝去除
+
+class 和 id 的区别
+不同元素可标记为同一个类，但id是唯">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS列表及表单">
+<meta property="og:url" content="http://yoursite.com/2016/04/13/CSS列表及表单/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="有序列表、无序列表、自定义列表的使用及语义上的区别
+三种列表按其字面意思理解使用即可；当制作的列表需要体现顺序时就使用有序列表，反之就可使用无序列表，针对较复杂或嵌套较多的则可以使用自定义列表结构更清晰明了。三者都可以嵌套，例子见下图： 
+
+列表前面的点或者数字的去除
+对列表元素li使用样式｛list-style:none｝去除
+
+class 和 id 的区别
+不同元素可标记为同一个类，但id是唯">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-8bcf80fb71e45ef1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.545Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS列表及表单">
+<meta name="twitter:description" content="有序列表、无序列表、自定义列表的使用及语义上的区别
+三种列表按其字面意思理解使用即可；当制作的列表需要体现顺序时就使用有序列表，反之就可使用无序列表，针对较复杂或嵌套较多的则可以使用自定义列表结构更清晰明了。三者都可以嵌套，例子见下图： 
+
+列表前面的点或者数字的去除
+对列表元素li使用样式｛list-style:none｝去除
+
+class 和 id 的区别
+不同元素可标记为同一个类，但id是唯">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1826139-8bcf80fb71e45ef1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CSS列表及表单</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">CSS列表及表单</h1>
+    <h5 class="subtitle">2016-04-13</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-CSS列表及表单" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#有序列表、无序列表、自定义列表的使用及语义上的区别"><span class="post-toc-text">有序列表、无序列表、自定义列表的使用及语义上的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#列表前面的点或者数字的去除"><span class="post-toc-text">列表前面的点或者数字的去除</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#class-和-id-的区别"><span class="post-toc-text">class 和 id 的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#块级元素、行内元素简介"><span class="post-toc-text">块级元素、行内元素简介</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#display-block、display-inline、display-inline-block的作用"><span class="post-toc-text">display: block、display: inline、display: inline-block的作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTML-CSS-语义化的理解"><span class="post-toc-text">HTML CSS 语义化的理解</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#form表单的作用及常用input-标签"><span class="post-toc-text">form表单的作用及常用input 标签</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#post-和-get-方式的区别"><span class="post-toc-text">post 和 get 方式的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在input中name的作用"><span class="post-toc-text">在input中name的作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#三种提交按钮的区别-lt-button-gt-提交-lt-button-gt-、-lt-a-class-quot-btn-quot-href-quot-quot-gt-提交-lt-a-gt-、-lt-input-type-quot-submit-quot-value-quot-提交-quot-gt"><span class="post-toc-text">三种提交按钮的区别<button>提交</button>、<a class="btn" href="#">提交</a>、<input type="submit" value="提交"></span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#表单中radio-如何-分组"><span class="post-toc-text">表单中radio 如何 分组</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#表单中placeholder-属性及作用"><span class="post-toc-text">表单中placeholder 属性及作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#type-hidden隐藏域的作用"><span class="post-toc-text">type=hidden隐藏域的作用</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="有序列表、无序列表、自定义列表的使用及语义上的区别"><a href="#有序列表、无序列表、自定义列表的使用及语义上的区别" class="headerlink" title="有序列表、无序列表、自定义列表的使用及语义上的区别"></a>有序列表、无序列表、自定义列表的使用及语义上的区别</h4><ul>
+<li>三种列表按其字面意思理解使用即可；当制作的列表需要体现顺序时就使用有序列表，反之就可使用无序列表，针对较复杂或嵌套较多的则可以使用自定义列表结构更清晰明了。三者都可以嵌套，例子见下图：<img src="http://upload-images.jianshu.io/upload_images/1826139-8bcf80fb71e45ef1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_1459696621997_表格.png"> </li>
+</ul>
+<h4 id="列表前面的点或者数字的去除"><a href="#列表前面的点或者数字的去除" class="headerlink" title="列表前面的点或者数字的去除"></a>列表前面的点或者数字的去除</h4><ul>
+<li>对列表元素<code>li</code>使用样式｛list-style:none｝去除</li>
+</ul>
+<h4 id="class-和-id-的区别"><a href="#class-和-id-的区别" class="headerlink" title="class 和 id 的区别"></a>class 和 id 的区别</h4><ul>
+<li><p>不同元素可标记为同一个类，但id是唯一的；id更有针对性，优先级比class高。</p>
+</li>
+<li><p>开发者认为特殊的元素或其他独特功能的元素可使用id来标记；对于一些具有相同属性或共同特性的元素可使用class类标记。 </p>
+</li>
+</ul>
+<h4 id="块级元素、行内元素简介"><a href="#块级元素、行内元素简介" class="headerlink" title="块级元素、行内元素简介"></a>块级元素、行内元素简介</h4><ul>
+<li>块级元素，即单独占据页面的一行，浏览器会另起一行来放置一个块级元素，它可以容纳其他块级元素和行内元素，可以设置自身宽高，内外边距的设置有效，<code>&lt;p&gt;</code>、<code>&lt;div&gt;</code>、<code>&lt;h1&gt;</code>、<code>&lt;table&gt;</code>、<code>&lt;form&gt;</code>都是常见的块级元素。</li>
+<li>行内元素，即只占据它本身内容大小的宽度，高度line-height控制（不能设置自身宽度和高度，设置内外边距后仅水平方向有效），可以和其他行内元素放在同一行内，一般它的内部只能放置其他行内元素，常见的行内元素有<code>&lt;a&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;q&gt;</code>、<code>&lt;input&gt;</code>。</li>
+</ul>
+<h4 id="display-block、display-inline、display-inline-block的作用"><a href="#display-block、display-inline、display-inline-block的作用" class="headerlink" title="display: block、display: inline、display: inline-block的作用"></a>display: block、display: inline、display: inline-block的作用</h4><ul>
+<li><code>display: block</code>让行内元素转变为块级元素，具有块级元素特性；设置宽高、内外边距等。</li>
+<li><code>display: inline</code>可以让快级元转变为行内元素，具有行内元素的特性；让其可以与行内元素放在一起。</li>
+<li><code>display: inline-block</code>可以让元素同时具有行内和块级元素的特性；可以与其他行内元素放在同一行，又是呈块状显示，进行块级元素的设置。</li>
+</ul>
+<h4 id="HTML-CSS-语义化的理解"><a href="#HTML-CSS-语义化的理解" class="headerlink" title="HTML CSS 语义化的理解"></a>HTML CSS 语义化的理解</h4><ul>
+<li>HTML和CSS是指页面的结构和样式，同样的页面其背后的代码可能并不相同，同一个效果我有多种实现方法；语义化是指按照大众通俗的做法来划分结构，命名类或id名称，想呈现什么效果就使用对应的元素，同样的当看到对应元素就可以知道这边的代码是属于哪个结构要呈现什么效果；语义化会方便页面的团队开发和合作，对搜素引擎和屏幕阅读器使用者也更加友好。</li>
+</ul>
+<h4 id="form表单的作用及常用input-标签"><a href="#form表单的作用及常用input-标签" class="headerlink" title="form表单的作用及常用input 标签"></a>form表单的作用及常用input 标签</h4><ul>
+<li>form表单是用于页面内容的输入，与后台服务器交互传输数据的。常用的input标签有radio、checkbox、text、password、submit和reset，作用分别是单选框确定相关信息、多选框选择相关信息、文本一般用于输入用户名等少量文本、密码框用于输入密码、生成提交按钮点击后往后台传输form信息、生成重置按钮重置输入的信息。</li>
+</ul>
+<h4 id="post-和-get-方式的区别"><a href="#post-和-get-方式的区别" class="headerlink" title="post 和 get 方式的区别"></a>post 和 get 方式的区别</h4><ul>
+<li>post一般用于数据量较大的数据传输，数据大小看服务器承受能力，是秘密传输，安全。</li>
+<li>get一般用于数据量较小的数据传输，数据大小受浏览器输入框限制，在URL中可以看到提交内容，不安全。</li>
+</ul>
+<h4 id="在input中name的作用"><a href="#在input中name的作用" class="headerlink" title="在input中name的作用"></a>在input中name的作用</h4><ul>
+<li>告诉后台服务器，我给你的是什么数据。</li>
+</ul>
+<h4 id="三种提交按钮的区别-lt-button-gt-提交-lt-button-gt-、-lt-a-class-quot-btn-quot-href-quot-quot-gt-提交-lt-a-gt-、-lt-input-type-quot-submit-quot-value-quot-提交-quot-gt"><a href="#三种提交按钮的区别-lt-button-gt-提交-lt-button-gt-、-lt-a-class-quot-btn-quot-href-quot-quot-gt-提交-lt-a-gt-、-lt-input-type-quot-submit-quot-value-quot-提交-quot-gt" class="headerlink" title="三种提交按钮的区别&lt;button&gt;提交&lt;/button&gt;、&lt;a class=&quot;btn&quot; href=&quot;#&quot;&gt;提交&lt;/a&gt;、&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;"></a>三种提交按钮的区别<code>&lt;button&gt;提交&lt;/button&gt;</code>、<code>&lt;a class=&quot;btn&quot; href=&quot;#&quot;&gt;提交&lt;/a&gt;</code>、<code>&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</code></h4><ul>
+<li><code>&lt;button&gt;提交&lt;/button&gt;</code>从显示效果上看只是一个写着提交的按钮，没有其他效果。</li>
+<li><code>&lt;a class=&quot;btn&quot; href=&quot;#&quot;&gt;提交&lt;/a&gt;</code>则是一个a链接，<code>提交</code>是它的链接点，点击后会留在原页面，其类是btn。</li>
+<li><code>&lt;input type=&quot;submit&quot; value=&quot;提交&quot;&gt;</code>是一个form表单的提交按钮，点击它可以将所填的表单信息传输给后台。</li>
+</ul>
+<h4 id="表单中radio-如何-分组"><a href="#表单中radio-如何-分组" class="headerlink" title="表单中radio 如何 分组"></a>表单中radio 如何 分组</h4><ul>
+<li>具有相同name的radio就分为同一组</li>
+</ul>
+<h4 id="表单中placeholder-属性及作用"><a href="#表单中placeholder-属性及作用" class="headerlink" title="表单中placeholder 属性及作用"></a>表单中placeholder 属性及作用</h4><ul>
+<li>会在输入框内呈现灰色字，来提醒用户输入正确的内容。</li>
+</ul>
+<h4 id="type-hidden隐藏域的作用"><a href="#type-hidden隐藏域的作用" class="headerlink" title="type=hidden隐藏域的作用"></a>type=hidden隐藏域的作用</h4><ul>
+<li><code>type=hidden</code>此种类型不会在页面上呈现，可以用来暂存接口的信息或地址，比如标记id快速定位然后获取存在这的接口地址；也可以用来做安全校验，比如说设置<code>name=&quot;secret&quot; value=“123”</code>，只有当你登录后才能打开这个页面，在这个页面进行提交时才会附带的传输这个隐藏的name和value，服务器可以以此来判断是否是本人操作从而确定是否接受请求。</li>
+</ul>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/04/14/CSS选择器/" title="CSS选择器" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/04/12/CSS的引入及个别混淆点/" title="CSS的引入" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

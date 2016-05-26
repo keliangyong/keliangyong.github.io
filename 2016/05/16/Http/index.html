@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Http | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Http">
+  <meta name="description" content="OSI 七层模型OSI：Open System Interconnection Refer Model 开放式系统互联通信参考模型，是由国际标准化组织提出的一种概念模型，是一个试图让各种计算机在全世界范围内连成网络的标准框架；它将网络通信分成七个层面。从距离用户最近至最底层简述如下：
+
+应用层 Application：用户交互的对象，用户通过这一层进行信息交互。通俗点例如chrome浏览器、或者发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Http">
+<meta property="og:url" content="http://yoursite.com/2016/05/16/Http/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="OSI 七层模型OSI：Open System Interconnection Refer Model 开放式系统互联通信参考模型，是由国际标准化组织提出的一种概念模型，是一个试图让各种计算机在全世界范围内连成网络的标准框架；它将网络通信分成七个层面。从距离用户最近至最底层简述如下：
+
+应用层 Application：用户交互的对象，用户通过这一层进行信息交互。通俗点例如chrome浏览器、或者发">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-e44b573a99de0845?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-69f59dde96b75ec4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-8a959f7c31ebd8ab?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-1c213aec4edfaea1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-ad54bde563bc34ea?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.567Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Http">
+<meta name="twitter:description" content="OSI 七层模型OSI：Open System Interconnection Refer Model 开放式系统互联通信参考模型，是由国际标准化组织提出的一种概念模型，是一个试图让各种计算机在全世界范围内连成网络的标准框架；它将网络通信分成七个层面。从距离用户最近至最底层简述如下：
+
+应用层 Application：用户交互的对象，用户通过这一层进行信息交互。通俗点例如chrome浏览器、或者发">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1826139-e44b573a99de0845?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Http</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">Http</h1>
+    <h5 class="subtitle">2016-05-16</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-Http" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Http/">Http</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#OSI-七层模型"><span class="post-toc-text">OSI 七层模型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTP-的工作原理"><span class="post-toc-text">HTTP 的工作原理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#URI-的格式及常见的协议"><span class="post-toc-text">URI 的格式及常见的协议</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTP-协议几种和服务器交互的方法"><span class="post-toc-text">HTTP 协议几种和服务器交互的方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#状态码200，301，-304，403-404-500，503分别代表什么意思"><span class="post-toc-text">状态码200，301， 304，403 , 404 , 500，503分别代表什么意思</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#报文由哪几部分组成"><span class="post-toc-text">报文由哪几部分组成</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#请求头的格式和作用"><span class="post-toc-text">请求头的格式和作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#首部的格式和作用"><span class="post-toc-text">首部的格式和作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#主体的作用"><span class="post-toc-text">主体的作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#浏览器缓存是如何控制"><span class="post-toc-text">浏览器缓存是如何控制</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下图各个参数是什么意思"><span class="post-toc-text">下图各个参数是什么意思</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="OSI-七层模型"><a href="#OSI-七层模型" class="headerlink" title="OSI 七层模型"></a>OSI 七层模型</h4><p>OSI：Open System Interconnection Refer Model 开放式系统互联通信参考模型，是由国际标准化组织提出的一种概念模型，是一个试图让各种计算机在全世界范围内连成网络的标准框架；它将网络通信分成七个层面。从距离用户最近至最底层简述如下：</p>
+<ul>
+<li><code>应用层 Application</code>：用户交互的对象，用户通过这一层进行信息交互。通俗点例如chrome浏览器、或者发邮件的outlook就是这一层。</li>
+<li><code>表示层 Presentation</code>：这一层是操作系统所在的层，处理数据，转化加密等确保另一个系统能识别你的数据。</li>
+<li><code>会话层 Session</code>：负责你的电脑与服务器的通信连接与维护，创建连接→请求→响应。</li>
+<li><code>传输层 Transport</code>：把传输表头加至数据以形成数据包，控制调节数据的传输，决定类似一次发送多少数据的问题。</li>
+<li><code>网络层 Network</code>：路由的工作层，它决定路径的选择和转寄。</li>
+<li><code>数据链路层 Data Link</code>：交换机的工作层，负责网络寻址、错误侦测和改错。</li>
+<li><code>物理层 Physical</code>：最底层的物理联网介质和数据传输实现，网线、连接器及比特流的传输等。</li>
+</ul>
+<h4 id="HTTP-的工作原理"><a href="#HTTP-的工作原理" class="headerlink" title="HTTP 的工作原理"></a>HTTP 的工作原理</h4><p><code>HTTP</code> 全称 <code>Hyper Text Transfer Protocol</code> 即超文本传输协议；它是一个客户端终端和服务器端请求和应答的标准。它的请求和响应步骤如下：</p>
+<ul>
+<li><code>建立连接</code>：客户端与服务器端建立一个TCP连接。</li>
+<li><code>发起请求</code>：客户端向服务器端发起Http请求，会发送请求报文，由请求行、消息报头和请求正文组成。</li>
+<li><code>返回响应</code>：服务器端接收到请求并进行解析，定位请求资源，给客户端发送响应报文，由状态行、消息报头和响应正文组成。</li>
+<li><code>释放TCP连接</code>：服务器关闭TCP连接。（如果连接模式是keepalive的话会保持一段时间可继续接受请求）</li>
+</ul>
+<h4 id="URI-的格式及常见的协议"><a href="#URI-的格式及常见的协议" class="headerlink" title="URI 的格式及常见的协议"></a>URI 的格式及常见的协议</h4><p><code>URI</code> 全称<code>Uniform Resource Identifier</code> 统一资源标志符，是一个用于标识一个互联网资源名称的字符串。由两个子集构成，通过描述资源位置确定资源的URL，以及通过名字来识别确定资源的URN。它的格式如下：<br> <code>&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;hash&gt;</code><br><code>http://</code> <code>user:pass</code>@<code>www.example.com</code> <code>:80</code> <code>/dir/index</code> <code>?uid=1&amp;nam=2</code> <code>#ch1</code></p>
+<ul>
+<li><code>&lt;scheme&gt;</code> <code>协议方案名</code> 常见的有http、https等。</li>
+<li><code>&lt;user&gt;:&lt;password&gt;</code> <code>用户的登录信息</code> 现在一般不会把登录信息放在url中。</li>
+<li><code>&lt;host&gt;</code> <code>服务器地址</code> 用户一般使用域名方便记忆，浏览器经DNS解析去访问对应IP地址。</li>
+<li><code>&lt;port&gt;</code> <code>端口号</code> 服务器的进程接口，80是http协议默认的端口号，ftp协议默认21端口，https默认443端口。</li>
+<li><code>&lt;port&gt;</code> <code>路径</code> 找到服务器后再去对应的路径下寻找资源。</li>
+<li><code>&lt;params&gt;</code> 在一些协议中需要参数来访问资源，参数用名值对用<code>；</code>隔开。</li>
+<li><code>&lt;query&gt;</code> 查询字符串，常见的是get请求中data以此形式传给服务器。</li>
+<li><code>&lt;hash&gt;</code> 片段标识符-哈希，之前作为页面锚点的时候见过。</li>
+</ul>
+<p>常见的协议有 Http、Https、FTP、SSH等。</p>
+<h4 id="HTTP-协议几种和服务器交互的方法"><a href="#HTTP-协议几种和服务器交互的方法" class="headerlink" title="HTTP 协议几种和服务器交互的方法"></a>HTTP 协议几种和服务器交互的方法</h4><ul>
+<li><code>GET</code>：得到，最常用的方法，向服务器发送请求要求获取某个资源。</li>
+<li><code>HEAD</code>：头，亦即不需要数据主体只想得到描述资源信息的头部，一般用于查看资源信息、查看状态码看下资源是否存在、查看首部看下资源有没有被修改。</li>
+<li><code>POST</code>：投递，好理解，就是向服务器发数据，一般是在html表单中用于向服务器提交表单信息的。</li>
+<li><code>PUT</code>：放，就是向服务器写入资源，修改某个内容。</li>
+<li><code>TRACE</code>：跟踪，这个方法会在最后发往服务器时，返回一个TRACE响应给客户端，告诉客户端最终服务器收到的请求报文是什么样的。</li>
+<li><code>DELETE</code>：删除，要求服务器删掉给定url下的资源，服务器可能不会支持。</li>
+<li><code>OPTIONS</code>：其他，用来查询服务器支持哪些功能。</li>
+</ul>
+<h4 id="状态码200，301，-304，403-404-500，503分别代表什么意思"><a href="#状态码200，301，-304，403-404-500，503分别代表什么意思" class="headerlink" title="状态码200，301， 304，403 , 404 , 500，503分别代表什么意思"></a>状态码200，301， 304，403 , 404 , 500，503分别代表什么意思</h4><ul>
+<li><code>200 OK</code> 请求已成功 根据请求方式的不同会有不同的反馈内容</li>
+<li><code>301 Moved Permanently</code>  所请求的资源被永久性地移动到另一个地方 响应会返回新的url 下次客户端会按照新的url去访问</li>
+<li><code>304 Not Modified</code> 客户端有缓存的文档 当再一次发起请求时 服务器经比对后发现文档内容并没有变化时就会返回此状态码 让客户端使用本地缓存 </li>
+<li><code>403 Forbidden</code> 服务器已经理解请求 但拒绝执行 一般是因为没有对应的权限</li>
+<li><code>404 Not Found</code> 请求失败 在服务器上找不到你所请求的资源</li>
+<li><code>500 Internal Server Error</code>服务器出错了 无法完成客户端的请求</li>
+<li><code>503 Service Unavailable</code>服务器过载了 目前无法处理客户端的请求</li>
+</ul>
+<h4 id="报文由哪几部分组成"><a href="#报文由哪几部分组成" class="headerlink" title="报文由哪几部分组成"></a>报文由哪几部分组成</h4><p>http报文有请求报文和响应报文，是一个简单的格式化数据块，它由以下3个部分组成：</p>
+<ul>
+<li><code>start line</code>：起始行  对报文进行简单描述</li>
+<li><code>header</code>：包含一些属性的首部块</li>
+<li><code>body</code>：数据的主题部分，有些请求不需要返回这部分</li>
+</ul>
+<h4 id="请求头的格式和作用"><a href="#请求头的格式和作用" class="headerlink" title="请求头的格式和作用"></a>请求头的格式和作用</h4><p><code>作用</code>：为请求添加额外的信息，来告诉服务器客户端的信息和能力，服务器可以据此为客户端提供更好的响应。<br><code>格式</code>：是名/值的形式；名字后面跟着冒号，加上可选的空格，再加上字段值，最后回车或换行。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-e44b573a99de0845?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_1463029655966_upload-264bf520-20fb-459c-986e-9cbf5da71be7"><br><code>范例</code>：</p>
+<ul>
+<li><code>GET/HTTP/1.1</code> 请求方法、协议、版本号 ←这是请求报文起始行 </li>
+<li><code>Host</code>：服务器地址</li>
+<li><code>Connection</code>：连接方式 一般请求后就断开 图中是keep-alive，可以继续接收请求。</li>
+<li><code>Accept</code>：说明我这个客户端可以接受哪些类型的资源。</li>
+<li><code>Upgrade-Insecure-Requests</code>：自动升级请求，在https承载的页面上不允许出现http请求，出现就会报警，这个属性会自动替换https请求。</li>
+<li><code>User-RefererAgent</code>：用户代理也就是浏览器客户端自身的信息。</li>
+<li><code>Referer</code>：客户端是从哪里跳转过来的。例如我们从百度跳到饥人谷官网，这里就会是百度的网址。</li>
+<li><code>Access-Encoding</code>：客户端可以接受的编码类型。</li>
+<li><code>Accept-Language</code>：客户端可以解析接受的语言。</li>
+<li><code>Cookie</code>：服务器端为了辨识用户身份而留在客户端的数据，发送请求时客户端会把<code>cookie</code>一起发送给服务器。</li>
+</ul>
+<h4 id="首部的格式和作用"><a href="#首部的格式和作用" class="headerlink" title="首部的格式和作用"></a>首部的格式和作用</h4><p><code>作用</code>：HTTP的首部向请求或响应报文添加了一些附加信息，它是一些名/值对的列表。它分为通用首部、请求首部、响应首部、实体首部和拓展首部。<br><code>格式</code>：名字后面跟着冒号，加上可选的空格，再加上字段值，最后回车或换行。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-69f59dde96b75ec4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_1463034116314_upload-858a3ce0-998c-4ae7-ad2f-44aab51e1cff"><br><code>范例</code>：</p>
+<ul>
+<li><code>HTTP/1.1 200 OK</code> 协议/版本 状态码 释义  ←这是响应报文起始行 不属于首部</li>
+<li><code>Server</code>：属于响应信息性首部，服务器用的是哪一种及版本 图中用的是nginx 版本1.6.2 </li>
+<li><code>Data</code>：属于通用信息性首部，提供日期和事件说明报文是什么时候创建的。</li>
+<li><code>Content-Type</code>：属于实体内容首部，告诉客户端主体的数据类型。</li>
+<li><code>Transfer-Encoding</code>：属于通用信息性首部，传输的编码方式，图中chunked是分块传输例如小说分一章一章传输。</li>
+<li><code>Connection</code>：属于通用信息性首部，可以指定请求/响应的连接选项，图中keep-alive在响应后连接依然可以存在一段时间。</li>
+<li><code>X-Powered-By</code>：显示此资源用什么技术开发及对应版本 感觉只有PHP</li>
+<li><code>Expires</code>：属于实体缓存首部，提示缓存过期的时间，超过这个时间就需要重新获取资源。</li>
+<li><code>Pragma</code>：属于通用缓存首部，另一种随报文传送的指示，并不专用于缓存。</li>
+<li><code>Cache-Control</code>：属于通用缓存首部，随报文传送缓存指示，图中private是指私人缓存每个人不一样。</li>
+<li><code>Content-Encoding</code>：属于实体内容首部，告诉客户端对主体执行的编码方式。</li>
+<li><code>Vary</code>：属于响应协商首部，是一个首部列表，服务器会根据这些首部的内容挑出最适合的资源版本发给客户端。</li>
+</ul>
+<h4 id="主体的作用"><a href="#主体的作用" class="headerlink" title="主体的作用"></a>主体的作用</h4><ul>
+<li>实体的主体部分就是HTTP要传输的内容了，一般是图片、视频、HTML文档等。下面饥人谷首页的响应实体，也就是HTML文档了。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-8a959f7c31ebd8ab?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_1463037793472_upload-3892ad8a-24a1-4d3a-9bf2-23649fda8de5"></li>
+</ul>
+<h4 id="浏览器缓存是如何控制"><a href="#浏览器缓存是如何控制" class="headerlink" title="浏览器缓存是如何控制"></a>浏览器缓存是如何控制</h4><ul>
+<li><code>是什么</code>：浏览器缓存是web缓存中的一个类型，与公用缓存不同，浏览器一般都有内建的私有缓存，会缓存已经访问过的页面，也就是把资源复制了一份放在本地，缓存可以减少网络带宽的压力、降低服务器的压力、也能让我们更快地打开页面获得资源。</li>
+<li><code>缓存页面、过期时间</code>：在我们首次请求资源或页面时，原始服务器利用<code>HTTP</code>的<code>cache-control首部</code>或<code>expires首部</code>给文档加上了过期时间，标明了保质期。在保质期内请求已缓存的资源时，浏览器就不会向服务器发送请求而是直接使用本地缓存。</li>
+<li><code>过期后的再验证</code>：当过了保质期以后呢，这个时候浏览器就会向服务器发起请求同时附带过期时间。若文档与缓存的副本不一样服务器就响应新的文档给浏览器，同时浏览器会继续缓存新的文档；若服务器比对后发现文档没有变化，就会发个新的过期时间让浏览器继续使用本地缓存。<code>对缓存再验证最有用的两个首部是If-Modified-Since和If-None-Match</code>。最后引用博客园的一张图面解释，更加清晰。<ul>
+<li><code>If-Modified-Since</code>：当资源过期时，再请求时若发现资源带有<code>Last-Modified</code>（最后修改日期）声明时，会带上<code>If-Modified-Since：Last-Modified Data</code>发给服务器，收到后服务器就会比对最后修改时间，若没被修改就返回<code>304 Not Modified</code>响应报文并且附带新的过期事件；若被修改了就返回新的文档和过期时间。</li>
+<li>If-None-Match：如果在资源过期后再请求时发现资源带有Etage声明（资源在服务器的唯一标识，生成规则服务器自定），会带上<code>If-None-Match：Etage值</code>发给服务器，收到后服务器就会进行比对校验来决定返回200还是304，响应与If-Modified-Since相同。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-1c213aec4edfaea1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_1463123874986_201211281402442505 (1).png"> </li>
+</ul>
+</li>
+</ul>
+<h4 id="下图各个参数是什么意思"><a href="#下图各个参数是什么意思" class="headerlink" title="下图各个参数是什么意思"></a>下图各个参数是什么意思</h4><p><img src="http://upload-images.jianshu.io/upload_images/1826139-ad54bde563bc34ea?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><code>General：概述</code></p>
+<ul>
+<li><code>Request URL</code>：请求的资源的URL也就是位置</li>
+<li><code>Request Method</code>：客户端向服务端发出请求的方法，图中是用PUT方法</li>
+<li><code>Status Code</code>：状态码，图中是200 表示成功OK</li>
+<li><code>Remote Address</code>：资源所在的IP地址</li>
+</ul>
+<p><code>Response Headers 响应头</code></p>
+<ul>
+<li><code>Connection</code>：连接方式；图中是keep-alive，在请求后的一段时间内还是相连的，可直接继续发送请求。</li>
+<li><code>Content-Length</code>：主体的长度或尺寸</li>
+<li><code>Content-type</code>：主体的类型</li>
+<li><code>Date</code>：报文创建的时间</li>
+<li><code>Server</code>：服务端软件及版本，图中是Nginx/1.6.2</li>
+<li><code>X-Powered-By</code>：开发资源的技术是Express</li>
+</ul>
+<p><code>Request Headers 请求头</code></p>
+<ul>
+<li><code>Accept</code>：我这个客户端可以接受哪些类型的资源</li>
+<li><code>Accept-Encoding</code>：客户端可以接受的编码类型</li>
+<li><code>Accept-Language</code>：客户端可以解析接受的语言</li>
+<li><code>Cookie</code>：服务器端为了辨识用户身份而留在客户端的数据，发送请求时客户端会把<code>cookie</code>一起发送给服务器。</li>
+<li><code>Host</code>：服务器地址</li>
+<li><code>Origin</code>：所请求的资源的源</li>
+<li><code>Referer</code>：客户端是从哪里跳转过来的。例如我们从百度跳到饥人谷官网，这里就会是百度的网址</li>
+<li><code>User-Agent</code>：用户代理也就是浏览器客户端自身的信息</li>
+<li><code>X-Requested-With</code>：请求的方式，这里是AJAX</li>
+</ul>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/05/18/对象、原型/" title="对象、原型" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/05/14/this、闭包/" title="This、闭包" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

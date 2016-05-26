@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript 闭包、定时器 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Javascript">
+  <meta name="description" content="闭包及其作用
+闭包是能够读取其他函数内部变量的函数；相当于在草原上用栅栏单独围一片地只留一个进出口；只有通过返回出的函数才能去修改其内部的变量。
+有两个作用：①读取/修改其他函数内部的变量，形成单独的一个空间，不受外部影响，可用于封装。②使其他函数内部的变量不会被销毁而始终存在于内存中。
+
+setTimeout 0 的作用
+setTimeout 0 的作用并不在于其延时0的这个字面意思，而是js对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript 闭包、定时器">
+<meta property="og:url" content="http://yoursite.com/2016/05/01/JavaScript-闭包、定时器/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="闭包及其作用
+闭包是能够读取其他函数内部变量的函数；相当于在草原上用栅栏单独围一片地只留一个进出口；只有通过返回出的函数才能去修改其内部的变量。
+有两个作用：①读取/修改其他函数内部的变量，形成单独的一个空间，不受外部影响，可用于封装。②使其他函数内部的变量不会被销毁而始终存在于内存中。
+
+setTimeout 0 的作用
+setTimeout 0 的作用并不在于其延时0的这个字面意思，而是js对">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.605Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript 闭包、定时器">
+<meta name="twitter:description" content="闭包及其作用
+闭包是能够读取其他函数内部变量的函数；相当于在草原上用栅栏单独围一片地只留一个进出口；只有通过返回出的函数才能去修改其内部的变量。
+有两个作用：①读取/修改其他函数内部的变量，形成单独的一个空间，不受外部影响，可用于封装。②使其他函数内部的变量不会被销毁而始终存在于内存中。
+
+setTimeout 0 的作用
+setTimeout 0 的作用并不在于其延时0的这个字面意思，而是js对">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">javascript 闭包、定时器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">javascript 闭包、定时器</h1>
+    <h5 class="subtitle">2016-05-01</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-JavaScript-闭包、定时器" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#闭包及其作用"><span class="post-toc-text">闭包及其作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#setTimeout-0-的作用"><span class="post-toc-text">setTimeout 0 的作用</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小练习"><span class="post-toc-text">小练习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下面的代码输出多少？修改代码让fnArri-输出-i"><span class="post-toc-text">下面的代码输出多少？修改代码让fnArri 输出 i</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用闭包封装一个car对象"><span class="post-toc-text">使用闭包封装一个car对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用setTimeout模拟setInterval的功能"><span class="post-toc-text">使用setTimeout模拟setInterval的功能</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#计算setTimeout最小时间粒度"><span class="post-toc-text">计算setTimeout最小时间粒度</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解释如下代码的输出"><span class="post-toc-text">解释如下代码的输出</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下面这段代码输出？如何输出delayer-0-delayer-1…（使用闭包来实现）"><span class="post-toc-text">下面这段代码输出？如何输出delayer: 0, delayer:1…（使用闭包来实现）</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="闭包及其作用"><a href="#闭包及其作用" class="headerlink" title="闭包及其作用"></a>闭包及其作用</h4><ul>
+<li>闭包是能够读取其他函数内部变量的函数；相当于在草原上用栅栏单独围一片地只留一个进出口；只有通过返回出的函数才能去修改其内部的变量。</li>
+<li>有两个作用：①读取/修改其他函数内部的变量，形成单独的一个空间，不受外部影响，可用于封装。②使其他函数内部的变量不会被销毁而始终存在于内存中。</li>
+</ul>
+<h4 id="setTimeout-0-的作用"><a href="#setTimeout-0-的作用" class="headerlink" title="setTimeout 0 的作用"></a>setTimeout 0 的作用</h4><ul>
+<li>setTimeout 0 的作用并不在于其延时0的这个字面意思，而是js对它的处理机制上；对被setTimeout包裹的代码段，不管其延时多久，都会被js放到代码的尾部，只有等其他代码执行完毕后才会按延时时间去运行其内部的代码；</li>
+<li>根据这个特性，我们可以把需要最后执行的代码用setTimeout 0进行包裹，确保最后执行；在部分事件上，例如我需要一个div显示用户输入文本框的内容，这个时候我使用onkeydown来绑定更新输入值，当键盘被按下时开始更新输入值；但是第一次按下键盘输入时，此时js的处理结果还没出来，但由于我绑定按下这个条件就会更新输入值，所以等于第一次输入去获取更新时是空的，这样在用户看来就是我按下第二个键才显示之前输入的内容；那么我们可以怎么做呢？对，在获取更新的这个代码上加setTimeout 0 ，让其跑到js处理结果之后去更新，这样就能实时显示输入值了！</li>
+</ul>
+<h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><h4 id="下面的代码输出多少？修改代码让fnArri-输出-i"><a href="#下面的代码输出多少？修改代码让fnArri-输出-i" class="headerlink" title="下面的代码输出多少？修改代码让fnArri 输出 i"></a>下面的代码输出多少？修改代码让fnArr<a href="">i</a> 输出 i</h4><pre><code>var fnArr = [];
+for (var i = 0; i &lt; 10; i ++) {
+    fnArr[i] =  function(){
+        return i;
+    };
+}
+console.log( fnArr[3]() );  //  输出为10
+</code></pre><p>方法1 使用闭包：</p>
+<pre><code>var fnArr = [];
+for (var i = 0; i &lt; 10; i ++) {
+    fnArr[i] =  function(i){
+        return function(){
+          return i;
+        };
+    }(i);
+}
+console.log( fnArr[2]() );  //  2
+</code></pre><p>方法2 把i绑定到函数上 作为函数的一个属性存储起来</p>
+<pre><code>var fnArr = [];
+for (var i = 0; i &lt; 10; i ++) {
+  var print=function(){};
+  print.index=i;
+  fnArr[i]=print;
+
+}
+console.log( fnArr[5].index );  //  5
+</code></pre><p>方法3 用两个立即执行函数返回i 赋给fnArr[i]；相当于fnArr[i]=i，数组里面放的是固定的数（好像没什么。。。但是fnArr[i]可以输出i）</p>
+<pre><code>var fnArr = [];
+for (var i = 0; i &lt; 10; i ++) {
+    fnArr[i] =  function(){
+        return function(){
+          return i;
+        }();
+    }();
+}
+console.log( fnArr[7] );  //  7
+</code></pre><h4 id="使用闭包封装一个car对象"><a href="#使用闭包封装一个car对象" class="headerlink" title="使用闭包封装一个car对象"></a>使用闭包封装一个car对象</h4><pre><code>var Car = function(){
+  var speed=0;
+  return{
+    setSpeed:function (num){
+      speed=num;
+    },
+    getSpeed:function (){
+      console.log(speed);
+    },
+    accelerate:function (){
+      speed=speed+10;
+    },
+    decelerate:function (){
+      speed=speed-10;
+    },
+    getStatus:function (){
+      if(speed&gt;0)
+        console.log(&apos;running&apos;)
+      else console.log(&apos;stop&apos;)
+    }
+  }
+}();
+Car.setSpeed(30);
+Car.getSpeed(); //30
+Car.accelerate();
+Car.getSpeed(); //40;
+Car.decelerate();
+Car.decelerate();
+Car.getSpeed(); //20
+Car.getStatus(); // &apos;running&apos;;
+Car.decelerate(); 
+Car.decelerate();
+Car.getStatus();  //&apos;stop&apos;;
+//Car.speed;  //error
+</code></pre><h4 id="使用setTimeout模拟setInterval的功能"><a href="#使用setTimeout模拟setInterval的功能" class="headerlink" title="使用setTimeout模拟setInterval的功能"></a>使用setTimeout模拟setInterval的功能</h4><pre><code>function newInterval(func,time){  //定义伪间隔函数  一个形参为‘函数’，另一个形参为‘间隔时间’
+  setTimeout(function(){
+    func();
+    newInterval(func,time);
+  },time);
+}
+var i=1;
+function count(){      //举个例子 使用计数函数 
+  console.log(i++);
+}
+newInterval(count,1000);
+</code></pre><h4 id="计算setTimeout最小时间粒度"><a href="#计算setTimeout最小时间粒度" class="headerlink" title="计算setTimeout最小时间粒度"></a>计算setTimeout最小时间粒度</h4><pre><code>function min(){
+  var t1=Date.now();
+  var i=0;
+  var clock=setTimeout(function(){
+    i++;
+    if (i==5000){
+      clearInterval(clock);
+      console.log((Date.now()-t1)/i);
+    }
+    clock=setTimeout(arguments.callee,0)
+  },0);
+}
+min();  //  4.102  4.0982  4.0968  最小粒度应该为4ms 
+</code></pre><h4 id="解释如下代码的输出"><a href="#解释如下代码的输出" class="headerlink" title="解释如下代码的输出"></a>解释如下代码的输出</h4><pre><code>var flag = true;
+setTimeout(function(){
+    flag = false;
+},0)
+while(flag){}   //没有输出结果 因为setTimeout所包裹的代码将会被放到末尾执行 flag一直是true 导致循环一直在进行，后面的代码在排队等候中
+console.log(flag); 
+</code></pre><h4 id="下面这段代码输出？如何输出delayer-0-delayer-1…（使用闭包来实现）"><a href="#下面这段代码输出？如何输出delayer-0-delayer-1…（使用闭包来实现）" class="headerlink" title="下面这段代码输出？如何输出delayer: 0, delayer:1…（使用闭包来实现）"></a>下面这段代码输出？如何输出delayer: 0, delayer:1…（使用闭包来实现）</h4><pre><code>for(var i=0;i&lt;5;i++){
+    setTimeout(function(){
+         console.log(&apos;delayer:&apos; + i );  // 
+    }, 0);
+    console.log(i);    // 先输出 0  1  2  3  4 ，再输出 delayer：5
+}
+</code></pre><p>让其输出delayer: 0, delayer:1的方法如下：</p>
+<pre><code>for(var i=0;i&lt;5;i++){
+  (function(i){
+    setTimeout(function(){
+      console.log(&apos;delayer:&apos; + i );
+    }, 0);
+    console.log(i);   //先输出 0  1  2  3   4 再输出 delayer:0 delayer:1 delayer:2 delayer:3 delayer:4
+  })(i);                    
+}
+</code></pre></div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/05/02/正则表达式/" title="javascript 正则表达式" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/04/29/JavaScript-时间对象、引用类型/" title="javascript 事件对象、引用类型" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

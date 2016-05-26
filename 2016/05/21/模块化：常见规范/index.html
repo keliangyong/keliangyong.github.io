@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>模块化：常见规范 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="模块化">
+  <meta name="description" content="什么是模块化？为什么要模块化？命名冲突：为了方便也避免重复造轮子，我们习惯于把一些通用的、底层的工具抽离出来，例如写成一个函数放在另一个文件中，我们需要的时候再去引用就可以；但是在工具中被定义的变量我不能在当前文件使用，因为会产生冲突导致工具无法正常使用。所以我们希望这个工具能是一个独立的空间，不要影响到当前页面的开发。文件依赖：当我们在写一个新工具的时候，有可能会需要调用其它功能更小的工具；那么">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模块化：常见规范">
+<meta property="og:url" content="http://yoursite.com/2016/05/21/模块化：常见规范/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="什么是模块化？为什么要模块化？命名冲突：为了方便也避免重复造轮子，我们习惯于把一些通用的、底层的工具抽离出来，例如写成一个函数放在另一个文件中，我们需要的时候再去引用就可以；但是在工具中被定义的变量我不能在当前文件使用，因为会产生冲突导致工具无法正常使用。所以我们希望这个工具能是一个独立的空间，不要影响到当前页面的开发。文件依赖：当我们在写一个新工具的时候，有可能会需要调用其它功能更小的工具；那么">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.666Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模块化：常见规范">
+<meta name="twitter:description" content="什么是模块化？为什么要模块化？命名冲突：为了方便也避免重复造轮子，我们习惯于把一些通用的、底层的工具抽离出来，例如写成一个函数放在另一个文件中，我们需要的时候再去引用就可以；但是在工具中被定义的变量我不能在当前文件使用，因为会产生冲突导致工具无法正常使用。所以我们希望这个工具能是一个独立的空间，不要影响到当前页面的开发。文件依赖：当我们在写一个新工具的时候，有可能会需要调用其它功能更小的工具；那么">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">模块化：常见规范</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">模块化：常见规范</h1>
+    <h5 class="subtitle">2016-05-21</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-模块化：常见规范" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模块化/">模块化</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#什么是模块化？为什么要模块化？"><span class="post-toc-text">什么是模块化？为什么要模块化？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CMD、AMD、CommonJS-规范分别指什么？"><span class="post-toc-text">CMD、AMD、CommonJS 规范分别指什么？</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="什么是模块化？为什么要模块化？"><a href="#什么是模块化？为什么要模块化？" class="headerlink" title="什么是模块化？为什么要模块化？"></a>什么是模块化？为什么要模块化？</h4><p><code>命名冲突</code>：为了方便也避免重复造轮子，我们习惯于把一些通用的、底层的工具抽离出来，例如写成一个函数放在另一个文件中，我们需要的时候再去引用就可以；但是在工具中被定义的变量我不能在当前文件使用，因为会产生冲突导致工具无法正常使用。所以我们希望这个工具能是一个独立的空间，不要影响到当前页面的开发。<br><code>文件依赖</code>：当我们在写一个新工具的时候，有可能会需要调用其它功能更小的工具；那么在执行时因为js的同步特性，要使用这个新工具就必须要先加载小工具，也就是说小工具要先于新工具去引入；当引入文件较多或者顺序乱了之后维护起来非常困难。<br><code>原因</code>：使用模块化主要是为了解决两个问题：命名冲突和文件依赖。<br><code>模块化x命名冲突</code>：用面向对象的方式将方法、工具绑在对象上；约定用关键字<code>exports</code>暴露接口返回对象。<br><code>模块化x文件依赖</code>：约定关键字<code>require</code>来获取对象将文件依赖内置，不需要外部引入。</p>
+<h4 id="CMD、AMD、CommonJS-规范分别指什么？"><a href="#CMD、AMD、CommonJS-规范分别指什么？" class="headerlink" title="CMD、AMD、CommonJS 规范分别指什么？"></a>CMD、AMD、CommonJS 规范分别指什么？</h4><p><code>Common JS</code>：它是一个规范，它通过定义丰富的能解决一些通常的应用开发需求的API来补足了<code>js</code>官方关于标准库的不足。建立它的意图是希望开发者可以运用这些API去开发应用，而且所开发的应用能够在不同的js环境中运行而不仅仅是浏览器。服务器端的<code>javascript</code>应用<code>node.js</code>就是运用<code>Common JS</code>的一个例子，服务器端的程序比浏览器端要更复杂，也需要与操作系统和其他程序互动，因此服务器端必须要模块块以便应对上述问题。<code>node.js</code>参照<code>Common JS</code> 规范创建了模块系统，模块系统通过<code>exports</code>暴露接口返回对象，通过<code>require</code>获取接口返回的对象。例如</p>
+<pre><code>// math.js文件 的内容：
+ exports.method=function(){
+  var obj=xxx;
+  // doing something
+  return obj;
+ };
+
+ // main.js文件 的内容：
+ var newObj= require(&apos;math&apos;).method;
+ // 当然 main.js可以继续exports接口 以供其他文件调用
+</code></pre><p><code>AMD</code>：<code>&quot;Asynchronous Module Definition&quot;</code>即异步模块定义，实现AMD的库有<code>RequireJS</code> 、<code>curl</code> 、<code>Dojo</code> 等。在服务器端采用的<code>Common JS</code>规范到浏览器端因为同步执行加载的问题会导致浏览器在加载获取时处于假死状态什么都不能做只能等引用加载完，<code>AMD</code>在这种环境下诞生了；<code>AMD</code>采用异步加载的方式去获取引用的<code>js</code>，待加载完成后采取执行对应程序，从而避免了等待和浏览器假死的状况。它的语法和应用如下：</p>
+<pre><code>// 语法
+define(id?,dependencies?,factory); 
+// id 即对这个模块命名
+// dependencies 这个模块所依赖的其他模块 多个时用数组传递
+// factory 加载完成后执行的回调函数
+
+// math.js文件 定义模块
+define(function(){
+  var obj=xxx;
+  // doing somethig 
+  return obj
+})
+
+// main.js文件 加载模块
+define(method,[&apos;math&apos;],function(math){
+  //把加载的模块传递进来 doing something
+})
+</code></pre><p><code>CMD</code>：CMD（Common Module Definition）是<code>Sea JS</code>推广过程中产生的。在 <code>CMD</code> 规范中，一个模块就是一个文件。其语法与<code>comment js</code>类似，不过多了一个外包装；且相对与<code>AMD</code>的提前设置依赖，<code>CMD</code>的区别就是它将依赖内置了，需要时就使用<code>require</code>去获取，从表面上看实现了<code>comment js的浏览器端化</code>，但实质是通过设置外包装 <code>define(function(require, exports, module){}</code>来包裹代码，提前去加载引用的模块，等加载完成后再同步执行。</p>
+<pre><code>// 语法 一个模块就是一个文件
+define(factory);
+
+//math.js 定义
+define(function(require, exports, module){
+  exports.obj=xxx;
+})
+// main.js 加载引用
+define(function(require, exports, module){
+  var method=require(&apos;math&apos;).obj;
+  //doing something
+})
+// 当然这个模块也可以继续exports接口 让其他模块调用
+</code></pre></div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/05/22/模块化：require-js及r-js基础/" title="模块化：require.js及r.js基础" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/05/19/Javascript的继承特性/" title="javascript的继承特性" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

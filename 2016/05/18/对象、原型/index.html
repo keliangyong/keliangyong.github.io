@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>对象、原型 | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Javascript">
+  <meta name="description" content="OOP 及其特性OOP：全称 Object Oriented Programming，面向对象程序设计。传统的计算机程序是由一系列的指令和函数组成，而面向对象编程的程序是由一个个独立的代码块也就是对象组成的，一个个对象分工合作完成任务。特性：
+
+继承性：由构造函数所创建的对象会继承其创造者的一部分公共属性。
+多态性：由继承而产生相关的不同实例会有不同的具体功能。
+封装性：在一个对象的内部，某些代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对象、原型">
+<meta property="og:url" content="http://yoursite.com/2016/05/18/对象、原型/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="OOP 及其特性OOP：全称 Object Oriented Programming，面向对象程序设计。传统的计算机程序是由一系列的指令和函数组成，而面向对象编程的程序是由一个个独立的代码块也就是对象组成的，一个个对象分工合作完成任务。特性：
+
+继承性：由构造函数所创建的对象会继承其创造者的一部分公共属性。
+多态性：由继承而产生相关的不同实例会有不同的具体功能。
+封装性：在一个对象的内部，某些代码">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-69715fa42136105c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.664Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对象、原型">
+<meta name="twitter:description" content="OOP 及其特性OOP：全称 Object Oriented Programming，面向对象程序设计。传统的计算机程序是由一系列的指令和函数组成，而面向对象编程的程序是由一个个独立的代码块也就是对象组成的，一个个对象分工合作完成任务。特性：
+
+继承性：由构造函数所创建的对象会继承其创造者的一部分公共属性。
+多态性：由继承而产生相关的不同实例会有不同的具体功能。
+封装性：在一个对象的内部，某些代码">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1826139-69715fa42136105c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">对象、原型</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">对象、原型</h1>
+    <h5 class="subtitle">2016-05-18</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-对象、原型" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#OOP-及其特性"><span class="post-toc-text">OOP 及其特性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#如何通过构造函数的方式创建一个拥有属性和方法的对象"><span class="post-toc-text">如何通过构造函数的方式创建一个拥有属性和方法的对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#prototype-及其特性"><span class="post-toc-text">prototype 及其特性</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#画出如下代码的原型图"><span class="post-toc-text">画出如下代码的原型图</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#变量name"><span class="post-toc-text">变量name</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小练习"><span class="post-toc-text">小练习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-创建一个-Car-对象，拥有属性name、color、status；拥有方法run，stop，getStatus"><span class="post-toc-text">1.创建一个 Car 对象，拥有属性name、color、status；拥有方法run，stop，getStatus</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-创建一个-GoTop-对象，当-new-一个-GotTop-对象则会在页面上创建一个回到顶部的元素，点击页面滚动到顶部；拥有以下属性和方法"><span class="post-toc-text">2.创建一个 GoTop 对象，当 new 一个 GotTop 对象则会在页面上创建一个回到顶部的元素，点击页面滚动到顶部；拥有以下属性和方法</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="OOP-及其特性"><a href="#OOP-及其特性" class="headerlink" title="OOP 及其特性"></a>OOP 及其特性</h4><p><code>OOP</code>：全称 Object Oriented Programming，面向对象程序设计。传统的计算机程序是由一系列的指令和函数组成，而面向对象编程的程序是由一个个独立的代码块也就是对象组成的，一个个对象分工合作完成任务。<br><code>特性</code>：</p>
+<ul>
+<li><code>继承性</code>：由构造函数所创建的对象会继承其创造者的一部分公共属性。</li>
+<li><code>多态性</code>：由继承而产生相关的不同实例会有不同的具体功能。</li>
+<li><code>封装性</code>：在一个对象的内部，某些代码是私有的不能被外界访问到的。</li>
+</ul>
+<h4 id="如何通过构造函数的方式创建一个拥有属性和方法的对象"><a href="#如何通过构造函数的方式创建一个拥有属性和方法的对象" class="headerlink" title="如何通过构造函数的方式创建一个拥有属性和方法的对象"></a>如何通过构造函数的方式创建一个拥有属性和方法的对象</h4><p>先定义一个函数，里面用<code>this.xx</code>等设置相关值和函数，就是属性和方法啦，然后用<code>new</code>关键字创建一个对象就可以了；例如：</p>
+<pre><code>function People(name,age){
+  this.name=name;
+  this.age=age;
+  this.introduce=function(){
+    console.log(&apos;Hello , My name is &apos;+this.name+&apos; I am &apos;+age+&apos; years old&apos;);
+  }
+}
+var jon = new People(&apos;jon&apos;,20);
+</code></pre><h4 id="prototype-及其特性"><a href="#prototype-及其特性" class="headerlink" title="prototype 及其特性"></a>prototype 及其特性</h4><p><code>prototype</code>：是原型的意思，在javascript中每个对象都有原型也就是prototype属性。这个属性存的是一个地址，指向一个原型对象。可以用这个属性来给对象添加固有属性。<br><code>特征</code>：在原型中所拥有的特性，继承的对象都会有，因为继承的对象都会有一个<strong>proto</strong>属性指向原型。</p>
+<h4 id="画出如下代码的原型图"><a href="#画出如下代码的原型图" class="headerlink" title="画出如下代码的原型图"></a>画出如下代码的原型图</h4><pre><code>function People (name){
+  this.name = name;
+  this.sayName = function(){
+    console.log(&apos;my name is:&apos; + this.name);
+  }
+}
+
+People.prototype.walk = function(){
+  console.log(this.name + &apos; is walking&apos;);  
+}
+
+var p1 = new People(&apos;饥人谷&apos;);
+var p2 = new People(&apos;前端&apos;);
+</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/1826139-69715fa42136105c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原型图"> </p>
+<h4 id="变量name"><a href="#变量name" class="headerlink" title="变量name"></a>变量name</h4><pre><code>function People (){
+  var name = &quot;饥人谷&quot;   // 这个name 是函数内的 局部变量
+  this.name = &quot;我&quot;;      // 这个name 根据this指向不同而不同 正常运行时是window全局变量；new一个新对象时又是指代新对象的name属性
+}
+People.name = &quot;jscode&quot;;  // 这个name 是People这个函数的一个属性 函数也是对象
+
+People.prototype.name = &quot;学前端&quot;;  // 这个name是People的原型的一个属性 这样做以后 用People构造的对象就都会继承name这个属性了，但是如果复写的话就会被覆盖。
+</code></pre><h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><h4 id="1-创建一个-Car-对象，拥有属性name、color、status；拥有方法run，stop，getStatus"><a href="#1-创建一个-Car-对象，拥有属性name、color、status；拥有方法run，stop，getStatus" class="headerlink" title="1.创建一个 Car 对象，拥有属性name、color、status；拥有方法run，stop，getStatus"></a><strong>1.创建一个 Car 对象，拥有属性name、color、status；拥有方法run，stop，getStatus</strong></h4><pre><code>function Car(name,color,status){
+  this.name=name;
+  this.color=color;
+  this.status=status;
+  this.run=function(){
+    this.status=&apos;run&apos;;
+  }
+  this.stop=function(){
+    this.status=&apos;stop&apos;;
+  }
+  this.getStatus=function(){
+    return this.status;
+  }
+}
+var car = new Car(&apos;byd&apos;,&apos;white&apos;,&apos;stop&apos;); 
+</code></pre><h4 id="2-创建一个-GoTop-对象，当-new-一个-GotTop-对象则会在页面上创建一个回到顶部的元素，点击页面滚动到顶部；拥有以下属性和方法"><a href="#2-创建一个-GoTop-对象，当-new-一个-GotTop-对象则会在页面上创建一个回到顶部的元素，点击页面滚动到顶部；拥有以下属性和方法" class="headerlink" title="2.创建一个 GoTop 对象，当 new 一个 GotTop 对象则会在页面上创建一个回到顶部的元素，点击页面滚动到顶部；拥有以下属性和方法"></a><strong>2.创建一个 GoTop 对象，当 new 一个 GotTop 对象则会在页面上创建一个回到顶部的元素，点击页面滚动到顶部；拥有以下属性和方法</strong></h4><ul>
+<li>ct属性，GoTop 对应的 DOM 元素的容器</li>
+<li>target属性， GoTop 对应的 DOM 元素</li>
+<li>bindEvent 方法， 用于绑定事件</li>
+<li>createNode 方法， 用于在容器内创建节点</li>
+</ul>
+<pre><code>&lt;script src=&quot;http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  function GoTop($ct){
+    this.ct=$ct;
+    this.target=$(&apos;&lt;button&gt;点我回到顶部&lt;/button&gt;&apos;);
+    this.creatNode=function(){
+      this.ct.append(this.target);
+    }
+    this.bindEvent=function(){
+      this.target.on(&apos;click&apos;,function(){
+        $(window).scrollTop(0);
+      })
+    }
+    this.creatNode();
+    this.bindEvent();
+  }
+  var goTop = new GoTop($(&apos;body&apos;));
+&lt;/script&gt;
+</code></pre></div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/05/19/Javascript的继承特性/" title="javascript的继承特性" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/05/16/Http/" title="Http" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

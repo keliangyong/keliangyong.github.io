@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CSS的a标签及display | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="CSS">
+  <meta name="description" content="line-height的作用
+设置元素行高；之前的学习中有用它来调整行间距，在单行文本中当其与height相等时可实现垂直居中。
+
+CSS属性的兼容性查询方式
+打开caniuse.com输入需查询的属性名；inline-block的兼容性见下图： 
+
+a 标签的href, title, target
+a标签的href是指超文本引用，其内容是要跳转的链接目标；
+title是当鼠标悬停在a链接上时，显">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS的a标签及display">
+<meta property="og:url" content="http://yoursite.com/2016/04/09/CSS的a标签及display/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="line-height的作用
+设置元素行高；之前的学习中有用它来调整行间距，在单行文本中当其与height相等时可实现垂直居中。
+
+CSS属性的兼容性查询方式
+打开caniuse.com输入需查询的属性名；inline-block的兼容性见下图： 
+
+a 标签的href, title, target
+a标签的href是指超文本引用，其内容是要跳转的链接目标；
+title是当鼠标悬停在a链接上时，显">
+<meta property="og:image" content="http://7xupes.com1.z0.glb.clouddn.com/imgcaniuse.png">
+<meta property="og:updated_time" content="2016-05-26T15:43:04.002Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS的a标签及display">
+<meta name="twitter:description" content="line-height的作用
+设置元素行高；之前的学习中有用它来调整行间距，在单行文本中当其与height相等时可实现垂直居中。
+
+CSS属性的兼容性查询方式
+打开caniuse.com输入需查询的属性名；inline-block的兼容性见下图： 
+
+a 标签的href, title, target
+a标签的href是指超文本引用，其内容是要跳转的链接目标；
+title是当鼠标悬停在a链接上时，显">
+<meta name="twitter:image" content="http://7xupes.com1.z0.glb.clouddn.com/imgcaniuse.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CSS的a标签及display</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">CSS的a标签及display</h1>
+    <h5 class="subtitle">2016-04-09</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-CSS的a标签及display" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#line-height的作用"><span class="post-toc-text">line-height的作用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS属性的兼容性查询方式"><span class="post-toc-text">CSS属性的兼容性查询方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#a-标签的href-title-target"><span class="post-toc-text">a 标签的href, title, target</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#display-none-visibility-hidden-opacity-0-的作用及区别"><span class="post-toc-text">display: none , visibility: hidden, opacity:0 的作用及区别</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="line-height的作用"><a href="#line-height的作用" class="headerlink" title="line-height的作用"></a>line-height的作用</h4><ul>
+<li>设置元素行高；之前的学习中有用它来调整行间距，在单行文本中当其与<code>height</code>相等时可实现垂直居中。</li>
+</ul>
+<h4 id="CSS属性的兼容性查询方式"><a href="#CSS属性的兼容性查询方式" class="headerlink" title="CSS属性的兼容性查询方式"></a>CSS属性的兼容性查询方式</h4><ul>
+<li>打开<a href="http://caniuse.com/" target="_blank" rel="external">caniuse.com</a>输入需查询的属性名；<code>inline-block</code>的兼容性见下图：<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgcaniuse.png" alt="0_1459586718720_兼容性.png"> </li>
+</ul>
+<h4 id="a-标签的href-title-target"><a href="#a-标签的href-title-target" class="headerlink" title="a 标签的href, title, target"></a>a 标签的href, title, target</h4><ul>
+<li>a标签的href是指超文本引用，其内容是要跳转的链接目标；</li>
+<li>title是当鼠标悬停在a链接上时，显示的对将要跳转的链接的关键词或缩略提示；</li>
+<li>target是告诉浏览器在哪里打开a链接，可用_blank在新窗口打开，还可标记id打开页面直接定位到对应id；</li>
+<li>title是对a链接跳转目标的文字注释补充，并不能代替链接内容；而alt是img元素在网络卡顿或加载失败时显示的用于代替图片内容的信息，对搜索引擎和屏幕阅读器很友好。</li>
+<li>在a链接的目标地址后添加 target=“_blank” ，如<code>&lt;a href=&quot;链接地址&quot; target=“_blank” &gt;</code></li>
+</ul>
+<h4 id="display-none-visibility-hidden-opacity-0-的作用及区别"><a href="#display-none-visibility-hidden-opacity-0-的作用及区别" class="headerlink" title="display: none , visibility: hidden, opacity:0 的作用及区别"></a>display: none , visibility: hidden, opacity:0 的作用及区别</h4><ul>
+<li><code>display: none</code>是让元素消失，不会出现在页面上，没有空间，但在dom结构树中还是有。</li>
+<li><code>visibility: hidden</code>是指隐藏起来不显示，但在页面上会留空间，相当于它在那里，但是看不到。</li>
+<li><code>opacity:0</code>是指透明度为0，它在页面上也有空间，只不过它是透明的看不见而已。</li>
+</ul>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/04/10/初识前端/" title="初识前端" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

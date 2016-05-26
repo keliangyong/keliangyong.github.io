@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>初始javascript | Kely&#39;s Blog | 个人学习记录博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Javascript">
+  <meta name="description" content="CSS和JS在网页中的放置顺序
+css放在文档元素的前面包含在&amp;lt;head&amp;gt;中，js放在文档元素的后面在&amp;lt;body&amp;gt;里且在尾部。
+
+白屏和FOUC的产生
+白屏和FOUC都是由于把css样式的放置在文档元素的后面造成的；
+白屏：如果浏览器的工作模式是把所有的html内容和css样式都加载之后才进行呈现渲染的话；那么根据放置的顺序，首先它先加载html元素，完成之后，再开始加载c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初始javascript">
+<meta property="og:url" content="http://yoursite.com/2016/04/25/初识-JavaScript/index.html">
+<meta property="og:site_name" content="Kely's Blog">
+<meta property="og:description" content="CSS和JS在网页中的放置顺序
+css放在文档元素的前面包含在&amp;lt;head&amp;gt;中，js放在文档元素的后面在&amp;lt;body&amp;gt;里且在尾部。
+
+白屏和FOUC的产生
+白屏和FOUC都是由于把css样式的放置在文档元素的后面造成的；
+白屏：如果浏览器的工作模式是把所有的html内容和css样式都加载之后才进行呈现渲染的话；那么根据放置的顺序，首先它先加载html元素，完成之后，再开始加载c">
+<meta property="og:updated_time" content="2016-05-26T12:42:48.651Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初始javascript">
+<meta name="twitter:description" content="CSS和JS在网页中的放置顺序
+css放在文档元素的前面包含在&amp;lt;head&amp;gt;中，js放在文档元素的后面在&amp;lt;body&amp;gt;里且在尾部。
+
+白屏和FOUC的产生
+白屏和FOUC都是由于把css样式的放置在文档元素的后面造成的；
+白屏：如果浏览器的工作模式是把所有的html内容和css样式都加载之后才进行呈现渲染的话；那么根据放置的顺序，首先它先加载html元素，完成之后，再开始加载c">
+  
+    <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
+  
+  <meta name="summary" content="null">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="/" class="avatar"><img src="/img/head.jpg"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">柯良勇</h5>
+        <a href="mailto:undefined" title="ke_liang_yong@163.com" class="mail">ke_liang_yong@163.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <ul class="nav flex-col">
+    
+        <li class="waves-block waves-effect">
+          <a href="/"  >
+            <i class="icon icon-lg icon-home"></i>
+            主页
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/archives"  >
+            <i class="icon icon-lg icon-archives"></i>
+            Archives
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="/tags"  >
+            <i class="icon icon-lg icon-tags"></i>
+            Tags
+          </a>
+        </li>
+    
+        <li class="waves-block waves-effect">
+          <a href="https://github.com/keliangyong" target="_blank" >
+            <i class="icon icon-lg icon-github"></i>
+            Github
+          </a>
+        </li>
+    
+  </ul>
+
+  <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Kely&#39;s Blog &copy; 2016</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">初始javascript</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">初始javascript</h1>
+    <h5 class="subtitle">2016-04-25</h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      
+  <article id="post-初识-JavaScript" class="article article-type-post" itemprop="blogPost">
+    
+      <div class="post-meat flex-row">
+        <div class="flex-col">
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li></ul>
+</div>
+      </div>
+      <div class="post-body">
+
+        <aside class="post-widget" id="post-widget">
+
+          
+
+          
+          <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS和JS在网页中的放置顺序"><span class="post-toc-text">CSS和JS在网页中的放置顺序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#白屏和FOUC的产生"><span class="post-toc-text">白屏和FOUC的产生</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#async、defer的作用与区别"><span class="post-toc-text">async、defer的作用与区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#网页的渲染机制"><span class="post-toc-text">网页的渲染机制</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#JavaScript-中的数据类型"><span class="post-toc-text">JavaScript 中的数据类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#NaN、undefined、null是什么"><span class="post-toc-text">NaN、undefined、null是什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#typeof-和-instanceof-的作用和区别"><span class="post-toc-text">typeof 和 instanceof 的作用和区别</span></a></li></ol>
+          </nav>
+          
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent"><h4 id="CSS和JS在网页中的放置顺序"><a href="#CSS和JS在网页中的放置顺序" class="headerlink" title="CSS和JS在网页中的放置顺序"></a>CSS和JS在网页中的放置顺序</h4><ul>
+<li>css放在文档元素的前面包含在<code>&lt;head&gt;</code>中，js放在文档元素的后面在<code>&lt;body&gt;</code>里且在尾部。</li>
+</ul>
+<h4 id="白屏和FOUC的产生"><a href="#白屏和FOUC的产生" class="headerlink" title="白屏和FOUC的产生"></a>白屏和FOUC的产生</h4><ul>
+<li>白屏和FOUC都是由于把css样式的放置在文档元素的后面造成的；</li>
+<li>白屏：如果浏览器的工作模式是把所有的html内容和css样式都加载之后才进行呈现渲染的话；那么根据放置的顺序，首先它先加载html元素，完成之后，再开始加载css样式；在打开页面到css加载完成之前的这段时间，浏览器是不会呈现内容的，这就是白屏现象；</li>
+<li>FOUC：如果浏览器的工作模式是加载一个html元素就呈现一个，加载一个样式就渲染一个样式的话；那么根据放置的顺序，它先加载html元素，并且立刻就呈现出来，注意此时html元素是没有样式的，等html加载完开始加载css样式时，元素才会一个个突然呈现出样式；在打开页面看到元素到完成这一元素的css样式加载的这位段时间，从没有样式到突然呈现，这就是FOUC，无样式内容闪烁。</li>
+</ul>
+<h4 id="async、defer的作用与区别"><a href="#async、defer的作用与区别" class="headerlink" title="async、defer的作用与区别"></a>async、defer的作用与区别</h4><ul>
+<li><code>async</code>和<code>defer</code>的作用是让浏览器在遇到js的时候不要停止对html文档的解析。</li>
+<li>区别在于，<code>async异步</code>会在js下载完成后停止html文档解析，转而开始执行下载的js，执行之后再进行html文档解析；而<code>defer推迟</code>指的是在下载完成后不会立刻执行，会等到html文档全部解析完成后才开始执行。</li>
+</ul>
+<h4 id="网页的渲染机制"><a href="#网页的渲染机制" class="headerlink" title="网页的渲染机制"></a>网页的渲染机制</h4><ul>
+<li>①根据用户的访问请求去获得网站的资源，html文档、css样式、js文档等；<br>②将html文档进行解析排布，得到树状结构的html链，就是DOM树；<br>③将css文档进行解析排布，得到树状结构的ccs链，就是CSSOM树；<br>④将DOM树和CSSOM树结合生成Render渲染树；<br>⑤进行layout布局，确定各个节点位置；<br>⑥按layout进行绘制，显示页面。</li>
+</ul>
+<h4 id="JavaScript-中的数据类型"><a href="#JavaScript-中的数据类型" class="headerlink" title="JavaScript 中的数据类型"></a>JavaScript 中的数据类型</h4><ul>
+<li>Javascript 定义了6种数据类型：<br>①数值（number），如整数1、2、3和小数2.5等；<br>②布尔型（boolean），就真（true）和假（false）两个值；<br>③字符串（string），一串文本可以是字母也可以是数字，也可以是字母+数字；如”345”、”hi”、”abc123”等；<br>④null，表示目前是个空值；<br>⑤undefined，表示不存在，目前没有值；<br>⑦对象（object），其他各种值组成的一个集合；</li>
+<li>上述的数值、布尔型、字符串三种是简单类型，对象是其他值组成的集合是复杂类型，null和undefined是两个特殊的值。</li>
+</ul>
+<h4 id="NaN、undefined、null是什么"><a href="#NaN、undefined、null是什么" class="headerlink" title="NaN、undefined、null是什么"></a>NaN、undefined、null是什么</h4><ul>
+<li>NaN 是 Not a Number即不是一个数的意思，代表将要操作的对象不是一个数；</li>
+<li>undefined是不存在的意思目前没有值，定义后未赋值就会提示undefined；注意区分 not defined 是未定义！</li>
+<li>null表示目前是个空值；</li>
+</ul>
+<h4 id="typeof-和-instanceof-的作用和区别"><a href="#typeof-和-instanceof-的作用和区别" class="headerlink" title="typeof 和 instanceof 的作用和区别"></a>typeof 和 instanceof 的作用和区别</h4><ul>
+<li>typeof 是用来确定一个值是什么类型的，例如<code>typeof 123</code>，就会返回<code>number</code>,它的返回值包括三种简单类型、函数、undefined和对象；</li>
+<li>instanceof是用来确定一个对象是否是某个构造函数的实例，可以用来判断值的类型，例如<code>[1,2,3] instanceof Array</code>,它会返回<code>true</code>说明<code>[1,2,3]</code>是属于数组的一个实例，它的左边放置对象，右边放置构造函数；</li>
+<li>区别在于typeof右边放置某个值，它会告诉你这个值是属于什么类型的；而instance是用来确定对象是否是某个构造函数的示例，依据这个特性可以用它来判断值属不属于某个类型，它的左边只能是对象不能直接简单类型的数值。</li>
+</ul>
+</div>
+
+            
+<nav class="post-nav flex-row">
+  <div class="flex-col waves-block waves-effect prev">
+    
+      <a href="/2016/04/27/JavaScript-函数/" title="javascript 函数" id="post-prev" class="post-nav-link">
+        <i class="icon icon-chevron-left"></i>
+        <span class="article-nav-title">上一篇</span>
+      </a>
+    
+  </div>
+  <div class="flex-col waves-block waves-effect next">
+    
+      <a href="/2016/04/19/浏览器兼容/" title="浏览器兼容" id="post-next" class="post-nav-link">
+        <span class="article-nav-title">下一篇</span>
+        <i class="icon icon-chevron-right"></i>
+      </a>
+    
+  </div>
+
+</nav>
+
+
+
+            
+
+
+
+
+        </div>
+
+      </div>
+
+    
+
+  </article>
+
+
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
