@@ -407,7 +407,7 @@ People.prototype.walk = function(){
 
 var p1 = new People(&apos;饥人谷&apos;);
 var p2 = new People(&apos;前端&apos;);
-</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/1826139-69715fa42136105c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原型图"> </p>
+</code></pre><p><img src="http://7xupes.com1.z0.glb.clouddn.com/imgprototype.png" alt="原型图"> </p>
 <h4 id="变量name"><a href="#变量name" class="headerlink" title="变量name"></a>变量name</h4><pre><code>function People (){
   var name = &quot;饥人谷&quot;   // 这个name 是函数内的 局部变量
   this.name = &quot;我&quot;;      // 这个name 根据this指向不同而不同 正常运行时是window全局变量；new一个新对象时又是指代新对象的name属性
@@ -544,7 +544,7 @@ var car = new Car(&apos;byd&apos;,&apos;white&apos;,&apos;stop&apos;);
 <li><code>header</code>：包含一些属性的首部块</li>
 <li><code>body</code>：数据的主题部分，有些请求不需要返回这部分</li>
 </ul>
-<h4 id="请求头的格式和作用"><a href="#请求头的格式和作用" class="headerlink" title="请求头的格式和作用"></a>请求头的格式和作用</h4><p><code>作用</code>：为请求添加额外的信息，来告诉服务器客户端的信息和能力，服务器可以据此为客户端提供更好的响应。<br><code>格式</code>：是名/值的形式；名字后面跟着冒号，加上可选的空格，再加上字段值，最后回车或换行。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-e44b573a99de0845?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_1463029655966_upload-264bf520-20fb-459c-986e-9cbf5da71be7"><br><code>范例</code>：</p>
+<h4 id="请求头的格式和作用"><a href="#请求头的格式和作用" class="headerlink" title="请求头的格式和作用"></a>请求头的格式和作用</h4><p><code>作用</code>：为请求添加额外的信息，来告诉服务器客户端的信息和能力，服务器可以据此为客户端提供更好的响应。<br><code>格式</code>：是名/值的形式；名字后面跟着冒号，加上可选的空格，再加上字段值，最后回车或换行。<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgrequestHead.png" alt="0_1463029655966_upload-264bf520-20fb-459c-986e-9cbf5da71be7"><br><code>范例</code>：</p>
 <ul>
 <li><code>GET/HTTP/1.1</code> 请求方法、协议、版本号 ←这是请求报文起始行 </li>
 <li><code>Host</code>：服务器地址</li>
@@ -557,7 +557,7 @@ var car = new Car(&apos;byd&apos;,&apos;white&apos;,&apos;stop&apos;);
 <li><code>Accept-Language</code>：客户端可以解析接受的语言。</li>
 <li><code>Cookie</code>：服务器端为了辨识用户身份而留在客户端的数据，发送请求时客户端会把<code>cookie</code>一起发送给服务器。</li>
 </ul>
-<h4 id="首部的格式和作用"><a href="#首部的格式和作用" class="headerlink" title="首部的格式和作用"></a>首部的格式和作用</h4><p><code>作用</code>：HTTP的首部向请求或响应报文添加了一些附加信息，它是一些名/值对的列表。它分为通用首部、请求首部、响应首部、实体首部和拓展首部。<br><code>格式</code>：名字后面跟着冒号，加上可选的空格，再加上字段值，最后回车或换行。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-69f59dde96b75ec4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_1463034116314_upload-858a3ce0-998c-4ae7-ad2f-44aab51e1cff"><br><code>范例</code>：</p>
+<h4 id="首部的格式和作用"><a href="#首部的格式和作用" class="headerlink" title="首部的格式和作用"></a>首部的格式和作用</h4><p><code>作用</code>：HTTP的首部向请求或响应报文添加了一些附加信息，它是一些名/值对的列表。它分为通用首部、请求首部、响应首部、实体首部和拓展首部。<br><code>格式</code>：名字后面跟着冒号，加上可选的空格，再加上字段值，最后回车或换行。<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imghead.png" alt="0_1463034116314_upload-858a3ce0-998c-4ae7-ad2f-44aab51e1cff"><br><code>范例</code>：</p>
 <ul>
 <li><code>HTTP/1.1 200 OK</code> 协议/版本 状态码 释义  ←这是响应报文起始行 不属于首部</li>
 <li><code>Server</code>：属于响应信息性首部，服务器用的是哪一种及版本 图中用的是nginx 版本1.6.2 </li>
@@ -573,18 +573,18 @@ var car = new Car(&apos;byd&apos;,&apos;white&apos;,&apos;stop&apos;);
 <li><code>Vary</code>：属于响应协商首部，是一个首部列表，服务器会根据这些首部的内容挑出最适合的资源版本发给客户端。</li>
 </ul>
 <h4 id="主体的作用"><a href="#主体的作用" class="headerlink" title="主体的作用"></a>主体的作用</h4><ul>
-<li>实体的主体部分就是HTTP要传输的内容了，一般是图片、视频、HTML文档等。下面饥人谷首页的响应实体，也就是HTML文档了。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-8a959f7c31ebd8ab?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_1463037793472_upload-3892ad8a-24a1-4d3a-9bf2-23649fda8de5"></li>
+<li>实体的主体部分就是HTTP要传输的内容了，一般是图片、视频、HTML文档等。下面饥人谷首页的响应实体，也就是HTML文档了。<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgbody.png" alt="0_1463037793472_upload-3892ad8a-24a1-4d3a-9bf2-23649fda8de5"></li>
 </ul>
 <h4 id="浏览器缓存是如何控制"><a href="#浏览器缓存是如何控制" class="headerlink" title="浏览器缓存是如何控制"></a>浏览器缓存是如何控制</h4><ul>
 <li><code>是什么</code>：浏览器缓存是web缓存中的一个类型，与公用缓存不同，浏览器一般都有内建的私有缓存，会缓存已经访问过的页面，也就是把资源复制了一份放在本地，缓存可以减少网络带宽的压力、降低服务器的压力、也能让我们更快地打开页面获得资源。</li>
 <li><code>缓存页面、过期时间</code>：在我们首次请求资源或页面时，原始服务器利用<code>HTTP</code>的<code>cache-control首部</code>或<code>expires首部</code>给文档加上了过期时间，标明了保质期。在保质期内请求已缓存的资源时，浏览器就不会向服务器发送请求而是直接使用本地缓存。</li>
 <li><code>过期后的再验证</code>：当过了保质期以后呢，这个时候浏览器就会向服务器发起请求同时附带过期时间。若文档与缓存的副本不一样服务器就响应新的文档给浏览器，同时浏览器会继续缓存新的文档；若服务器比对后发现文档没有变化，就会发个新的过期时间让浏览器继续使用本地缓存。<code>对缓存再验证最有用的两个首部是If-Modified-Since和If-None-Match</code>。最后引用博客园的一张图面解释，更加清晰。<ul>
 <li><code>If-Modified-Since</code>：当资源过期时，再请求时若发现资源带有<code>Last-Modified</code>（最后修改日期）声明时，会带上<code>If-Modified-Since：Last-Modified Data</code>发给服务器，收到后服务器就会比对最后修改时间，若没被修改就返回<code>304 Not Modified</code>响应报文并且附带新的过期事件；若被修改了就返回新的文档和过期时间。</li>
-<li>If-None-Match：如果在资源过期后再请求时发现资源带有Etage声明（资源在服务器的唯一标识，生成规则服务器自定），会带上<code>If-None-Match：Etage值</code>发给服务器，收到后服务器就会进行比对校验来决定返回200还是304，响应与If-Modified-Since相同。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-1c213aec4edfaea1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_1463123874986_201211281402442505 (1).png"> </li>
+<li>If-None-Match：如果在资源过期后再请求时发现资源带有Etage声明（资源在服务器的唯一标识，生成规则服务器自定），会带上<code>If-None-Match：Etage值</code>发给服务器，收到后服务器就会进行比对校验来决定返回200还是304，响应与If-Modified-Since相同。<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imground.png" alt="0_1463123874986_201211281402442505 (1).png"> </li>
 </ul>
 </li>
 </ul>
-<h4 id="下图各个参数是什么意思"><a href="#下图各个参数是什么意思" class="headerlink" title="下图各个参数是什么意思"></a>下图各个参数是什么意思</h4><p><img src="http://upload-images.jianshu.io/upload_images/1826139-ad54bde563bc34ea?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br><code>General：概述</code></p>
+<h4 id="下图各个参数是什么意思"><a href="#下图各个参数是什么意思" class="headerlink" title="下图各个参数是什么意思"></a>下图各个参数是什么意思</h4><p><img src="http://7xupes.com1.z0.glb.clouddn.com/imground1.png" alt=""><br><code>General：概述</code></p>
 <ul>
 <li><code>Request URL</code>：请求的资源的URL也就是位置</li>
 <li><code>Request Method</code>：客户端向服务端发出请求的方法，图中是用PUT方法</li>
@@ -784,7 +784,7 @@ obj.go();    // 输出 obj对象 这个函数属于obj
 <h4 id="什么是跨域？跨域的几种实现形式"><a href="#什么是跨域？跨域的几种实现形式" class="headerlink" title="什么是跨域？跨域的几种实现形式"></a>什么是跨域？跨域的几种实现形式</h4><ul>
 <li>同源策略在保证web安全的同时，也降低了网站交互的灵活性；有些大网站因为文件多数据大所以文件可能放在不同的服务器上，那么就有了突破同源策略的限制，以达到交互数据的目的。<strong>跨域就是指当域名不同时，我能够突破同源策略的限制去交互数据</strong>。（协议和端口不同的话在前台是无法实现的）。</li>
 <li>跨域有以下几种实现形式：<ul>
-<li><strong>降域</strong>：对于有相同的后缀（就是域名开头不一样但后面是一样的）的两个源，可以使用<code>document.domain=&quot;域名后缀&quot;</code>来改变自己的域名，这样就同源了！(两个源都要设置domain才可)一个域名可以往下降（降为后缀）但不能往上升，但降域后可以回复到原来的域名，测试图如下：<br><img src="http://upload-images.jianshu.io/upload_images/1826139-57801b63bb4e89d0?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_1462687799119_upload-fdf8da8b-fb59-4033-936c-cfecaf16303d"> </li>
+<li><strong>降域</strong>：对于有相同的后缀（就是域名开头不一样但后面是一样的）的两个源，可以使用<code>document.domain=&quot;域名后缀&quot;</code>来改变自己的域名，这样就同源了！(两个源都要设置domain才可)一个域名可以往下降（降为后缀）但不能往上升，但降域后可以回复到原来的域名，测试图如下：<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgdomain.png" alt="0_1462687799119_upload-fdf8da8b-fb59-4033-936c-cfecaf16303d"> </li>
 <li><strong>jsonp</strong>：上一题提到不同源虽然不能读写，但可以引用js，关键点在这；我们可以让引用的js附带数据来调用我们预先定义的函数，而数据当作参数传入。例如：a和b两个网站约定好了一个函数名，当<code>a</code>用<code>src</code>引用b的<code>js</code>时，<code>b</code>中的这段<code>js</code>包含这个函数名并且在后面加个括号中间放入数据，从b的角度来看这段js只是<code>数据名（{json数据}）</code>，但是在a看来，你的那个数据名在我这是个函数啊，你还有括号和形参，然后在a中这个函数就被调用执行了，而b中的数据就被当作参数传入这个函数。</li>
 <li><strong>CORS：跨域资源共享</strong>这是一个W3C标准，顾名思义它允许浏览器向跨源服务器发起<code>XMLHttpRequest请求</code>，和ajax同源的使用方法一致（区别在于对于跨域请求浏览器的请求会有附加的相关设置，用户看不到），分简单请求和非简单请求。目前所有浏览器都支持（IE需要10及以上才完全支持）CORS，但是需要服务器端有CORS接口，且要有服务器许可的源才可实现跨域资源共享。</li>
 <li><strong>[HTML5]postMessage</strong>：在HTML5中，window增加了一个<code>新方法postMessage</code>用于给目标源发送信息，格式如下：<code>windowobj.postMessage(message,targetOrigin)</code>，而目标源会有一个叫<code>message</code>的事件用来监听<code>postMessage</code>，判断是允许的源所发来的数据后，就可以接收做处理。</li>
@@ -802,14 +802,14 @@ obj.go();    // 输出 obj对象 这个函数属于obj
 <h3 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h3><h4 id="本地搭建服务器，演示同源策略"><a href="#本地搭建服务器，演示同源策略" class="headerlink" title="本地搭建服务器，演示同源策略"></a>本地搭建服务器，演示同源策略</h4><ul>
 <li>修改了本地<code>host</code> 让多个网址映射到本地服务器</li>
 <li>我在<code>a.11.com</code>下用ajax向<code>11.com</code>发起请求 </li>
-<li>浏览器报错：提示XMLHttpRequest加载失败，请求我帮你发出去了，服务器也给我结果了，但是我在服务器的返回结果的头部没有发现‘请求控制允许源’这么一个东西（Tips：如果有那就是CORS啦），所以<code>a.11.com</code>你的访问是不被允许的。那么这就是同源策略，没有对方允许不能读写对方资源！<br><img src="http://upload-images.jianshu.io/upload_images/1826139-df19bca55b39e31c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="同源策略"> </li>
+<li>浏览器报错：提示XMLHttpRequest加载失败，请求我帮你发出去了，服务器也给我结果了，但是我在服务器的返回结果的头部没有发现‘请求控制允许源’这么一个东西（Tips：如果有那就是CORS啦），所以<code>a.11.com</code>你的访问是不被允许的。那么这就是同源策略，没有对方允许不能读写对方资源！<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgorigin.png" alt="同源策略"> </li>
 </ul>
 <h4 id="至少使用一种方式解决跨域问题"><a href="#至少使用一种方式解决跨域问题" class="headerlink" title="至少使用一种方式解决跨域问题"></a>至少使用一种方式解决跨域问题</h4><ul>
-<li><strong>降域</strong>：我在<code>a.11.com</code>和<code>11.com</code>中都赋值<code>domain=&quot;11.com</code>;注意要两个页面都给<code>domain</code>赋值！！用<code>iframe</code>的方法。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-345e50e8f367e2e4?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="降域"> </li>
-<li><strong>jsonp</strong>：把数据用json格式弄好包成js文件放在b.22.com，我在a中引用b中的js，并定义一个同名函数来打印数据。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-de1aa919af199f8f?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="jsonp"> </li>
-<li><strong>CORS</strong>：这个简单，我在b.com加个声明，允许a.com来访问我，然后用ajax请求就OK！<br><img src="http://upload-images.jianshu.io/upload_images/1826139-0cda233f08a4183c?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CORS"> </li>
-<li><strong>[html5]postMessage</strong>：我在a.com中用<code>iframe.contentWindow.postMessage(&#39;message&#39;,targetOrigin )</code>给b.com发送消息，在b.com中给window绑定监听事件，如果message触发我先判断是不是a发来的，是我就打印，搞定！<br><img src="http://upload-images.jianshu.io/upload_images/1826139-2aa92b99bcb30f24?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="postMessage"> </li>
-<li><strong>hash方法</strong>：hash方法的原理是a内嵌iframe指向b，b找到数据并新建一个和a.com同源的iframe而且把数据放在路径hash中，利用新建的iframe与a同源的特性修改父父页面也就是a页面的hash（把自己的hash赋给父父hash），a再去读取自身hash即可。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-f9ac9a6803804dfb?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hash"><br>a.com下的a.11.htm和代理proxy.htmll如下：</li>
+<li><strong>降域</strong>：我在<code>a.11.com</code>和<code>11.com</code>中都赋值<code>domain=&quot;11.com</code>;注意要两个页面都给<code>domain</code>赋值！！用<code>iframe</code>的方法。<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgdowndomain.png" alt="降域"> </li>
+<li><strong>jsonp</strong>：把数据用json格式弄好包成js文件放在b.22.com，我在a中引用b中的js，并定义一个同名函数来打印数据。<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgjsonp.png" alt="jsonp"> </li>
+<li><strong>CORS</strong>：这个简单，我在b.com加个声明，允许a.com来访问我，然后用ajax请求就OK！<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgcors.png" alt="CORS"> </li>
+<li><strong>[html5]postMessage</strong>：我在a.com中用<code>iframe.contentWindow.postMessage(&#39;message&#39;,targetOrigin )</code>给b.com发送消息，在b.com中给window绑定监听事件，如果message触发我先判断是不是a发来的，是我就打印，搞定！<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgpostmessage.png" alt="postMessage"> </li>
+<li><strong>hash方法</strong>：hash方法的原理是a内嵌iframe指向b，b找到数据并新建一个和a.com同源的iframe而且把数据放在路径hash中，利用新建的iframe与a同源的特性修改父父页面也就是a页面的hash（把自己的hash赋给父父hash），a再去读取自身hash即可。<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imghsah.png" alt="hash"><br>a.com下的a.11.htm和代理proxy.htmll如下：</li>
 </ul>
 <pre><code> &lt;p&gt;我是a.11.com&lt;/p&gt;
  &lt;iframe src=&quot;//b.22.com/test/b.22.html&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
@@ -824,7 +824,7 @@ obj.go();    // 输出 obj对象 这个函数属于obj
     parent.parent.location.hash=self.location.hash.substring(1);
   &lt;/script&gt;
 </code></pre><ul>
-<li><strong>window.name方法</strong>：tab页面不随域名跳转改变而改变，我先建一个内联iframe修改window.name跳转去b，b读取就知道我想要什么，然后b去找数据，找到后b把数据赋给window.name，再跳转回来，我读取winwod.name就得到数据。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-927285236df8420e?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="window.name方法"> </li>
+<li><strong>window.name方法</strong>：tab页面不随域名跳转改变而改变，我先建一个内联iframe修改window.name跳转去b，b读取就知道我想要什么，然后b去找数据，找到后b把数据赋给window.name，再跳转回来，我读取winwod.name就得到数据。<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgwindowname.png" alt="window.name方法"> </li>
 </ul>
 <pre><code>&lt;p&gt;我是a.11.com&lt;/p&gt;
 &lt;iframe src=&quot;//b.22.com/test/b.22.html&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;

@@ -21,13 +21,13 @@ CSS hack是CSS使用中的一些奇怪的做法(与现行的标准用法不同�
 
 CSS hack的含义及在 CSS 中 ie6、ie7的使用
 CSS hack是CSS使用中的一些奇怪的做法(与现行的标准用法不同，早期的浏览器如IE6出来时并没有统一的渲染标准)，主要是针对低">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-39868aaf4c62cad0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-4e970f46ca39aa4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-3ddddd2f55392ccb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-9b047f48c6090b26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-a8be6978befe3c96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-134bfc650b96288f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-05-26T12:42:48.682Z">
+<meta property="og:image" content="http://7xupes.com1.z0.glb.clouddn.com/img%E7%9B%92%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:image" content="http://7xupes.com1.z0.glb.clouddn.com/imgIE6NO.png">
+<meta property="og:image" content="http://7xupes.com1.z0.glb.clouddn.com/imgIEYES.png">
+<meta property="og:image" content="http://7xupes.com1.z0.glb.clouddn.com/imgIE8NO.png">
+<meta property="og:image" content="http://7xupes.com1.z0.glb.clouddn.com/imgIE8YES.png">
+<meta property="og:image" content="http://7xupes.com1.z0.glb.clouddn.com/imgchromeYES.png">
+<meta property="og:updated_time" content="2016-05-26T15:46:49.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器兼容">
 <meta name="twitter:description" content="在 IE 浏览器上进行调试
@@ -35,7 +35,7 @@ CSS hack是CSS使用中的一些奇怪的做法(与现行的标准用法不同�
 
 CSS hack的含义及在 CSS 中 ie6、ie7的使用
 CSS hack是CSS使用中的一些奇怪的做法(与现行的标准用法不同，早期的浏览器如IE6出来时并没有统一的渲染标准)，主要是针对低">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1826139-39868aaf4c62cad0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://7xupes.com1.z0.glb.clouddn.com/img%E7%9B%92%E6%A8%A1%E5%9E%8B.png">
   
     <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
   
@@ -177,16 +177,16 @@ CSS hack是CSS使用中的一些奇怪的做法(与现行的标准用法不同�
 <li>相比与reset.css，normalize.css有以下几个优点：①它保留了部分有价值的默认样式，而且努力使不同浏览器的默认值保持一致尽量让表现接近现代标准；<br>②它修复部分浏览器的问题和bug（目前我还不大理解）；<br>③它没有reset.css的长串继承链，调试的时候不会显得很乱；<br>④它是模块化的，你可以清楚地知道哪些元素设置了什么值，同时你可以去掉某些你不常用或你不想要的部分；<br>⑤它有详细的代码和注释文档，你可以自己测试，同时也能让你了解到浏览器默认是怎么渲染元素的。</li>
 </ul>
 <h4 id="IE盒模型和标准盒模型的区别，怎样使-IE678使用标准盒模型-box-sizing-border-box的作用？"><a href="#IE盒模型和标准盒模型的区别，怎样使-IE678使用标准盒模型-box-sizing-border-box的作用？" class="headerlink" title="IE盒模型和标准盒模型的区别，怎样使 IE678使用标准盒模型?box-sizing:border-box的作用？"></a>IE盒模型和标准盒模型的区别，怎样使 IE678使用标准盒模型?box-sizing:border-box的作用？</h4><ul>
-<li>盒模型，最中心是<code>内容</code>,往外是<code>paddin内边距</code>，再来是<code>border边框</code>,最后是<code>margin外边距</code>；IE盒模型和标准盒模型构造一样，区别在于当你指定了一个块级元素的width值后，在标准盒模型中代表<code>内容宽度</code>，而同一个width值在IE盒模型中却是<code>内容宽度+内边距+边框</code>，引用一张图作说明：<br><img src="http://upload-images.jianshu.io/upload_images/1826139-39868aaf4c62cad0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="盒模型"> </li>
+<li>盒模型，最中心是<code>内容</code>,往外是<code>paddin内边距</code>，再来是<code>border边框</code>,最后是<code>margin外边距</code>；IE盒模型和标准盒模型构造一样，区别在于当你指定了一个块级元素的width值后，在标准盒模型中代表<code>内容宽度</code>，而同一个width值在IE盒模型中却是<code>内容宽度+内边距+边框</code>，引用一张图作说明：<br><img src="http://7xupes.com1.z0.glb.clouddn.com/img%E7%9B%92%E6%A8%A1%E5%9E%8B.png" alt="盒模型"> </li>
 <li>可以使用<code>&lt;!doctype html&gt;</code>声明来使 IE678使用标准模式的标准盒模型。</li>
 <li><code>box-sizing:border-box</code>使用后，为元素指定的宽度和高度将包含其内边距和边框，后续如果有设置内边距和边框的话就会压缩内容宽度了，想当于采用了怪异IE盒模型。</li>
 </ul>
 <h4 id="在-ie-6-7-8中盒模型的展示"><a href="#在-ie-6-7-8中盒模型的展示" class="headerlink" title="在 ie 6, 7, 8中盒模型的展示"></a>在 ie 6, 7, 8中盒模型的展示</h4><ul>
-<li>IE6的测试如下，没有doc申明，IE盒子，盒子偏小，不支持inline-block、不支持max-width!<br><img src="http://upload-images.jianshu.io/upload_images/1826139-4e970f46ca39aa4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IE6未申明"> </li>
-<li>我们把doc申明添加进去，并在IE6做测试，盒子变回标准盒模型，但是inline-block和max-width依然没有效果！<br><img src="http://upload-images.jianshu.io/upload_images/1826139-3ddddd2f55392ccb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IE6有申明"> </li>
-<li>IE8测试如下，没有doc申明，IE盒子，盒子偏小，未申明doc不支持inline-block、未申明也不支持max-width!<br><img src="http://upload-images.jianshu.io/upload_images/1826139-9b047f48c6090b26.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IE8未申明"> </li>
-<li>我们把doc申明添加进去，并在IE8做测试，盒子变回标准盒模型，也支持inline-block和max-width！<br><img src="http://upload-images.jianshu.io/upload_images/1826139-a8be6978befe3c96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="IE8有申明"> </li>
-<li>chrome浏览器效果如下，标准盒子，支持inline-block、支持max-width！<br><img src="http://upload-images.jianshu.io/upload_images/1826139-134bfc650b96288f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="chrome测试"></li>
+<li>IE6的测试如下，没有doc申明，IE盒子，盒子偏小，不支持inline-block、不支持max-width!<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgIE6NO.png" alt="IE6未申明"> </li>
+<li>我们把doc申明添加进去，并在IE6做测试，盒子变回标准盒模型，但是inline-block和max-width依然没有效果！<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgIEYES.png" alt="IE6有申明"> </li>
+<li>IE8测试如下，没有doc申明，IE盒子，盒子偏小，未申明doc不支持inline-block、未申明也不支持max-width!<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgIE8NO.png" alt="IE8未申明"> </li>
+<li>我们把doc申明添加进去，并在IE8做测试，盒子变回标准盒模型，也支持inline-block和max-width！<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgIE8YES.png" alt="IE8有申明"> </li>
+<li>chrome浏览器效果如下，标准盒子，支持inline-block、支持max-width！<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgchromeYES.png" alt="chrome测试"></li>
 </ul>
 </div>
 

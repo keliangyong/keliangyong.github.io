@@ -19,16 +19,16 @@ html文件：web服务器在自己目录下寻找，找到后会直接反馈给�
 发送请求：浏览器根据用户输入的域名，运用DNS缓存或请求本地DNS服务器解析等获得对应IP地址，使用HTTP协议发送请求报文（含请求内容、浏览器信息、本地缓存、cookie等）
 返回数据：web服务器接收到请求，会去寻找对应文件，找到后会反馈给浏览器说请求的内容已经找到。
 html文件：web服务器在自己目录下寻找，找到后会直接反馈给浏览">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-9a6609fbc8113af0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1826139-38b522f05dc247d9?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-05-26T12:42:48.651Z">
+<meta property="og:image" content="http://7xupes.com1.z0.glb.clouddn.com/imgurl%E8%AF%B7%E6%B1%82.png">
+<meta property="og:image" content="http://7xupes.com1.z0.glb.clouddn.com/img%E6%9C%8D%E5%8A%A1%E5%99%A8.png">
+<meta property="og:updated_time" content="2016-05-26T15:48:05.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web服务器与http请求">
 <meta name="twitter:description" content="web 服务器、PHP、数据库、浏览器是如何实现动态网站的
 发送请求：浏览器根据用户输入的域名，运用DNS缓存或请求本地DNS服务器解析等获得对应IP地址，使用HTTP协议发送请求报文（含请求内容、浏览器信息、本地缓存、cookie等）
 返回数据：web服务器接收到请求，会去寻找对应文件，找到后会反馈给浏览器说请求的内容已经找到。
 html文件：web服务器在自己目录下寻找，找到后会直接反馈给浏览">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1826139-9a6609fbc8113af0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://7xupes.com1.z0.glb.clouddn.com/imgurl%E8%AF%B7%E6%B1%82.png">
   
     <link rel="alternative" href="/atom.xml" title="Kely&#39;s Blog" type="application/atom+xml">
   
@@ -159,13 +159,13 @@ html文件：web服务器在自己目录下寻找，找到后会直接反馈给�
 </li>
 </ul>
 </li>
-<li><strong>渲染呈现</strong>：浏览器根据web服务器的反馈，下载数据，进行解析渲染，并将最终页面呈现给用户。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-9a6609fbc8113af0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_1461902623997_用户 服务器.png"> </li>
+<li><strong>渲染呈现</strong>：浏览器根据web服务器的反馈，下载数据，进行解析渲染，并将最终页面呈现给用户。<br><img src="http://7xupes.com1.z0.glb.clouddn.com/imgurl%E8%AF%B7%E6%B1%82.png" alt="0_1461902623997_用户 服务器.png"> </li>
 </ul>
 <h4 id="常见的-WEB-服务器"><a href="#常见的-WEB-服务器" class="headerlink" title="常见的 WEB 服务器"></a>常见的 WEB 服务器</h4><ul>
 <li>Apache服务器：A pache（哈哈 一个补丁 我乍一听还以为是直升机）使用广泛，开放源代码，支持多个平台，相比其他服务器占的内存较大，是重量级产品。</li>
 <li>Microsoft IIS 服务器：微软的，包括Web服务器、FTP服务器、NNTP服务器和SMTP服务器，要使用它需要购买对应的商业window server操作系统。</li>
 <li>Nginx服务器：（发音同engine x）俄罗斯的一个站点开发的，相比于Apache服务器，Nginx占用内存小且较稳定。</li>
-<li>Tomcat服务器：（哈哈 汤姆猫服务器）也是开放源代码的，运行servlet和JSP Web应用软件基于Java，比绝大多数的商业用的软件服务器要好。<br><img src="http://upload-images.jianshu.io/upload_images/1826139-38b522f05dc247d9?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="0_1461902581006_upload-a22468fe-6f25-47a4-95d4-943af7da69f3"> </li>
+<li>Tomcat服务器：（哈哈 汤姆猫服务器）也是开放源代码的，运行servlet和JSP Web应用软件基于Java，比绝大多数的商业用的软件服务器要好。<br><img src="http://7xupes.com1.z0.glb.clouddn.com/img%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt="0_1461902581006_upload-a22468fe-6f25-47a4-95d4-943af7da69f3"> </li>
 </ul>
 <h4 id="打开浏览器，在地址栏输入url-到页面展现，整个过程发生了什么？"><a href="#打开浏览器，在地址栏输入url-到页面展现，整个过程发生了什么？" class="headerlink" title="打开浏览器，在地址栏输入url 到页面展现，整个过程发生了什么？"></a>打开浏览器，在地址栏输入url 到页面展现，整个过程发生了什么？</h4><ul>
 <li><strong>用户输入网址</strong>：用户输入网址，包含协议和域名</li>
